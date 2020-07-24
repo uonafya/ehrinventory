@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd
+    http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <changeSet id="hospital-core:2020-07-23-16:3" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+        </preConditions>
+        <comment>creating the inventory_item table</comment>
+        <sql>
+            CREATE TABLE IF NOT EXISTS `inventory_item` (
+            `id` int(11) NOT NULL AUTO_INCREMENT,
+            `name` varchar(255) DEFAULT NULL,
+            `unit_id` int(11) DEFAULT NULL,
+            `category_id` int(11) DEFAULT NULL,
+            `sub_category_id` int(11) DEFAULT NULL,
+            `attribute` int(11) DEFAULT NULL,
+            `consumption` int(11) DEFAULT NULL,
+            `reorder_qty` int(11) DEFAULT NULL,
+            `created_on` datetime DEFAULT NULL,
+            `created_by` varchar(255) DEFAULT NULL,
+            PRIMARY KEY (`id`)
+            ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+        </sql>
+    </changeSet>
+</databaseChangeLog>
