@@ -253,4 +253,39 @@
             ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
         </sql>
     </changeSet>
+    <changeSet id="hospital-core:2020-07-28-12:59" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+        </preConditions>
+        <comment>creating the inventory_store_item_indent_detail table</comment>
+        <sql>
+            CREATE TABLE IF NOT EXISTS `inventory_store_item_indent_detail` (
+            `id` int(11) NOT NULL AUTO_INCREMENT,
+            `indent_id` int(11) DEFAULT NULL,
+            `item_id` int(11) DEFAULT NULL,
+            `specification_id` int(11) DEFAULT NULL,
+            `quantity` int(11) DEFAULT NULL,
+            `main_store_transfer` int(11) DEFAULT NULL,
+            `created_on` datetime DEFAULT NULL,
+            PRIMARY KEY (`id`)
+            ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+        </sql>
+    </changeSet>
+
+    <changeSet id="hospital-core:2020-07-28-13:01" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+        </preConditions>
+        <comment>creating the inventory_store_item_indent_detail table</comment>
+        <sql>
+            CREATE TABLE IF NOT EXISTS `inventory_store_item_account` (
+            `id` int(11) NOT NULL AUTO_INCREMENT,
+            `store_id` int(11) DEFAULT NULL,
+            `name` varchar(255) DEFAULT NULL,
+            `created_by` varchar(255) DEFAULT NULL,
+            `created_on` datetime DEFAULT NULL,
+            PRIMARY KEY (`id`)
+            ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+        </sql>
+    </changeSet>
 </databaseChangeLog>
