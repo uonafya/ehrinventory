@@ -211,4 +211,46 @@
             ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
         </sql>
     </changeSet>
+    <changeSet id="hospital-core:2020-07-28-12:51" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+        </preConditions>
+        <comment>creating the inventory_store table</comment>
+        <sql>
+            CREATE TABLE IF NOT EXISTS `inventory_store` (
+            `id` int(11) NOT NULL AUTO_INCREMENT,
+            `name` varchar(255) DEFAULT NULL,
+            `created_on` datetime DEFAULT NULL,
+            `created_by` varchar(255) DEFAULT NULL,
+            `role` varchar(255) DEFAULT NULL,
+            `retired` bit(1) DEFAULT NULL,
+            `code` varchar(255) DEFAULT NULL,
+            `is_drug` int(11) DEFAULT NULL,
+            `parent_id` int(11) DEFAULT NULL,
+            PRIMARY KEY (`id`),
+            KEY `fk_inventorystore_user` (`role`)
+            ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+        </sql>
+    </changeSet>
+    <changeSet id="hospital-core:2020-07-28-12:54" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+        </preConditions>
+        <comment>creating the inventory_store_item_indent table</comment>
+        <sql>
+            CREATE TABLE IF NOT EXISTS `inventory_store_item_indent` (
+            `id` int(11) NOT NULL AUTO_INCREMENT,
+            `store_id` int(11) DEFAULT NULL,
+            `transaction_id` int(11) DEFAULT NULL,
+            `name` varchar(255) DEFAULT NULL,
+            `created_on` datetime DEFAULT NULL,
+            `sub_store_status` int(11) DEFAULT NULL,
+            `main_store_status` int(11) DEFAULT NULL,
+            `mainstore_id` int(11) DEFAULT NULL,
+            PRIMARY KEY (`id`),
+            KEY `fk_inventorystore_mainstore_item` (`mainstore_id`),
+            CONSTRAINT `fk_inventorystore_mainstore_item` FOREIGN KEY (`mainstore_id`) REFERENCES `inventory_store` (`id`)
+            ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+        </sql>
+    </changeSet>
 </databaseChangeLog>
