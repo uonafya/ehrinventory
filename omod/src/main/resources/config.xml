@@ -8,28 +8,26 @@
 	<name>@MODULE_NAME@</name>
 	<version>@MODULE_VERSION@</version>
 	<package>@MODULE_PACKAGE@</package>
-	<author>Ghanshyam, Sagar, Chuyen Nguyen</author>
+	<author>HealthIT</author>
 	<description>
 			Inventory module
 	</description>
 
-	<activator>@MODULE_PACKAGE@.InventoryModuleActivator</activator>
+	<activator>org.openmrs.module.inventory.InventoryModuleActivator</activator>
 	<require_modules>
                   <require_module>org.openmrs.module.hospitalcore</require_module>
     </require_modules>
-	<!-- <updateURL>https://dev.openmrs.org/modules/download/@MODULE_ID@/update.rdf</updateURL> -->
-	<!-- /Base Module Properties -->
 	
-	<require_version>1.6.1</require_version>
+	<require_version>1.9.9</require_version>
 	
 	<!-- Extensions -->
 	<extension>
 		<point>org.openmrs.admin.list</point>
-		<class>@MODULE_PACKAGE@.extension.html.AdminList</class>
+		<class>org.openmrs.module.inventory.extension.html.AdminList</class>
 	</extension>
 	<extension>
 		<point>org.openmrs.gutter.tools</point>
-		<class>@MODULE_PACKAGE@.extension.html.InventoryHeader</class>
+		<class>org.openmrs.module.inventory.extension.html.InventoryHeader</class>
 	</extension>
 	
 	
@@ -195,52 +193,7 @@
 		<name>Drug order queue</name>
 		<description>Allows user to process drug order queue</description>
 	</privilege>
-	
-	<!-- End itemUnit -->
-	
 
-	<!-- Required Global Properties -->
-	
-	<!--<globalProperty>
-		<property>@MODULE_ID@.BPL</property>
-		<defaultValue>571</defaultValue>
-		<description>
-			Concept ID of Patient BPL property. Used to determine patient BPL status from Patient Object.
-		</description>
-	</globalProperty>
-	
-	
-	 
-	--><!--Required Global Properties -->
-	
-	<!--
-	<dwr>
-		<allow>
-			<create creator="new" javascript="DWRFormEntryService">
-				<param name="class" value="org.openmrs.module.@MODULE_ID@.web.DWRFormEntryService"/>
-				<include method="enterForm"/>
-			</create>
-		</allow>
-
-		<signatures>
-			<![CDATA[
-			import @MODULE_PACKAGE@.web.DWRFormEntryService;
-			DWRFormEntryService.enterForm(Integer patientId, Integer formId, boolean useEncounter, List<String> fields);
-			]]>
-		</signatures>	
-	</dwr>
-	-->
-	
-	<!-- Servlets -->
-	<!-- Accessed through the url /pageContext()/moduleServlet/<moduleId>/<servlet-name> 
-	<servlet>
-		<servlet-name>formDownload</servlet-name>
-		<servlet-class>@MODULE_PACKAGE@.web.FormDownloadServlet</servlet-class>
-	</servlet>
-	-->
-	<!-- /Servlets -->
-	
-	
 	<!-- Internationalization -->
 	<!-- All message codes should start with @MODULE_ID@.* -->
 	<messages>
