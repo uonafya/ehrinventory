@@ -34,16 +34,16 @@ public class ItemValidator {
     	InventoryItem item = (InventoryItem) command;
     	
     	if( StringUtils.isBlank(item.getName())){
-    		error.reject("inventory.item.name.required");
+    		error.reject("ehrinventory.item.name.required");
     	}
     	/*if( item.getCategory() == null){
     		error.reject("inventory.item.category.required");
     	}*/
     	if( item.getSubCategory() == null){
-    		error.reject("inventory.item.subCategory.required");
+    		error.reject("ehrinventory.item.subCategory.required");
     	}
     	if( item.getUnit() == null ){
-    		error.reject("inventory.item.unit.required");
+    		error.reject("ehrinventory.item.unit.required");
     	}
     	InventoryService inventoryService = (InventoryService) Context.getService(InventoryService.class);
     	InventoryItem itemE = inventoryService.getItemByName(item.getName());
@@ -55,12 +55,12 @@ public class ItemValidator {
 			}*/
     		if(itemE != null){
     			if(itemE.getId().intValue() != item.getId().intValue()){
-    				error.reject("inventory.item.name.existed");
+    				error.reject("ehrinventory.item.name.existed");
     			}
     		}
     	}else{
     		if(itemE != null){
-    	    		error.reject("inventory.item.name.existed");
+    	    		error.reject("ehrinventory.item.name.existed");
     		}
     	}
     	

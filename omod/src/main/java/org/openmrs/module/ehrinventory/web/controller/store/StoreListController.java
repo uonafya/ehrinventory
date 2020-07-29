@@ -75,7 +75,7 @@ public class StoreListController {
 		}
 		httpSession.setAttribute(WebConstants.OPENMRS_MSG_ATTR, StringUtils.isBlank(temp) ?  "store.deleted" : temp);
     	
-    	return "redirect:/module/inventory/storeList.form";
+    	return "redirect:/module/ehrinventory/storeList.form";
     }
 	
 	@RequestMapping(method=RequestMethod.GET)

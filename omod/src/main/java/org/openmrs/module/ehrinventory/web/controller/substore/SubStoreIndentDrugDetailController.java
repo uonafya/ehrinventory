@@ -35,7 +35,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller("SubStoreIndentDrugDetailController")
-@RequestMapping("/module/inventory/subStoreIndentDrugDetail.form")
+@RequestMapping("/module/ehrinventory/subStoreIndentDrugDetail.form")
 public class SubStoreIndentDrugDetailController {
 	@RequestMapping(method = RequestMethod.GET)
 	public String list( @RequestParam(value="pageSize",required=false)  Integer pageSize, 
@@ -111,7 +111,7 @@ public class SubStoreIndentDrugDetailController {
 		model.put("pagingUtil", pagingUtil );
 		model.put("indents", indents );
 		model.put("listCategory", listCategory );
-	 return "/module/inventory/substore/subStoreIndentDrugDetail";
+	 return "/module/ehrinventory/substore/subStoreIndentDrugDetail";
 	 
 	}
 }

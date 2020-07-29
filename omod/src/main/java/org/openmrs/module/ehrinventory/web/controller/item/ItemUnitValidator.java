@@ -36,17 +36,17 @@ public class ItemUnitValidator implements Validator {
     	InventoryItemUnit unit = (InventoryItemUnit) command;
     	
     	if( StringUtils.isBlank(unit.getName())){
-    		error.reject("inventory.itemUnit.name.required");
+    		error.reject("ehrinventory.itemUnit.name.required");
     	}
     	InventoryService inventoryService = (InventoryService) Context.getService(InventoryService.class);
     	InventoryItemUnit unitE = inventoryService.getItemUnitByName(unit.getName());
     	if(unit.getId() != null){
     		if(unitE != null && unitE.getId().intValue() != unit.getId().intValue()){
-    			error.reject("inventory.itemUnit.name.existed");
+    			error.reject("ehrinventory.itemUnit.name.existed");
     		}
     	}else{
     		if(unitE != null){
-    	    		error.reject("inventory.itemUnit.name.existed");
+    	    		error.reject("ehrinventory.itemUnit.name.existed");
     		}
     	}
     	

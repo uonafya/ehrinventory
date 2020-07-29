@@ -37,10 +37,10 @@ public class IssueDrugPatientValidator {
 			identifier = prefix+identifier;
     	}
     	if( StringUtils.isBlank(cmd.getIdentifier())){
-    		error.reject("inventory.issueDrug.identifier.required");
+    		error.reject("ehrinventory.issueDrug.identifier.required");
     	}
     	if(Context.getPatientService().getPatients(identifier) == null){
-    		error.reject("inventory.issueDrug.identifier.required");
+    		error.reject("ehrinventory.issueDrug.identifier.required");
     	}
     	
     	

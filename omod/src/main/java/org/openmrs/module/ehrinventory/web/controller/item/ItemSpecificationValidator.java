@@ -36,17 +36,17 @@ public class ItemSpecificationValidator implements Validator {
     	InventoryItemSpecification specification = (InventoryItemSpecification) command;
     	
     	if( StringUtils.isBlank(specification.getName())){
-    		error.reject("inventory.itemSpecification.name.required");
+    		error.reject("ehrinventory.itemSpecification.name.required");
     	}
     	InventoryService inventoryService = (InventoryService) Context.getService(InventoryService.class);
     	InventoryItemSpecification specificationE = inventoryService.getItemSpecificationByName(specification.getName());
     	if(specification.getId() != null){
     		if(specificationE != null && specificationE.getId().intValue() != specification.getId().intValue()){
-    			error.reject("inventory.itemSpecification.name.existed");
+    			error.reject("ehrinventory.itemSpecification.name.existed");
     		}
     	}else{
     		if(specificationE != null){
-    	    		error.reject("inventory.itemSpecification.name.existed");
+    	    		error.reject("ehrinventory.itemSpecification.name.existed");
     		}
     	}
     	

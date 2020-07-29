@@ -37,7 +37,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 
 @Controller("ListPatientItemController")
-@RequestMapping("/module/inventory/subStoreListItemPatient.form")
+@RequestMapping("/module/ehrinventory/subStoreListItemPatient.form")
 public class ListPatientItemController {
 	@RequestMapping(method = RequestMethod.GET)
 	public String list( @RequestParam(value="pageSize",required=false)  Integer pageSize, 
@@ -122,7 +122,7 @@ public class ListPatientItemController {
 		model.put("pagingUtil", pagingUtil );
 		model.put("listIssue", listIssue );
 		model.put("store", store );
-	 return "/module/inventory/substoreItem/subStoreListItemPatient";
+	 return "/module/ehrinventory/substoreItem/subStoreListItemPatient";
 	 
 	}
 }

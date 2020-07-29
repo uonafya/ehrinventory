@@ -48,7 +48,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller("IssueDrugFormController")
-@RequestMapping("/module/inventory/subStoreIssueDrugForm.form")
+@RequestMapping("/module/ehrinventory/subStoreIssueDrugForm.form")
 public class IssueDrugFormController {
 	
 	@RequestMapping(method = RequestMethod.GET)
@@ -66,13 +66,7 @@ public class IssueDrugFormController {
 		List<InventoryDrugCategory> listCategory = inventoryService.findDrugCategory("");
 		model.addAttribute("listCategory", listCategory);
 		model.addAttribute("categoryId", categoryId);
-		
-		/**
-		 * @support feature#174
-		 * @author Thai Chuong
-		 * @date <dd/mm/yyyy>08/05/2012
-		 * @support feature #174 - 'Testing Result Git Punjab' project
-		 */
+
 		if (categoryId != null && categoryId > 0) {
 			List<InventoryDrug> drugs = inventoryService.findDrug(categoryId, null);
 			model.addAttribute("drugs", drugs);
@@ -133,7 +127,7 @@ public class IssueDrugFormController {
 		}
 		model.addAttribute("listPatientDetail", list);
 		model.addAttribute("issueDrugPatient", issueDrugPatient);
-		return "/module/inventory/substore/subStoreIssueDrugForm";
+		return "/module/ehrinventory/substore/subStoreIssueDrugForm";
 		
 	}
 	
@@ -184,7 +178,7 @@ public class IssueDrugFormController {
 		}
 		
 		if (drug == null) {
-			errors.add("inventory.receiptDrug.drug.required");
+			errors.add("ehrinventory.receiptDrug.drug.required");
 		} else {
 			drugId = drug.getId();
 			
@@ -192,10 +186,10 @@ public class IssueDrugFormController {
 		
 		InventoryDrugFormulation formulationO = inventoryService.getDrugFormulationById(formulation);
 		if (formulationO == null) {
-			errors.add("inventory.receiptDrug.formulation.required");
+			errors.add("ehrinventory.receiptDrug.formulation.required");
 		}
 		if (formulationO != null && drug != null && !drug.getFormulations().contains(formulationO)) {
-			errors.add("inventory.receiptDrug.formulation.notCorrect");
+			errors.add("ehrinventory.receiptDrug.formulation.notCorrect");
 		}
 		
 		if (CollectionUtils.isNotEmpty(errors)) {
@@ -210,7 +204,7 @@ public class IssueDrugFormController {
 			        .get("issueDrug_" + userId);
 			model.addAttribute("issueDrugPatient", issueDrugPatient);
 			model.addAttribute("listPatientDetail", list);
-			return "/module/inventory/substore/subStoreIssueDrugForm";
+			return "/module/ehrinventory/substore/subStoreIssueDrugForm";
 		}
 		
 		//InventoryStore store = inventoryService.getStoreByCollectionRole(new ArrayList<Role>(Context.getAuthenticatedUser() .getAllRoles()));
@@ -247,14 +241,14 @@ public class IssueDrugFormController {
 				}
 				listIssueQty.add(temp);
 				if (temp > t.getCurrentQuantity()) {
-					errors.add("inventory.issueDrug.quantity.lessthanQuantity.required");
+					errors.add("ehrinventory.issueDrug.quantity.lessthanQuantity.required");
 				}
 			}
 		} else {
-			errors.add("inventory.issueDrug.drug.required");
+			errors.add("ehrinventory.issueDrug.drug.required");
 		}
 		if (checkCorrect) {
-			errors.add("inventory.issueDrug.quantity.required");
+			errors.add("ehrinventory.issueDrug.quantity.required");
 		}
 		if (errors != null && errors.size() > 0) {
 			
@@ -276,7 +270,7 @@ public class IssueDrugFormController {
 			
 			model.addAttribute("issueDrugPatient", issueDrugPatient);
 			model.addAttribute("listPatientDetail", list);
-			return "/module/inventory/substore/subStoreIssueDrugForm";
+			return "/module/ehrinventory/substore/subStoreIssueDrugForm";
 		}
 		
 		String fowardParam = "issueDrugDetail_" + userId;
@@ -326,6 +320,6 @@ public class IssueDrugFormController {
 		
 		//model.addAttribute("issueDrugPatient", issueDrugPatient);
 		//model.addAttribute("listPatientDetail", list);
-		return "redirect:/module/inventory/subStoreIssueDrugForm.form";
+		return "redirect:/module/ehrinventory/subStoreIssueDrugForm.form";
 	}
 }

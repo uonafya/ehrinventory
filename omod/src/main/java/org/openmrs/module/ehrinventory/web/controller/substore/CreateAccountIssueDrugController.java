@@ -33,12 +33,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller("CreateAccountIssueDrugController")
-@RequestMapping("/module/inventory/createAccountIssueDrug.form")
+@RequestMapping("/module/ehrinventory/createAccountIssueDrug.form")
 public class CreateAccountIssueDrugController {
 
 	@RequestMapping(method = RequestMethod.GET)
 	public String firstView(Model model) {
-		return "/module/inventory/substore/createAccountIssueDrug";
+		return "/module/ehrinventory/substore/createAccountIssueDrug";
 	}
 	
 	@RequestMapping(method = RequestMethod.POST)
@@ -71,9 +71,9 @@ public class CreateAccountIssueDrugController {
 			StoreSingleton.getInstance().getHash().put("issueDrugAccount_"+userId , issueAccount);
 			model.addAttribute("message", "Succesfully");
 			model.addAttribute("urlS", "subStoreIssueDrugAccountForm.form");
-			return "/module/inventory/thickbox/success";
+			return "/module/ehrinventory/thickbox/success";
 		}
-		return "/module/inventory/substore/createAccountIssueDrug";
+		return "/module/ehrinventory/substore/createAccountIssueDrug";
 	}
 	
 }

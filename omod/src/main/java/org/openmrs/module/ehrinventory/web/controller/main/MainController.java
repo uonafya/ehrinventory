@@ -31,7 +31,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
  *
  */
 @Controller("mainInventoryController")
-@RequestMapping("/module/inventory/main.form")
+@RequestMapping("/module/ehrinventory/main.form")
 public class MainController {
 
 	 @RequestMapping(method = RequestMethod.GET)
@@ -62,13 +62,13 @@ public class MainController {
 			 
 			 if(store != null){
 				 if( store.getParentStores().isEmpty() && !store.getRetired()){
-					 return "redirect:/module/inventory/viewStockBalance.form";
+					 return "redirect:/module/ehrinventory/viewStockBalance.form";
 				 }else if( !store.getParentStores().isEmpty()&&rl.hasPrivilege("Drug order queue") && !store.getRetired() ){
-					 return "redirect:/module/inventory/patientQueueDrugOrder.form";
+					 return "redirect:/module/ehrinventory/patientQueueDrugOrder.form";
 				 }else if( !store.getParentStores().isEmpty()&&rl.hasPrivilege("Drug/Item Dispense")  && !store.getRetired() ){
 					// return "redirect:/module/inventory/itemViewStockBalanceSubStore.form";
                                      //17/11/2014  In order to get the Drug Windows first
-                                     return "redirect:/module/inventory/subStoreIssueDrugList.form";
+                                     return "redirect:/module/ehrinventory/subStoreIssueDrugList.form";
 				 }
 			 }
 		} catch (Exception e) {

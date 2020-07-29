@@ -36,7 +36,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller("itemViewStockBalanceSubStoreController")
-@RequestMapping("/module/inventory/itemViewStockBalanceSubStore.form")
+@RequestMapping("/module/ehrinventory/itemViewStockBalanceSubStore.form")
 public class ViewStockBalanceController {
 	@RequestMapping(method = RequestMethod.GET)
 	public String list( @RequestParam(value="pageSize",required=false)  Integer pageSize, 
@@ -118,7 +118,7 @@ public class ViewStockBalanceController {
 		model.put("stockBalances", stockBalances );
 		model.put("listCategory", listCategory );
 		model.put("store", store );
-	 return "/module/inventory/substoreItem/itemViewStockBalance";
+	 return "/module/ehrinventory/substoreItem/itemViewStockBalance";
 	 
 	}
 }

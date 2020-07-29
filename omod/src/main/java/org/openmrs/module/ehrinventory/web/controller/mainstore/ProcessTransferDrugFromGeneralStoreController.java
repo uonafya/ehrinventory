@@ -41,7 +41,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller("ProcessTransferDrugFromGeneralStoreController")
-@RequestMapping("/module/inventory/mainStoreDrugProcessIndent.form")
+@RequestMapping("/module/ehrinventory/mainStoreDrugProcessIndent.form")
 public class ProcessTransferDrugFromGeneralStoreController {
 	@RequestMapping(method = RequestMethod.GET)
 	public String sendIndent( @RequestParam(value="indentId",required=false)  Integer id,Model model) {
@@ -102,10 +102,10 @@ public class ProcessTransferDrugFromGeneralStoreController {
 			model.addAttribute("listDrugNeedProcess", listDrugTP);
 			model.addAttribute("indent", indent);
 			
-			return "/module/inventory/mainstore/mainStoreDrugProcessIndent";
+			return "/module/ehrinventory/mainstore/mainStoreDrugProcessIndent";
 		}
 		
-		return "redirect:/module/inventory/transferDrugFromGeneralStore.form";
+		return "redirect:/module/ehrinventory/transferDrugFromGeneralStore.form";
 		
 	}
 	@RequestMapping(method = RequestMethod.POST)
@@ -130,7 +130,7 @@ public class ProcessTransferDrugFromGeneralStoreController {
 				
 			}
 		}
-		return "redirect:/module/inventory/transferDrugFromGeneralStore.form";
+		return "redirect:/module/ehrinventory/transferDrugFromGeneralStore.form";
 	 }
 	 //validate here 
 	 
@@ -173,14 +173,14 @@ public class ProcessTransferDrugFromGeneralStoreController {
 			if(t.getDrug().getId().equals(trDetail.getDrug().getId()) && t.getFormulation().getId().equals(trDetail.getFormulation().getId())){
 				t.setMainStoreTransfer(trDetail.getCurrentQuantity());
 				if(temp > trDetail.getCurrentQuantity() || temp < 0 ){
-					errors.add("inventory.indent.error.quantity");
+					errors.add("ehrinventory.indent.error.quantity");
 				}
 			}
 			
 			
 		}
 		}else{
-			errors.add("inventory.indent.error.quantity");
+			errors.add("ehrinventory.indent.error.quantity");
 		}
 		 if(temp > 0){
 			 passTransfer = false;
@@ -195,7 +195,7 @@ public class ProcessTransferDrugFromGeneralStoreController {
 			model.addAttribute("indent", indent);
 			model.addAttribute("errors", errors);
 			model.addAttribute("quantityTransfers", quantityTransfers);
-		 return "/module/inventory/mainstore/mainStoreDrugProcessIndent";
+		 return "/module/ehrinventory/mainstore/mainStoreDrugProcessIndent";
 	 }
 	 
 	 //create transaction
@@ -352,7 +352,7 @@ public class ProcessTransferDrugFromGeneralStoreController {
 	 indent.setSubStoreStatus(ActionValue.INDENT_SUBSTORE[2]);
 	 indent.setTransaction(transaction);
 	 inventoryService.saveStoreDrugIndent(indent);
-	 return "redirect:/module/inventory/transferDrugFromGeneralStore.form?viewIndent="+indentId;
+	 return "redirect:/module/ehrinventory/transferDrugFromGeneralStore.form?viewIndent="+indentId;
 	 
  }
 }

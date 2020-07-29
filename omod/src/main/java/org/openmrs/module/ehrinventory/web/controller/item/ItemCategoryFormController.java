@@ -32,7 +32,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.support.SessionStatus;
 
 @Controller("ItemCategoryFormController")
-@RequestMapping("/module/inventory/itemCategory.form")
+@RequestMapping("/module/ehrinventory/itemCategory.form")
 public class ItemCategoryFormController {
 Log log = LogFactory.getLog(this.getClass());
 	
@@ -42,7 +42,7 @@ Log log = LogFactory.getLog(this.getClass());
 			itemCategory = Context.getService(InventoryService.class).getItemCategoryById(id);
 			model.addAttribute("itemCategory",itemCategory);
 		}
-		return "/module/inventory/item/itemCategory";
+		return "/module/ehrinventory/item/itemCategory";
 	}
 	
 	@RequestMapping(method = RequestMethod.POST)
@@ -51,7 +51,7 @@ Log log = LogFactory.getLog(this.getClass());
 		//storeValidator.validate(store, bindingResult);
 		
 		if (bindingResult.hasErrors()) {
-			return "/module/inventory/item/itemCategory";
+			return "/module/ehrinventory/item/itemCategory";
 			
 		}else{
 			InventoryService inventoryService = (InventoryService) Context
@@ -61,7 +61,7 @@ Log log = LogFactory.getLog(this.getClass());
 			itemCategory.setCreatedOn(new Date());
 			inventoryService.saveItemCategory(itemCategory);
 			status.setComplete();
-			return "redirect:/module/inventory/itemCategoryList.form";
+			return "redirect:/module/ehrinventory/itemCategoryList.form";
 		}
 	}
 	

@@ -36,7 +36,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller("TransferItemFromGeneralStoreController")
-@RequestMapping("/module/inventory/transferItemFromGeneralStore.form")
+@RequestMapping("/module/ehrinventory/transferItemFromGeneralStore.form")
 public class TransferItemFromGeneralStoreController {
 	@RequestMapping(method = RequestMethod.GET)
 	public String showAttributeList( 
@@ -119,7 +119,7 @@ public class TransferItemFromGeneralStoreController {
 		model.addAttribute("toDate", toDate);
 		model.addAttribute("pagingUtil", pagingUtil);
 		
-		return "/module/inventory/mainstoreItem/transferItemFromGeneralStore";
+		return "/module/ehrinventory/mainstoreItem/transferItemFromGeneralStore";
 	}
 
 }

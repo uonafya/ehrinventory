@@ -36,20 +36,20 @@ public class DrugFormulationValidator implements Validator {
     	InventoryDrugFormulation formulation = (InventoryDrugFormulation) command;
     	
     	if( StringUtils.isBlank(formulation.getName())){
-    		error.reject("inventory.drugFormulation.name.required");
+    		error.reject("ehrinventory.drugFormulation.name.required");
     	}
     	if( StringUtils.isBlank(formulation.getDozage())){
-    		error.reject("inventory.drugFormulation.dozage.required");
+    		error.reject("ehrinventory.drugFormulation.dozage.required");
     	}
     	InventoryService inventoryService = (InventoryService) Context.getService(InventoryService.class);
     	InventoryDrugFormulation formulationE = inventoryService.getDrugFormulation(formulation.getName() ,formulation.getDozage());
     	if(formulation.getId() != null){
     		if(formulationE != null && formulationE.getId().intValue() != formulation.getId().intValue()){
-    			error.reject("inventory.drugFormulation.dozage.existed");
+    			error.reject("ehrinventory.drugFormulation.dozage.existed");
     		}
     	}else{
     		if(formulationE != null){
-    	    		error.reject("inventory.drugFormulation.dozage.existed");
+    	    		error.reject("ehrinventory.drugFormulation.dozage.existed");
     		}
     	}
     	

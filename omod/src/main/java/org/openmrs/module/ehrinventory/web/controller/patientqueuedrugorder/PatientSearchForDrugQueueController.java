@@ -29,7 +29,7 @@ import org.openmrs.module.ehrinventory.InventoryService;
 import org.openmrs.module.ehrinventory.util.PagingUtil;
 
 @Controller("PatientSearchForDrugQueueController")
-@RequestMapping("/module/inventory/patientsearchdruggqueue.form")
+@RequestMapping("/module/ehrinventory/patientsearchdruggqueue.form")
 public class PatientSearchForDrugQueueController {
 	@RequestMapping(method = RequestMethod.GET)
 	public String main(
@@ -55,6 +55,6 @@ public class PatientSearchForDrugQueueController {
 		model.addAttribute("pagingUtil", pagingUtil);
 		model.addAttribute("patientList", patientSearchResult);
 		model.addAttribute("date", dateStr);
-		return "/module/inventory/queue/searchResult";
+		return "/module/ehrinventory/queue/searchResult";
 	}
 }

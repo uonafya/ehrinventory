@@ -76,7 +76,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller("AjaxGlobalController")
 public class AjaxController {
 
-	@RequestMapping("/module/inventory/drugByCategory.form")
+	@RequestMapping("/module/ehrinventory/drugByCategory.form")
 	public String drugByCategory(
 			@RequestParam(value = "categoryId", required = false) Integer categoryId,
 			Model model) {
@@ -85,10 +85,10 @@ public class AjaxController {
 		List<InventoryDrug> drugs = inventoryService.listDrug(categoryId, null,
 				0, 0);
 		model.addAttribute("drugs", drugs);
-		return "/module/inventory/autocomplete/drugByCategory";
+		return "/module/ehrinventory/autocomplete/drugByCategory";
 	}
 
-	@RequestMapping("/module/inventory/drugByCategoryForIssue.form")
+	@RequestMapping("/module/ehrinventory/drugByCategoryForIssue.form")
 	public String drugByCategoryForIssue(
 			@RequestParam(value = "categoryId", required = false) Integer categoryId,
 			Model model) {
@@ -97,7 +97,7 @@ public class AjaxController {
 		List<InventoryDrug> drugs = inventoryService.listDrug(categoryId, null,
 				0, 0);
 		model.addAttribute("drugs", drugs);
-		return "/module/inventory/autocomplete/drugByCategoryForIssue";
+		return "/module/ehrinventory/autocomplete/drugByCategoryForIssue";
 	}
 
 	@RequestMapping("/module/inventory/itemBySubCategory.form")
@@ -109,10 +109,10 @@ public class AjaxController {
 		List<InventoryItem> items = inventoryService.listItem(categoryId, null,
 				0, 0);
 		model.addAttribute("items", items);
-		return "/module/inventory/autocomplete/itemBySubCategory";
+		return "/module/ehrinventory/autocomplete/itemBySubCategory";
 	}
 
-	@RequestMapping("/module/inventory/itemBySubCategoryForIssue.form")
+	@RequestMapping("/module/ehrinventory/itemBySubCategoryForIssue.form")
 	public String itemBySubCategoryForIssue(
 			@RequestParam(value = "categoryId", required = false) Integer categoryId,
 			Model model) {
@@ -121,10 +121,10 @@ public class AjaxController {
 		List<InventoryItem> items = inventoryService.listItem(categoryId, null,
 				0, 0);
 		model.addAttribute("items", items);
-		return "/module/inventory/autocomplete/itemBySubCategoryForIssue";
+		return "/module/ehrinventory/autocomplete/itemBySubCategoryForIssue";
 	}
 
-	@RequestMapping("/module/inventory/itemBySubCategoryForIssuePatient.form")
+	@RequestMapping("/module/ehrinventory/itemBySubCategoryForIssuePatient.form")
 	public String itemBySubCategoryForIssuePatient(
 			@RequestParam(value = "categoryId", required = false) Integer categoryId,
 			Model model) {
@@ -133,10 +133,10 @@ public class AjaxController {
 		List<InventoryItem> items = inventoryService.listItem(categoryId, null,
 				0, 0);
 		model.addAttribute("items", items);
-		return "/module/inventory/autocomplete/itemBySubCategoryForIssuePatient";
+		return "/module/ehrinventory/autocomplete/itemBySubCategoryForIssuePatient";
 	}
 
-	@RequestMapping("/module/inventory/formulationByDrug.form")
+	@RequestMapping("/module/ehrinventory/formulationByDrug.form")
 	public String formulationByDrug(
 			@RequestParam(value = "drugId", required = false) Integer drugId,
 			Model model) {
@@ -148,10 +148,10 @@ public class AjaxController {
 					drug.getFormulations());
 			model.addAttribute("formulations", formulations);
 		}
-		return "/module/inventory/autocomplete/formulationByDrug";
+		return "/module/ehrinventory/autocomplete/formulationByDrug";
 	}
 
-	@RequestMapping("/module/inventory/formulationByDrugName.form")
+	@RequestMapping("/module/ehrinventory/formulationByDrugName.form")
 	public String formulationByDrugName(
 			@RequestParam(value = "drugName", required = false) String drugName,
 			Model model) {
@@ -163,10 +163,10 @@ public class AjaxController {
 					drug.getFormulations());
 			model.addAttribute("formulations", formulations);
 		}
-		return "/module/inventory/autocomplete/formulationByDrug";
+		return "/module/ehrinventory/autocomplete/formulationByDrug";
 	}
 
-	@RequestMapping("/module/inventory/specificationByItem.form")
+	@RequestMapping("/module/ehrinventory/specificationByItem.form")
 	public String specificationByItem(
 			@RequestParam(value = "itemId", required = false) Integer itemId,
 			Model model) {
@@ -178,11 +178,11 @@ public class AjaxController {
 					item.getSpecifications());
 			model.addAttribute("specifications", specifications);
 		}
-		return "/module/inventory/autocomplete/specificationByItem";
+		return "/module/ehrinventory/autocomplete/specificationByItem";
 	}
 
 	@SuppressWarnings("static-access")
-	@RequestMapping("/module/inventory/clearSlip.form")
+	@RequestMapping("/module/ehrinventory/clearSlip.form")
 	public String clearSlip(
 			@RequestParam(value = "action", required = false) String name,
 			Model model) {
@@ -191,12 +191,12 @@ public class AjaxController {
 		if ("1".equals(name)) {
 			// Clear slip
 			StoreSingleton.getInstance().getHash().remove(fowardParam);
-			return "redirect:/module/inventory/receiptsToGeneralStore.form";
+			return "redirect:/module/ehrinventory/receiptsToGeneralStore.form";
 		}
-		return "/module/inventory/mainstore/addDescriptionReceiptSlip";
+		return "/module/ehrinventory/mainstore/addDescriptionReceiptSlip";
 	}
 
-	@RequestMapping("/module/inventory/itemClearSlip.form")
+	@RequestMapping("/module/ehrinventory/itemClearSlip.form")
 	public String clearSlipItem(
 			@RequestParam(value = "action", required = false) String name,
 			Model model) {
@@ -207,7 +207,7 @@ public class AjaxController {
 			StoreSingleton.getInstance().getHash().remove(fowardParam);
 			return "redirect:/module/inventory/itemReceiptsToGeneralStore.form";
 		}
-		return "/module/inventory/mainstoreItem/itemAddDescriptionReceiptSlip";
+		return "/module/ehrinventory/mainstoreItem/itemAddDescriptionReceiptSlip";
 	}
 
 	@RequestMapping("/module/inventory/clearPurchaseOrder.form")
@@ -219,12 +219,12 @@ public class AjaxController {
 		if ("1".equals(name)) {
 			// Clear slip
 			StoreSingleton.getInstance().getHash().remove(fowardParam);
-			return "redirect:/module/inventory/purchaseOrderForGeneralStore.form";
+			return "redirect:/module/ehrinventory/purchaseOrderForGeneralStore.form";
 		}
-		return "/module/inventory/mainstore/purchaseOrderForGeneralStore";
+		return "/module/ehrinventory/mainstore/purchaseOrderForGeneralStore";
 	}
 
-	@RequestMapping("/module/inventory/itemClearPurchaseOrder.form")
+	@RequestMapping("/module/ehrinventory/itemClearPurchaseOrder.form")
 	public String itemClearPurchase(
 			@RequestParam(value = "action", required = false) String name,
 			Model model) {
@@ -233,12 +233,12 @@ public class AjaxController {
 		if ("1".equals(name)) {
 			// Clear slip
 			StoreSingleton.getInstance().getHash().remove(fowardParam);
-			return "redirect:/module/inventory/itemPurchaseOrderForGeneralStore.form";
+			return "redirect:/module/ehrinventory/itemPurchaseOrderForGeneralStore.form";
 		}
-		return "/module/inventory/mainstoreItem/itemPurchaseOrderForGeneralStore";
+		return "/module/ehrinventory/mainstoreItem/itemPurchaseOrderForGeneralStore";
 	}
 
-	@RequestMapping("/module/inventory/clearSubStoreIndent.form")
+	@RequestMapping("/module/ehrinventory/clearSubStoreIndent.form")
 	public String clearIndent(
 			@RequestParam(value = "action", required = false) String name,
 			Model model) {
@@ -247,12 +247,12 @@ public class AjaxController {
 		if ("1".equals(name)) {
 			// Clear slip
 			StoreSingleton.getInstance().getHash().remove(fowardParam);
-			return "redirect:/module/inventory/subStoreIndentDrug.form";
+			return "redirect:/module/ehrinventory/subStoreIndentDrug.form";
 		}
-		return "/module/inventory/substore/subStoreIndentDrug";
+		return "/module/ehrinventory/substore/subStoreIndentDrug";
 	}
 
-	@RequestMapping("/module/inventory/itemClearSubStoreIndent.form")
+	@RequestMapping("/module/ehrinventory/itemClearSubStoreIndent.form")
 	public String itemClearIndent(
 			@RequestParam(value = "action", required = false) String name,
 			Model model) {
@@ -263,10 +263,10 @@ public class AjaxController {
 			StoreSingleton.getInstance().getHash().remove(fowardParam);
 			return "redirect:/module/inventory/subStoreIndentItem.form";
 		}
-		return "/module/inventory/substoreItem/subStoreIndentItem";
+		return "/module/ehrinventory/substoreItem/subStoreIndentItem";
 	}
 
-	@RequestMapping("/module/inventory/indentDrugDetail.form")
+	@RequestMapping("/module/ehrinventory/indentDrugDetail.form")
 	public String detailSubStoreDrugIndent(
 			@RequestParam(value = "indentId", required = false) Integer indentId,
 			Model model) {
@@ -288,10 +288,10 @@ public class AjaxController {
 		model.addAttribute("date",
 				!CollectionUtils.isEmpty(listIndentDetail) ? listIndentDetail
 						.get(0).getIndent().getCreatedOn() : null);
-		return "/module/inventory/autocomplete/indentDrugDetail";
+		return "/module/ehrinventory/autocomplete/indentDrugDetail";
 	}
 
-	@RequestMapping("/module/inventory/indentItemDetail.form")
+	@RequestMapping("/module/ehrinventory/indentItemDetail.form")
 	public String detailSubStoreItemIndent(
 			@RequestParam(value = "indentId", required = false) Integer indentId,
 			Model model) {
@@ -315,10 +315,10 @@ public class AjaxController {
 		model.addAttribute("date",
 				!CollectionUtils.isEmpty(listIndentDetail) ? listIndentDetail
 						.get(0).getIndent().getCreatedOn() : null);
-		return "/module/inventory/autocomplete/indentItemDetail";
+		return "/module/ehrinventory/autocomplete/indentItemDetail";
 	}
 
-	@RequestMapping("/module/inventory/sentDrugIndentToMainStore.form")
+	@RequestMapping("/module/ehrinventory/sentDrugIndentToMainStore.form")
 	public String sendDrugIndentToMainStore(
 			@RequestParam(value = "indentId", required = false) Integer indentId,
 			Model model) {
@@ -331,10 +331,10 @@ public class AjaxController {
 			indent.setMainStoreStatus(ActionValue.INDENT_MAINSTORE[0]);
 			inventoryService.saveStoreDrugIndent(indent);
 		}
-		return "redirect:/module/inventory/subStoreIndentDrugList.form";
+		return "redirect:/module/ehrinventory/subStoreIndentDrugList.form";
 	}
 
-	@RequestMapping("/module/inventory/sentItemIndentToMainStore.form")
+	@RequestMapping("/module/ehrinventory/sentItemIndentToMainStore.form")
 	public String sendItemIndentToMainStore(
 			@RequestParam(value = "indentId", required = false) Integer indentId,
 			Model model) {
@@ -347,7 +347,7 @@ public class AjaxController {
 			indent.setMainStoreStatus(ActionValue.INDENT_MAINSTORE[0]);
 			inventoryService.saveStoreItemIndent(indent);
 		}
-		return "redirect:/module/inventory/subStoreIndentItemList.form";
+		return "redirect:/module/ehrinventory/subStoreIndentItemList.form";
 	}
 
 	@RequestMapping("/module/inventory/listReceiptDrug.form")
@@ -444,10 +444,10 @@ public class AjaxController {
 			//model.addAttribute("comments", comments);
 		}
 
-		return "/module/inventory/autocomplete/listReceiptDrug";
+		return "/module/ehrinventory/autocomplete/listReceiptDrug";
 	}
 
-	@RequestMapping("/module/inventory/listReceiptItem.form")
+	@RequestMapping("/module/ehrinventory/listReceiptItem.form")
 	public String listReceiptItemAvailable(
 			@RequestParam(value = "itemId", required = false) Integer itemId,
 			@RequestParam(value = "specificationId", required = false) Integer specificationId,
@@ -506,10 +506,10 @@ public class AjaxController {
 			model.addAttribute("sumReceiptItem", sumReceiptItem);
 		}
 
-		return "/module/inventory/autocomplete/listReceiptItem";
+		return "/module/ehrinventory/autocomplete/listReceiptItem";
 	}
 
-	@RequestMapping("/module/inventory/formulationByDrugForIssue.form")
+	@RequestMapping("/module/ehrinventory/formulationByDrugForIssue.form")
 	public String formulationByDrugForIssueDrug(
 			@RequestParam(value = "drugId", required = false) Integer drugId,
 			Model model) {
@@ -522,10 +522,10 @@ public class AjaxController {
 			model.addAttribute("formulations", formulations);
 
 		}
-		return "/module/inventory/autocomplete/formulationByDrugForIssue";
+		return "/module/ehrinventory/autocomplete/formulationByDrugForIssue";
 	}
 
-	@RequestMapping("/module/inventory/formulationByDrugNameForIssue.form")
+	@RequestMapping("/module/ehrinventory/formulationByDrugNameForIssue.form")
 	public String formulationByDrugNameForIssueDrug(
 			@RequestParam(value = "drugName", required = false) String drugName,
 			Model model) {
@@ -538,10 +538,10 @@ public class AjaxController {
 			model.addAttribute("formulations", formulations);
 			model.addAttribute("drugId", drug.getId());
 		}
-		return "/module/inventory/autocomplete/formulationByDrugForIssue";
+		return "/module/ehrinventory/autocomplete/formulationByDrugForIssue";
 	}
 
-	@RequestMapping("/module/inventory/specificationByItemForIssue.form")
+	@RequestMapping("/module/ehrinventory/specificationByItemForIssue.form")
 	public String specificationByItemForIssueItem(
 			@RequestParam(value = "itemId", required = false) Integer itemId,
 			Model model) {
@@ -554,7 +554,7 @@ public class AjaxController {
 				List<InventoryItemSpecification> specifications = new ArrayList<InventoryItemSpecification>(
 						item.getSpecifications());
 				model.addAttribute("specifications", specifications);
-				return "/module/inventory/autocomplete/specificationByItemForIssue";
+				return "/module/ehrinventory/autocomplete/specificationByItemForIssue";
 			} else {
 				//InventoryStore store = inventoryService.getStoreByCollectionRole(new ArrayList<Role>(Context.getAuthenticatedUser().getAllRoles()));
 				 List <Role>role=new ArrayList<Role>(Context.getAuthenticatedUser().getAllRoles());
@@ -596,14 +596,14 @@ public class AjaxController {
 
 					model.addAttribute("sumReceiptItem", sumReceiptItem);
 				}
-				return "/module/inventory/autocomplete/listReceiptItem";
+				return "/module/ehrinventory/autocomplete/listReceiptItem";
 			}
 		}
 
-		return "/module/inventory/autocomplete/specificationByItemForIssue";
+		return "/module/ehrinventory/autocomplete/specificationByItemForIssue";
 	}
 
-	@RequestMapping("/module/inventory/specificationByItemPatientForIssue.form")
+	@RequestMapping("/module/ehrinventory/specificationByItemPatientForIssue.form")
 	public String specificationByItemForIssueItemPatient(
 			@RequestParam(value = "itemId", required = false) Integer itemId,
 			Model model) {
@@ -616,7 +616,7 @@ public class AjaxController {
 				List<InventoryItemSpecification> specifications = new ArrayList<InventoryItemSpecification>(
 						item.getSpecifications());
 				model.addAttribute("specifications", specifications);
-				return "/module/inventory/autocomplete/specificationByItemForIssue";
+				return "/module/ehrinventory/autocomplete/specificationByItemForIssue";
 			} else {
 			//	InventoryStore store = inventoryService.getStoreByCollectionRole(new ArrayList<Role>(Context.getAuthenticatedUser().getAllRoles()));
 				 List <Role>role=new ArrayList<Role>(Context.getAuthenticatedUser().getAllRoles());
@@ -658,14 +658,14 @@ public class AjaxController {
 
 					model.addAttribute("sumReceiptItem", sumReceiptItem);
 				}
-				return "/module/inventory/autocomplete/listReceiptItem";
+				return "/module/ehrinventory/autocomplete/listReceiptItem";
 			}
 		}
 
-		return "/module/inventory/autocomplete/specificationByItemForIssue";
+		return "/module/ehrinventory/autocomplete/specificationByItemForIssue";
 	}
 
-	@RequestMapping("/module/inventory/autoCompletePatientList.form")
+	@RequestMapping("/module/ehrinventory/autoCompletePatientList.form")
 	public String showPatientList(
 			@RequestParam(value = "searchPatient", required = false) String identifier,
 			Model model) {
@@ -686,10 +686,10 @@ public class AjaxController {
 			model.addAttribute("patients", patientsList);
 		}
 
-		return "/module/inventory/autocomplete/autoCompletePatientList";
+		return "/module/ehrinventory/autocomplete/autoCompletePatientList";
 	}
 
-	@RequestMapping("/module/inventory/processIssueDrug.form")
+	@RequestMapping("/module/ehrinventory/processIssueDrug.form")
 	public String processIssueDrug(
 			@RequestParam(value = "action", required = false) Integer action,
 			@RequestParam(value = "patientType", required = false) String patientType,
@@ -720,7 +720,7 @@ public class AjaxController {
 			StoreSingleton.getInstance().getHash().remove(fowardParam);
 			StoreSingleton.getInstance().getHash()
 					.remove("issueDrug_" + userId);
-			return "redirect:/module/inventory/subStoreIssueDrugForm.form";
+			return "redirect:/module/ehrinventory/subStoreIssueDrugForm.form";
 		}
 		List<InventoryStoreDrugPatientDetail> list = (List<InventoryStoreDrugPatientDetail>) StoreSingleton
 				.getInstance().getHash().get(fowardParam);
@@ -848,10 +848,10 @@ public class AjaxController {
 					.remove("issueDrug_" + userId);
 		}
 
-		return "redirect:/module/inventory/patientQueueDrugOrder.form";
+		return "redirect:/module/ehrinventory/patientQueueDrugOrder.form";
 	}
 
-	@RequestMapping("/module/inventory/processIssueDrugAccount.form")
+	@RequestMapping("/module/ehrinventory/processIssueDrugAccount.form")
 	public String processIssueDrugAccount(
 			@RequestParam(value = "action", required = false) Integer action,
 			Model model) {
@@ -879,7 +879,7 @@ public class AjaxController {
 			StoreSingleton.getInstance().getHash().remove(fowardParam);
 			StoreSingleton.getInstance().getHash()
 					.remove("issueDrugAccount_" + userId);
-			return "redirect:/module/inventory/subStoreIssueDrugAccountForm.form";
+			return "redirect:/module/ehrinventory/subStoreIssueDrugAccountForm.form";
 		}
 		List<InventoryStoreDrugAccountDetail> list = (List<InventoryStoreDrugAccountDetail>) StoreSingleton
 				.getInstance().getHash().get(fowardParam);
@@ -1000,10 +1000,10 @@ public class AjaxController {
 					.remove("issueDrugAccount_" + userId);
 		}
 
-		return "redirect:/module/inventory/subStoreIssueDrugAccountList.form";
+		return "redirect:/module/ehrinventory/subStoreIssueDrugAccountList.form";
 	}
 
-	@RequestMapping("/module/inventory/processIssueItem.form")
+	@RequestMapping("/module/ehrinventory/processIssueItem.form")
 	public String processIssueItem(
 			@RequestParam(value = "action", required = false) Integer action,
 			Model model) {
@@ -1031,7 +1031,7 @@ public class AjaxController {
 			StoreSingleton.getInstance().getHash().remove(fowardParam);
 			StoreSingleton.getInstance().getHash()
 					.remove("issueItem_" + userId);
-			return "redirect:/module/inventory/subStoreIssueItemForm.form";
+			return "redirect:/module/ehrinventory/subStoreIssueItemForm.form";
 		}
 		List<InventoryStoreItemAccountDetail> list = (List<InventoryStoreItemAccountDetail>) StoreSingleton
 				.getInstance().getHash().get(fowardParam);
@@ -1150,10 +1150,10 @@ public class AjaxController {
 					.remove("issueItem_" + userId);
 		}
 
-		return "redirect:/module/inventory/subStoreIssueItemList.form";
+		return "redirect:/module/ehrinventory/subStoreIssueItemList.form";
 	}
 
-	@RequestMapping("/module/inventory/processIssueItemPatient.form")
+	@RequestMapping("/module/ehrinventory/processIssueItemPatient.form")
 	public String processIssueItemPatient(
 			@RequestParam(value = "action", required = false) Integer action,
 			@RequestParam(value = "patientType", required = false) String patientType,
@@ -1183,7 +1183,7 @@ public class AjaxController {
 			StoreSingleton.getInstance().getHash().remove(fowardParam);
 			StoreSingleton.getInstance().getHash()
 					.remove("issueItemPatient_" + userId);
-			return "redirect:/module/inventory/subStoreIssueItemPatientForm.form";
+			return "redirect:/module/ehrinventory/subStoreIssueItemPatientForm.form";
 		}
 		List<InventoryStoreItemPatientDetail> list = (List<InventoryStoreItemPatientDetail>) StoreSingleton
 				.getInstance().getHash().get(fowardParam);
@@ -1304,10 +1304,10 @@ public class AjaxController {
 					.remove("issueItemPatient_" + userId);
 		}
 
-		return "redirect:/module/inventory/subStoreIssueItem.form";
+		return "redirect:/module/ehrinventory/subStoreIssueItem.form";
 	}
 
-	@RequestMapping("/module/inventory/viewStockBalanceDetail.form")
+	@RequestMapping("/module/ehrinventory/viewStockBalanceDetail.form")
 	public String viewStockBalanceDetail(
 			@RequestParam(value = "drugId", required = false) Integer drugId,
 			@RequestParam(value = "formulationId", required = false) Integer formulationId,
@@ -1335,10 +1335,10 @@ public class AjaxController {
 				.listStoreDrugTransactionDetail(store.getId(), drugId,
 						formulationId, expiry);
 		model.addAttribute("listViewStockBalance", listViewStockBalance);
-		return "/module/inventory/mainstore/viewStockBalanceDetail";
+		return "/module/ehrinventory/mainstore/viewStockBalanceDetail";
 	}
 
-	@RequestMapping("/module/inventory/itemViewStockBalanceDetail.form")
+	@RequestMapping("/module/ehrinventory/itemViewStockBalanceDetail.form")
 	public String itemViewStockBalanceDetail(
 			@RequestParam(value = "itemId", required = false) Integer itemId,
 			@RequestParam(value = "specificationId", required = false) Integer specificationId,
@@ -1365,10 +1365,10 @@ public class AjaxController {
 				.listStoreItemTransactionDetail(store.getId(), itemId,
 						specificationId, 0, 0);
 		model.addAttribute("listViewStockBalance", listViewStockBalance);
-		return "/module/inventory/mainstoreItem/itemViewStockBalanceDetail";
+		return "/module/ehrinventory/mainstoreItem/itemViewStockBalanceDetail";
 	}
 
-	@RequestMapping("/module/inventory/viewStockBalanceSubStoreDetail.form")
+	@RequestMapping("/module/ehrinventory/viewStockBalanceSubStoreDetail.form")
 	public String viewStockBalanceSubStoreDetail(
 			@RequestParam(value = "drugId", required = false) Integer drugId,
 			@RequestParam(value = "formulationId", required = false) Integer formulationId,
@@ -1396,10 +1396,10 @@ public class AjaxController {
 				.listStoreDrugTransactionDetail(store.getId(), drugId,
 						formulationId, expiry);
 		model.addAttribute("listViewStockBalance", listViewStockBalance);
-		return "/module/inventory/substore/viewStockBalanceDetail";
+		return "/module/ehrinventory/substore/viewStockBalanceDetail";
 	}
 
-	@RequestMapping("/module/inventory/itemViewStockBalanceSubStoreDetail.form")
+	@RequestMapping("/module/ehrinventory/itemViewStockBalanceSubStoreDetail.form")
 	public String itemViewStockBalanceSubStoreDetail(
 			@RequestParam(value = "itemId", required = false) Integer itemId,
 			@RequestParam(value = "specificationId", required = false) Integer specificationId,
@@ -1426,10 +1426,10 @@ public class AjaxController {
 				.listStoreItemTransactionDetail(store.getId(), itemId,
 						specificationId, 0, 0);
 		model.addAttribute("listViewStockBalance", listViewStockBalance);
-		return "/module/inventory/substoreItem/itemViewStockBalanceDetail";
+		return "/module/ehrinventory/substoreItem/itemViewStockBalanceDetail";
 	}
 
-	@RequestMapping("/module/inventory/subStoreIssueDrugDettail.form")
+	@RequestMapping("/module/ehrinventory/subStoreIssueDrugDettail.form")
 	public String viewDetailIssueDrug(
 			@RequestParam(value = "issueId", required = false) Integer issueId,
 			Model model) {
@@ -1635,9 +1635,9 @@ public class AjaxController {
 			
 
 		}
-		return "/module/inventory/substore/subStoreIssueDrugDettail";
+		return "/module/ehrinventory/substore/subStoreIssueDrugDettail";
 	}
-	@RequestMapping("/module/inventory/subStoreIssueDrugDeduct.form")
+	@RequestMapping("/module/ehrinventory/subStoreIssueDrugDeduct.form")
 	public String viewDrugDeduct(
 			
 			@RequestParam(value = "receiptid", required = false) Integer receiptid,
@@ -1854,9 +1854,9 @@ public class AjaxController {
 
 		}  
 		    
-		return "/module/inventory/substore/subStoreIssueDrugDeduct";
+		return "/module/ehrinventory/substore/subStoreIssueDrugDeduct";
 	}
-	@RequestMapping("/module/inventory/subStoreIssueDrugAccountDettail.form")
+	@RequestMapping("/module/ehrinventory/subStoreIssueDrugAccountDettail.form")
 	public String viewDetailIssueDrugAccount(
 			@RequestParam(value = "issueId", required = false) Integer issueId,
 			Model model) {
@@ -1871,10 +1871,10 @@ public class AjaxController {
 			model.addAttribute("date", listDrugIssue.get(0).getDrugAccount()
 					.getCreatedOn());
 		}
-		return "/module/inventory/substore/subStoreIssueDrugAccountDettail";
+		return "/module/ehrinventory/substore/subStoreIssueDrugAccountDettail";
 	}
 
-	@RequestMapping("/module/inventory/subStoreIssueItemDettail.form")
+	@RequestMapping("/module/ehrinventory/subStoreIssueItemDettail.form")
 	public String viewDetailIssueItem(
 			@RequestParam(value = "issueId", required = false) Integer issueId,
 			Model model) {
@@ -1889,10 +1889,10 @@ public class AjaxController {
 			model.addAttribute("date", listItemIssue.get(0).getItemAccount()
 					.getCreatedOn());
 		}
-		return "/module/inventory/substoreItem/subStoreIssueItemDettail";
+		return "/module/ehrinventory/substoreItem/subStoreIssueItemDettail";
 	}
 
-	@RequestMapping("/module/inventory/subStoreIssueItemPatientDettail.form")
+	@RequestMapping("/module/ehrinventory/subStoreIssueItemPatientDettail.form")
 	public String viewDetailIssueItemPatient(
 			@RequestParam(value = "issueId", required = false) Integer issueId,
 			Model model) {
@@ -2020,9 +2020,9 @@ public class AjaxController {
 	        
 	     
 		}
-		return "/module/inventory/substoreItem/subStoreIssueItemPatientDettail";
+		return "/module/ehrinventory/substoreItem/subStoreIssueItemPatientDettail";
 	}
-	@RequestMapping("/module/inventory/subStoreIssueItemDeduct.form")
+	@RequestMapping("/module/ehrinventory/subStoreIssueItemDeduct.form")
 	public String viewItemDeduct(
 			@RequestParam(value = "receiptid", required = false) Integer receiptid,
 			@RequestParam(value = "flag", required = false) Integer flag,
@@ -2182,10 +2182,10 @@ public class AjaxController {
 		
 	        }
 		}
-		return "/module/inventory/substoreItem/subStoreIssueItemDeduct";
+		return "/module/ehrinventory/substoreItem/subStoreIssueItemDeduct";
 	}
 
-	@RequestMapping("/module/inventory/subCatByCat.form")
+	@RequestMapping("/module/ehrinventory/subCatByCat.form")
 	public String getSubCatByCat(
 			@RequestParam(value = "categoryId", required = false) Integer categoryId,
 			Model model) {
@@ -2194,10 +2194,10 @@ public class AjaxController {
 		List<InventoryItemSubCategory> subCategories = inventoryService
 				.listSubCatByCat(categoryId);
 		model.addAttribute("subCategories", subCategories);
-		return "/module/inventory/item/subCatByCat";
+		return "/module/ehrinventory/item/subCatByCat";
 	}
 
-	@RequestMapping("/module/inventory/drugReceiptDetail.form")
+	@RequestMapping("/module/ehrinventory/drugReceiptDetail.form")
 	public String drugReceiptDetail(
 			@RequestParam(value = "receiptId", required = false) Integer receiptId,
 			Model model) {
@@ -2212,10 +2212,10 @@ public class AjaxController {
 					.getTransaction().getCreatedOn());
 		}
 		model.addAttribute("transactionDetails", transactionDetails);
-		return "/module/inventory/mainstore/receiptsToGeneralStoreDetail";
+		return "/module/ehrinventory/mainstore/receiptsToGeneralStoreDetail";
 	}
 
-	@RequestMapping("/module/inventory/itemReceiptDetail.form")
+	@RequestMapping("/module/ehrinventory/itemReceiptDetail.form")
 	public String itemReceiptDetail(
 			@RequestParam(value = "receiptId", required = false) Integer receiptId,
 			Model model) {
@@ -2230,10 +2230,10 @@ public class AjaxController {
 					.getTransaction().getCreatedOn());
 		}
 		model.addAttribute("transactionDetails", transactionDetails);
-		return "/module/inventory/mainstoreItem/itemReceiptsToGeneralStoreDetail";
+		return "/module/ehrinventory/mainstoreItem/itemReceiptsToGeneralStoreDetail";
 	}
 
-	@RequestMapping(value = "/module/inventory/viewStockBalanceExpiry.form", method = RequestMethod.GET)
+	@RequestMapping(value = "/module/ehrinventory/viewStockBalanceExpiry.form", method = RequestMethod.GET)
 	public String viewStockBalanceExpiry(
 			@RequestParam(value = "pageSize", required = false) Integer pageSize,
 			@RequestParam(value = "currentPage", required = false) Integer currentPage,
@@ -2326,14 +2326,14 @@ public class AjaxController {
 			model.put("store", store);
 		}
 		if (store != null && store.getParentStores().isEmpty()) {
-			return "/module/inventory/mainstore/viewStockBalanceExpiry";
+			return "/module/ehrinventory/mainstore/viewStockBalanceExpiry";
 		} else {
-			return "/module/inventory/substore/viewStockBalanceExpiry";
+			return "/module/ehrinventory/substore/viewStockBalanceExpiry";
 		}
 
 	}
 
-	@RequestMapping("/module/inventory/removeObjectFromList.form")
+	@RequestMapping("/module/ehrinventory/removeObjectFromList.form")
 	public String removeObjectFromList(
 			@RequestParam(value = "position") Integer position,
 			@RequestParam(value = "check") Integer check, Model model) {
@@ -2359,7 +2359,7 @@ public class AjaxController {
 				list.remove(a);
 			}
 			StoreSingleton.getInstance().getHash().put(fowardParam1, list);
-			return "redirect:/module/inventory/subStoreIssueItemForm.form";
+			return "redirect:/module/ehrinventory/subStoreIssueItemForm.form";
 		case 2:
 			// process fowardParam2
 			list = (List<InventoryStoreItemIndentDetail>) StoreSingleton
@@ -2371,7 +2371,7 @@ public class AjaxController {
 				list.remove(a);
 			}
 			StoreSingleton.getInstance().getHash().put(fowardParam2, list);
-			return "redirect:/module/inventory/subStoreIndentItem.form";
+			return "redirect:/module/ehrinventory/subStoreIndentItem.form";
 		case 3:
 			// process fowardParam3
 			list = (List<InventoryStoreDrugIndentDetail>) StoreSingleton
@@ -2395,7 +2395,7 @@ public class AjaxController {
 				list.remove(a);
 			}
 			StoreSingleton.getInstance().getHash().put(fowardParam4, list);
-			return "redirect:/module/inventory/subStoreIssueDrugAccountForm.form";
+			return "redirect:/module/ehrinventory/subStoreIssueDrugAccountForm.form";
 		case 5:
 			// process fowardParam5
 			list = (List<InventoryStoreDrugPatientDetail>) StoreSingleton
@@ -2407,7 +2407,7 @@ public class AjaxController {
 				list.remove(a);
 			}
 			StoreSingleton.getInstance().getHash().put(fowardParam5, list);
-			return "redirect:/module/inventory/subStoreIssueDrugForm.form";
+			return "redirect:/module/ehrinventory/subStoreIssueDrugForm.form";
 		case 6:
 			// process fowardParam6
 			list = (List<InventoryStoreItemTransactionDetail>) StoreSingleton
@@ -2419,7 +2419,7 @@ public class AjaxController {
 				list.remove(a);
 			}
 			StoreSingleton.getInstance().getHash().put(fowardParam6, list);
-			return "redirect:/module/inventory/itemReceiptsToGeneralStore.form";
+			return "redirect:/module/ehrinventory/itemReceiptsToGeneralStore.form";
 		case 7:
 			// process fowardParam7
 			list = (List<InventoryStoreDrugTransactionDetail>) StoreSingleton
@@ -2431,17 +2431,17 @@ public class AjaxController {
 				list.remove(a);
 			}
 			StoreSingleton.getInstance().getHash().put(fowardParam7, list);
-			return "redirect:/module/inventory/receiptsToGeneralStore.form";
+			return "redirect:/module/ehrinventory/receiptsToGeneralStore.form";
 		default:
 		}
 
-		return "redirect:/module/inventory/main.form";
+		return "redirect:/module/ehrinventory/main.form";
 	}
 
 	// ghanshyam 15-june-2013 New Requirement #1636 User is able to see and
 	// dispense drugs in patient queue for issuing drugs, as ordered from
 	// dashboard
-	@RequestMapping("/module/inventory/processDrugOrder.form")
+	@RequestMapping("/module/ehrinventory/processDrugOrder.form")
 	public String listReceiptDrugAvailablee(
 			@RequestParam(value = "drugId", required = false) Integer drugId,
 			@RequestParam(value = "formulationId", required = false) Integer formulationId,
@@ -2542,11 +2542,11 @@ public class AjaxController {
 			model.addAttribute("comments", comments);
 		}
 
-		return "/module/inventory/queue/processDrugOrder";
+		return "/module/ehrinventory/queue/processDrugOrder";
 	}
 	
 	
-	@RequestMapping("/module/inventory/processIssueDrugForIpdPatient.form")
+	@RequestMapping("/module/ehrinventory/processIssueDrugForIpdPatient.form")
 	public String processIssueDrugForIpdPatient(
 			@RequestParam(value = "action", required = false) Integer action,
 			@RequestParam(value = "patientType", required = false) String patientType,
@@ -2577,7 +2577,7 @@ public class AjaxController {
 			StoreSingleton.getInstance().getHash().remove(fowardParam);
 			StoreSingleton.getInstance().getHash()
 					.remove("issueDrug_" + userId);
-			return "redirect:/module/inventory/subStoreIssueDrugForm.form";
+			return "redirect:/module/ehrinventory/subStoreIssueDrugForm.form";
 		}
 		List<InventoryStoreDrugPatientDetail> list = (List<InventoryStoreDrugPatientDetail>) StoreSingleton
 				.getInstance().getHash().get(fowardParam);
@@ -2752,11 +2752,11 @@ public class AjaxController {
 					.remove("issueDrug_" + userId);
 		}
 
-		return "redirect:/module/inventory/subStoreIssueDrugList.form";
+		return "redirect:/module/ehrinventory/subStoreIssueDrugList.form";
 	}
 	
 	
-	@RequestMapping("/module/inventory/processIssueItemPatientForIpdPatient.form")
+	@RequestMapping("/module/ehrinventory/processIssueItemPatientForIpdPatient.form")
 	public String processIssueItemPatientForIpdPatient(
 			@RequestParam(value = "action", required = false) Integer action,
 			@RequestParam(value = "patientType", required = false) String patientType,
@@ -2787,7 +2787,7 @@ public class AjaxController {
 			StoreSingleton.getInstance().getHash().remove(fowardParam);
 			StoreSingleton.getInstance().getHash()
 					.remove("issueItemPatient_" + userId);
-			return "redirect:/module/inventory/subStoreIssueItemPatientForm.form";
+			return "redirect:/module/ehrinventory/subStoreIssueItemPatientForm.form";
 		}
 		List<InventoryStoreItemPatientDetail> list = (List<InventoryStoreItemPatientDetail>) StoreSingleton
 				.getInstance().getHash().get(fowardParam);
@@ -2953,6 +2953,6 @@ public class AjaxController {
 					.remove("issueItemPatient_" + userId);
 		}
 
-		return "redirect:/module/inventory/subStoreIssueItemPatientList.form";
+		return "redirect:/module/ehrinventory/subStoreIssueItemPatientList.form";
 	}
 }

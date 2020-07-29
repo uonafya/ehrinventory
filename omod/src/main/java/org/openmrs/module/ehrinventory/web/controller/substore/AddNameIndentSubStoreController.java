@@ -36,7 +36,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 
 @Controller("AddNameIndentSubStoreController")
-@RequestMapping("/module/inventory/addNameIndentSlip.form")
+@RequestMapping("/module/ehrinventory/addNameIndentSlip.form")
 public class AddNameIndentSubStoreController {
 	@RequestMapping(method = RequestMethod.GET)
 	public String firstView(@RequestParam(value="send",required=false)  String send,Model model) {
@@ -59,7 +59,7 @@ public class AddNameIndentSubStoreController {
 				}
     	        model.addAttribute("store", store);
 		model.addAttribute("send", send);
-		return "/module/inventory/substore/addNameIndentSlip";
+		return "/module/ehrinventory/substore/addNameIndentSlip";
 	}
 	@RequestMapping(method = RequestMethod.POST)
 	public String submit(HttpServletRequest request, Model model) {
@@ -116,6 +116,6 @@ public class AddNameIndentSubStoreController {
 			model.addAttribute("message", "Sorry don't have any indents to save");
 			model.addAttribute("urlS", "subStoreIndentDrug.form");
 		}
-	 return "/module/inventory/thickbox/success";
+	 return "/module/ehrinventory/thickbox/success";
 	}
 }

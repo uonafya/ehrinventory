@@ -41,7 +41,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 
 @Controller("IssueDrugAccountFormController")
-@RequestMapping("/module/inventory/subStoreIssueDrugAccountForm.form")
+@RequestMapping("/module/ehrinventory/subStoreIssueDrugAccountForm.form")
 public class IssueDrugAccountFormController {
 	@RequestMapping(method = RequestMethod.GET)
 	public String firstView(
@@ -73,7 +73,7 @@ public class IssueDrugAccountFormController {
 	 InventoryStoreDrugAccount issueDrugAccount = (InventoryStoreDrugAccount )StoreSingleton.getInstance().getHash().get("issueDrugAccount_"+userId);
 	 model.addAttribute("listDrugAccountDetail", list);
 	 model.addAttribute("issueDrugAccount", issueDrugAccount);
-	 return "/module/inventory/substore/subStoreIssueDrugAccountForm";
+	 return "/module/ehrinventory/substore/subStoreIssueDrugAccountForm";
 	}
 	@RequestMapping(method = RequestMethod.POST)
 	public String submit(HttpServletRequest request, Model model) {
@@ -105,7 +105,7 @@ public class IssueDrugAccountFormController {
 			}
 		
 		if(drug == null){
-			errors.add("inventory.issueDrug.drug.required");
+			errors.add("ehrinventory.issueDrug.drug.required");
 			
 			//return "/module/inventory/substore/subStoreIssueDrugAccountForm";
 		} else 
@@ -116,7 +116,7 @@ public class IssueDrugAccountFormController {
 		InventoryDrugFormulation formulationO = inventoryService.getDrugFormulationById(formulation);
 		if(formulationO == null)
 		{
-			errors.add("inventory.receiptDrug.formulation.required");
+			errors.add("ehrinventory.receiptDrug.formulation.required");
 		}
 		if(formulationO != null && drug != null && !drug.getFormulations().contains(formulationO))
 		{
@@ -132,7 +132,7 @@ public class IssueDrugAccountFormController {
 			InventoryStoreDrugAccount issueDrugPatient = (InventoryStoreDrugAccount )StoreSingleton.getInstance().getHash().get("issueDrugAccount_"+userId);
 			 model.addAttribute("issueDrugAccount", issueDrugPatient);
 			model.addAttribute("listDrugAccountDetail", list);
-			return "/module/inventory/substore/subStoreIssueDrugAccountForm";
+			return "/module/ehrinventory/substore/subStoreIssueDrugAccountForm";
 		}
 		
 		//InventoryStore store =  inventoryService.getStoreByCollectionRole(new ArrayList<Role>(Context.getAuthenticatedUser().getAllRoles()));
@@ -167,14 +167,14 @@ public class IssueDrugAccountFormController {
 				}
 				listIssueQty.add(temp);
 				if(temp > t.getCurrentQuantity()){
-					errors.add("inventory.issueDrug.quantity.lessthanQuantity.required");
+					errors.add("ehrinventory.issueDrug.quantity.lessthanQuantity.required");
 				}
 			}
 		}else{
-			errors.add("inventory.issueDrug.drug.required");
+			errors.add("ehrinventory.issueDrug.drug.required");
 		}
 		if(checkCorrect){
-			errors.add("inventory.issueDrug.quantity.required");
+			errors.add("ehrinventory.issueDrug.quantity.required");
 		}
 		if(errors != null && errors.size() > 0){
 			
@@ -189,9 +189,8 @@ public class IssueDrugAccountFormController {
 			 InventoryStoreDrugAccount issueDrugPatient = (InventoryStoreDrugAccount )StoreSingleton.getInstance().getHash().get("issueDrugAccount_"+userId);
 			 model.addAttribute("issueDrugAccount", issueDrugPatient);
 			model.addAttribute("listDrugAccountDetail", list);
-			return "/module/inventory/substore/subStoreIssueDrugAccountForm";
+			return "/module/ehrinventory/substore/subStoreIssueDrugAccountForm";
 		}
-		//System.out.println("COME HERE!!!!!!!!!!!!!!            ");
 		String fowardParam = "issueDrugAccountDetail_"+userId;
 		List<InventoryStoreDrugAccountDetail> list = (List<InventoryStoreDrugAccountDetail> )StoreSingleton.getInstance().getHash().get(fowardParam);
 		List<InventoryStoreDrugAccountDetail> listExt = null;
@@ -225,6 +224,6 @@ public class IssueDrugAccountFormController {
 		InventoryStoreDrugAccount issueDrugAccount = (InventoryStoreDrugAccount )StoreSingleton.getInstance().getHash().get("issueDrugAccount_"+userId);
 		//model.addAttribute("issueDrugAccount", issueDrugAccount);
 		//model.addAttribute("listDrugAccountDetail", list);
-	 return "redirect:/module/inventory/subStoreIssueDrugAccountForm.form";
+	 return "redirect:/module/ehrinventory/subStoreIssueDrugAccountForm.form";
 	}
 }

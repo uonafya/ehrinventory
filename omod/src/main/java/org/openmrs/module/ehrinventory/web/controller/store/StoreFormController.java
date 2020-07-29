@@ -42,7 +42,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.support.SessionStatus;
 
 @Controller("storeFormController")
-@RequestMapping("/module/inventory/store.form")
+@RequestMapping("/module/ehrinventory/store.form")
 public class StoreFormController {
 	Log log = LogFactory.getLog(this.getClass());
 
@@ -57,7 +57,7 @@ public class StoreFormController {
 		}
 		List<Action> listIsDrug = ActionValue.getListIsDrug();
 		model.addAttribute("listIsDrug", listIsDrug);
-		return "/module/inventory/store/form";
+		return "/module/ehrinventory/store/form";
 	}
 	@ModelAttribute("roles")
 	public List<Role> populateRoles(HttpServletRequest request,Model model) {
@@ -192,6 +192,6 @@ public class StoreFormController {
 
 		inventoryService.saveStore(store);
 		 status.setComplete();
-		return "redirect:/module/inventory/storeList.form";
+		return "redirect:/module/ehrinventory/storeList.form";
 	}
 }

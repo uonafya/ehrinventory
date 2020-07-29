@@ -16,14 +16,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 @Controller("IssueItemController")
-@RequestMapping("/module/inventory/subStoreIssueItem.form")
+@RequestMapping("/module/ehrinventory/subStoreIssueItem.form")
 public class IssueItemController {
 
 	@RequestMapping(method = RequestMethod.GET)
 	public String firstView() {
 		
 			
-		return "/module/inventory/substoreItem/subStoreIssueItem";
+		return "/module/ehrinventory/substoreItem/subStoreIssueItem";
 	}
 	
 	
@@ -32,7 +32,7 @@ public class IssueItemController {
 	public String onSubmit() {
 		
 	
-		return "redirect:module/inventory/substoreItem/subStoreIssueItem";
+		return "redirect:module/ehrinventory/substoreItem/subStoreIssueItem";
 	}
 
 

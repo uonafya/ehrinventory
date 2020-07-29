@@ -35,7 +35,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.support.SessionStatus;
 
 @Controller("CreateAccountIssueItemController")
-@RequestMapping("/module/inventory/createAccountIssueItem.form")
+@RequestMapping("/module/ehrinventory/createAccountIssueItem.form")
 public class CreateAccountIssueItemController {
 
 	@RequestMapping(method = RequestMethod.GET)
@@ -46,7 +46,7 @@ public class CreateAccountIssueItemController {
 	public String onSubmit(@ModelAttribute("issue") InventoryStoreItemAccount issue, BindingResult bindingResult, HttpServletRequest request, SessionStatus status, Model model) {
 		new IssueItemAccountValidator().validate(issue, bindingResult);
 		if (bindingResult.hasErrors()) {
-			return "/module/inventory/substoreItem/createAccountIssueItem";
+			return "/module/ehrinventory/substoreItem/createAccountIssueItem";
 			
 		}else{
 			
@@ -79,7 +79,7 @@ public class CreateAccountIssueItemController {
 			model.addAttribute("message", "Succesfully");
 			model.addAttribute("urlS", "subStoreIssueItemForm.form");
 			
-			return "/module/inventory/thickbox/success";
+			return "/module/ehrinventory/thickbox/success";
 		}
 	}
 }

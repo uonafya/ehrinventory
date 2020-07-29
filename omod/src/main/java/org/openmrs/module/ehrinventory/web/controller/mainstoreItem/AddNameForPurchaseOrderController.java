@@ -34,11 +34,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 
 @Controller("AddNameForPurchaseItemOrderController")
-@RequestMapping("/module/inventory/itemAddNameForPurchaseOrderSlip.form")
+@RequestMapping("/module/ehrinventory/itemAddNameForPurchaseOrderSlip.form")
 public class AddNameForPurchaseOrderController {
 	@RequestMapping(method = RequestMethod.GET)
 	public String firstView(Model model) {
-		return "/module/inventory/mainstoreItem/itemAddNameForPurchaseOrderSlip";
+		return "/module/ehrinventory/mainstoreItem/itemAddNameForPurchaseOrderSlip";
 	}
 	@RequestMapping(method = RequestMethod.POST)
 	public String submit(HttpServletRequest request, Model model) {
@@ -88,6 +88,6 @@ public class AddNameForPurchaseOrderController {
 			model.addAttribute("message", "Sorry don't have any purchase to save");
 			model.addAttribute("urlS", "itemPurchaseOrderForGeneralStore.form");
 		}
-	 return "/module/inventory/thickbox/success";
+	 return "/module/ehrinventory/thickbox/success";
 	}
 }

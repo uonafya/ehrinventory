@@ -36,7 +36,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 
 @Controller("ItemSpecificationListController")
-@RequestMapping("/module/inventory/itemSpecificationList.form")
+@RequestMapping("/module/ehrinventory/itemSpecificationList.form")
 public class ItemSpecificationListController {
 	 Log log = LogFactory.getLog(this.getClass());
 		@RequestMapping(method=RequestMethod.POST)
@@ -69,7 +69,7 @@ public class ItemSpecificationListController {
 			}
 			httpSession.setAttribute(WebConstants.OPENMRS_MSG_ATTR, StringUtils.isBlank(temp) ?  "itemSpecification.deleted" : temp);
 	    	
-	    	return "redirect:/module/inventory/itemSpecificationList.form";
+	    	return "redirect:/module/ehrinventory/itemSpecificationList.form";
 	    }
 		
 		@RequestMapping(method=RequestMethod.GET)
@@ -93,6 +93,6 @@ public class ItemSpecificationListController {
 			model.put("searchName", searchName);
 			model.put("pagingUtil", pagingUtil);
 			
-			return "/module/inventory/item/itemSpecificationList";
+			return "/module/ehrinventory/item/itemSpecificationList";
 		}
 }

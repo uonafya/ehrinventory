@@ -39,7 +39,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 
 @Controller("IssueItemFormController")
-@RequestMapping("/module/inventory/subStoreIssueItemForm.form")
+@RequestMapping("/module/ehrinventory/subStoreIssueItemForm.form")
 public class IssueItemFormController {
 	@RequestMapping(method = RequestMethod.GET)
 	public String firstView(
@@ -61,7 +61,7 @@ public class IssueItemFormController {
 	 InventoryStoreItemAccount issueItemAccount = (InventoryStoreItemAccount )StoreSingleton.getInstance().getHash().get("issueItem_"+userId);
 	 model.addAttribute("listAccountDetail", list);
 	 model.addAttribute("issueItemAccount", issueItemAccount);
-	 return "/module/inventory/substoreItem/subStoreIssueItemForm";
+	 return "/module/ehrinventory/substoreItem/subStoreIssueItemForm";
 	 
 	}
 	@RequestMapping(method = RequestMethod.POST)
@@ -86,7 +86,7 @@ public class IssueItemFormController {
 			 InventoryStoreItemAccount issueItemAccount = (InventoryStoreItemAccount )StoreSingleton.getInstance().getHash().get("issueItem_"+userId);
 			 model.addAttribute("issueItemAccount", issueItemAccount);
 			model.addAttribute("listAccountDetail", list);
-			return "/module/inventory/substoreItem/subStoreIssueItemForm";
+			return "/module/ehrinventory/substoreItem/subStoreIssueItemForm";
 		}
 		
 		
@@ -94,10 +94,10 @@ public class IssueItemFormController {
 		
 		Integer sumCurrentOfItem = inventoryService.sumStoreItemCurrentQuantity(store.getId(), item.getId(), specification);
 		if(sumCurrentOfItem == 0 || issueItemQuantity <= 0 ){
-			errors.add("inventory.issueItem.quantity.required");
+			errors.add("ehrinventory.issueItem.quantity.required");
 		}
 		if(sumCurrentOfItem < issueItemQuantity){
-			errors.add("inventory.issueItem.quantity.lessthanQuantity.required");
+			errors.add("ehrinventory.issueItem.quantity.lessthanQuantity.required");
 		}
 		
 		if(errors != null && errors.size() > 0){
@@ -111,7 +111,7 @@ public class IssueItemFormController {
 			model.addAttribute("issueItemQuantity", issueItemQuantity);
 			model.addAttribute("itemId", itemId);
 			model.addAttribute("errors", errors);
-			return "/module/inventory/substoreItem/subStoreIssueItemForm";
+			return "/module/ehrinventory/substoreItem/subStoreIssueItemForm";
 		}
 		
 		
@@ -166,6 +166,6 @@ public class IssueItemFormController {
 		 InventoryStoreItemAccount issueItemAccount = (InventoryStoreItemAccount )StoreSingleton.getInstance().getHash().get("issueItem_"+userId);
 		// model.addAttribute("issueItemAccount", issueItemAccount);
 		//model.addAttribute("listAccountDetail", list);
-	 return "redirect:/module/inventory/subStoreIssueItemForm.form";
+	 return "redirect:/module/ehrinventory/subStoreIssueItemForm.form";
 	}
 }

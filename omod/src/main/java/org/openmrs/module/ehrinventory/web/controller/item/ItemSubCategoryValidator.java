@@ -36,20 +36,20 @@ public class ItemSubCategoryValidator implements Validator {
     	InventoryItemSubCategory subCategory = (InventoryItemSubCategory) command;
     	
     	if( StringUtils.isBlank(subCategory.getName())){
-    		error.reject("inventory.itemSubCategory.name.required");
+    		error.reject("ehrinventory.itemSubCategory.name.required");
     	}
     	if( subCategory.getCategory() == null){
-    		error.reject("inventory.itemSubCategory.category.required");
+    		error.reject("ehrinventory.itemSubCategory.category.required");
     	}
     	InventoryService inventoryService = (InventoryService) Context.getService(InventoryService.class);
     	InventoryItemSubCategory subCategoryE = inventoryService.getItemSubCategoryByName(subCategory.getCategory().getId() , subCategory.getName());
     	if(subCategory.getId() != null){
     		if(subCategoryE != null && subCategoryE.getId().intValue() != subCategory.getId().intValue()){
-    			error.reject("inventory.itemSubCategory.name.existed");
+    			error.reject("ehrinventory.itemSubCategory.name.existed");
     		}
     	}else{
     		if(subCategoryE != null){
-    	    		error.reject("inventory.itemSubCategory.name.existed");
+    	    		error.reject("ehrinventory.itemSubCategory.name.existed");
     		}
     	}
     	

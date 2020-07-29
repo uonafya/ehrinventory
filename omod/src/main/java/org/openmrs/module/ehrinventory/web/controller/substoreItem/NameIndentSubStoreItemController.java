@@ -36,7 +36,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 
 @Controller("NameIndentSubStoreItemController")
-@RequestMapping("/module/inventory/itemAddNameIndentSlip.form")
+@RequestMapping("/module/ehrinventory/itemAddNameIndentSlip.form")
 public class NameIndentSubStoreItemController {
 	@RequestMapping(method = RequestMethod.GET)
 	public String firstView(@RequestParam(value="send",required=false)  String send,Model model) {
@@ -59,7 +59,7 @@ public class NameIndentSubStoreItemController {
 			}
 		model.addAttribute("store", store);
 		model.addAttribute("send", send);
-		return "/module/inventory/substoreItem/itemAddNameIndentSlip";
+		return "/module/ehrinventory/substoreItem/itemAddNameIndentSlip";
 	}
 	@RequestMapping(method = RequestMethod.POST)
 	public String submit(HttpServletRequest request, Model model) {
@@ -119,6 +119,6 @@ public class NameIndentSubStoreItemController {
 			model.addAttribute("message", "Sorry don't have any purchase to save");
 			model.addAttribute("urlS", "subStoreIndentItem.form");
 		}
-	 return "/module/inventory/thickbox/success";
+	 return "/module/ehrinventory/thickbox/success";
 	}
 }

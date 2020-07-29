@@ -53,7 +53,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller("DrugOrderController")
-@RequestMapping("/module/inventory/drugorder.form")
+@RequestMapping("/module/ehrinventory/drugorder.form")
 public class DrugOrderController {
 	@RequestMapping(method = RequestMethod.GET)
 	public String main(Model model,
@@ -84,7 +84,7 @@ public class DrugOrderController {
 		model.addAttribute("pharmacist", Context.getAuthenticatedUser().getGivenName());
                 
                 
-		return "/module/inventory/queue/drugOrder";
+		return "/module/ehrinventory/queue/drugOrder";
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
@@ -268,6 +268,6 @@ public class DrugOrderController {
 		  }
 		  
 		}
-		return "redirect:/module/inventory/patientQueueDrugOrder.form";
+		return "redirect:/module/ehrinventory/patientQueueDrugOrder.form";
 	}
 }

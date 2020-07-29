@@ -43,7 +43,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller("ReceiptFormController")
-@RequestMapping("/module/inventory/receiptsToGeneralStore.form")
+@RequestMapping("/module/ehrinventory/receiptsToGeneralStore.form")
 public class ReceiptFormController {
 	@RequestMapping(method = RequestMethod.GET)
 	public String firstView(
@@ -81,7 +81,7 @@ public class ReceiptFormController {
 	 List<InventoryStoreDrugTransactionDetail> list = (List<InventoryStoreDrugTransactionDetail> )StoreSingleton.getInstance().getHash().get(fowardParam);
 	 model.addAttribute("listReceipt", list);
 	 
-	 return "/module/inventory/mainstore/receiptsToGeneralStore";
+	 return "/module/ehrinventory/mainstore/receiptsToGeneralStore";
 	 
 	}
 	@RequestMapping(method = RequestMethod.POST)
@@ -110,7 +110,7 @@ public class ReceiptFormController {
 		}
 		
 		if(drug == null){
-			errors.add("inventory.receiptDrug.drug.required");
+			errors.add("ehrinventory.receiptDrug.drug.required");
 		}else{
 		 drugId = drug.getId();
 		}
@@ -137,20 +137,20 @@ public class ReceiptFormController {
 			Date dateManufac = DateUtils.getDateFromStr(dateManufacture);
 			Date dateExpi = DateUtils.getDateFromStr(dateExpiry);
 			if(dateManufac.after(dateExpi)  ){
-				errors.add("inventory.receiptDrug.manufacNeedLessThanExpiry");
+				errors.add("ehrinventory.receiptDrug.manufacNeedLessThanExpiry");
 			}
 		}
 		
 		InventoryDrugFormulation formulationO = inventoryService.getDrugFormulationById(formulation);
 		if(formulationO == null)
 		{
-			errors.add("inventory.receiptDrug.formulation.required");
+			errors.add("ehrinventory.receiptDrug.formulation.required");
 		}
 		//InventoryDrug drug = inventoryService.getDrugById(drugId);
 	
 		if(formulationO != null && drug != null && !drug.getFormulations().contains(formulationO))
 		{
-			errors.add("inventory.receiptDrug.formulation.notCorrect");
+			errors.add("ehrinventory.receiptDrug.formulation.notCorrect");
 		}
 		if(!CollectionUtils.isEmpty(errors)){
 			model.addAttribute("errors", errors);
@@ -168,7 +168,7 @@ public class ReceiptFormController {
 			// Sagar Bele : Date - 22-01-2013 Issue Number 660 : [Inventory] Add receipt from field in Table and front end	
 			model.addAttribute("receiptFrom", receiptFrom);
 			
-			return "/module/inventory/mainstore/receiptsToGeneralStore";
+			return "/module/ehrinventory/mainstore/receiptsToGeneralStore";
 		}
 		
 		InventoryStoreDrugTransactionDetail transactionDetail = new InventoryStoreDrugTransactionDetail();
@@ -215,6 +215,6 @@ public class ReceiptFormController {
 		list.add(transactionDetail);
 		StoreSingleton.getInstance().getHash().put(fowardParam, list);
 		//model.addAttribute("listReceipt", list);
-	 return "redirect:/module/inventory/receiptsToGeneralStore.form";
+	 return "redirect:/module/ehrinventory/receiptsToGeneralStore.form";
 	}
 }

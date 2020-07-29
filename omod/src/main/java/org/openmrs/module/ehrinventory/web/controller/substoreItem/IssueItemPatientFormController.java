@@ -46,7 +46,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 
 @Controller("IssueItemPatientFormController")
-@RequestMapping("/module/inventory/subStoreIssueItemPatientForm.form")
+@RequestMapping("/module/ehrinventory/subStoreIssueItemPatientForm.form")
 public class IssueItemPatientFormController {
 	@RequestMapping(method = RequestMethod.GET)
 	public String firstView(
@@ -99,7 +99,7 @@ public class IssueItemPatientFormController {
 	}
 	 model.addAttribute("listItemDetail", list);
 	 model.addAttribute("issueItemPatient", issueItemPatient);
-	 return "/module/inventory/substoreItem/subStoreIssueItemPatientForm";
+	 return "/module/ehrinventory/substoreItem/subStoreIssueItemPatientForm";
 	 
 	}
 	@RequestMapping(method = RequestMethod.POST)
@@ -116,7 +116,7 @@ public class IssueItemPatientFormController {
 		InventoryItem item = inventoryService.getItemById(itemId);
 		
 		if(item == null || (item.getSpecifications() != null && item.getSpecifications().size() > 0 && specification <=0)){
-			errors.add("inventory.issueItem.quantity.required");
+			errors.add("ehrinventory.issueItem.quantity.required");
 			model.addAttribute("errors", errors);
 			model.addAttribute("category", category);
 			String fowardParam = "issueItemDetailPatient_"+userId;
@@ -124,7 +124,7 @@ public class IssueItemPatientFormController {
 			 InventoryStoreItemAccount issueItemAccount = (InventoryStoreItemAccount )StoreSingleton.getInstance().getHash().get("issueItem_"+userId);
 			 model.addAttribute("issueItemAccount", issueItemAccount);
 			model.addAttribute("listPatientDetail", list);
-			return "/module/inventory/substoreItem/subStoreIssueItemPatientForm";
+			return "/module/ehrinventory/substoreItem/subStoreIssueItemPatientForm";
 		}
 		
 		
@@ -146,10 +146,10 @@ public class IssueItemPatientFormController {
 		}
 		Integer sumCurrentOfItem = inventoryService.sumStoreItemCurrentQuantity(store.getId(), item.getId(), specification);
 		if(sumCurrentOfItem == 0 || issueItemQuantity <= 0 ){
-			errors.add("inventory.issueItem.quantity.required");
+			errors.add("ehrinventory.issueItem.quantity.required");
 		}
 		if(sumCurrentOfItem < issueItemQuantity){
-			errors.add("inventory.issueItem.quantity.lessthanQuantity.required");
+			errors.add("ehrinventory.issueItem.quantity.lessthanQuantity.required");
 		}
 		
 		if(errors != null && errors.size() > 0){
@@ -163,7 +163,7 @@ public class IssueItemPatientFormController {
 			model.addAttribute("issueItemQuantity", issueItemQuantity);
 			model.addAttribute("itemId", itemId);
 			model.addAttribute("errors", errors);
-			return "/module/inventory/substoreItem/subStoreIssueItemPatientForm";
+			return "/module/ehrinventory/substoreItem/subStoreIssueItemPatientForm";
 		}
 		
 		
@@ -218,6 +218,6 @@ public class IssueItemPatientFormController {
 		InventoryStoreItemPatientDetail issueItemAccount = (InventoryStoreItemPatientDetail )StoreSingleton.getInstance().getHash().get("issueItem_"+userId);
 		// model.addAttribute("issueItemAccount", issueItemAccount);
 		//model.addAttribute("listAccountDetail", list);
-	 return "redirect:/module/inventory/subStoreIssueItemPatientForm.form";
+	 return "redirect:/module/ehrinventory/subStoreIssueItemPatientForm.form";
 	}
 }

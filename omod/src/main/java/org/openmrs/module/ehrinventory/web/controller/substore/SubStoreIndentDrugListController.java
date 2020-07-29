@@ -36,7 +36,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller("SubStoreIndentDrugListController")
-@RequestMapping("/module/inventory/subStoreIndentDrugList.form")
+@RequestMapping("/module/ehrinventory/subStoreIndentDrugList.form")
 public class SubStoreIndentDrugListController {
 	@RequestMapping(method = RequestMethod.GET)
 	public String showList( 
@@ -107,6 +107,6 @@ public class SubStoreIndentDrugListController {
 		model.addAttribute("toDate", toDate);
 		model.addAttribute("pagingUtil", pagingUtil);
 		model.addAttribute("store", subStore );
-		return "/module/inventory/substore/subStoreIndentDrugList";
+		return "/module/ehrinventory/substore/subStoreIndentDrugList";
 	}
 }

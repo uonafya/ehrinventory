@@ -109,7 +109,7 @@ public class SubStoreIndentItemDetailController {
 		model.put("pagingUtil", pagingUtil );
 		model.put("indents", indents );
 		model.put("listCategory", listCategory );
-	 return "/module/inventory/substoreItem/subStoreIndentItemDetail";
+	 return "/module/ehrinventory/substoreItem/subStoreIndentItemDetail";
 	 
 	}
 }

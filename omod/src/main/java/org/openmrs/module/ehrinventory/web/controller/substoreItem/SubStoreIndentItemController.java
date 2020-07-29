@@ -37,7 +37,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller("SubStoreIndentItemController")
-@RequestMapping("/module/inventory/subStoreIndentItem.form")
+@RequestMapping("/module/ehrinventory/subStoreIndentItem.form")
 public class SubStoreIndentItemController {
 	@RequestMapping(method = RequestMethod.GET)
 	public String firstView(
@@ -78,7 +78,7 @@ public class SubStoreIndentItemController {
 	 List<InventoryStoreItemIndentDetail> list = (List<InventoryStoreItemIndentDetail> )StoreSingleton.getInstance().getHash().get(fowardParam);
 	 model.addAttribute("listIndent", list);
 	 
-	 return "/module/inventory/substoreItem/subStoreIndentItem";
+	 return "/module/ehrinventory/substoreItem/subStoreIndentItem";
 	 
 	}
 	@RequestMapping(method = RequestMethod.POST)
@@ -94,17 +94,17 @@ public class SubStoreIndentItemController {
 		
 		InventoryItem item = inventoryService.getItemById(itemId);
 		if(item == null){
-			errors.add("inventory.indent.item.required");
+			errors.add("ehrinventory.indent.item.required");
 			model.addAttribute("category", category);
 			model.addAttribute("formulation", specification);
 			model.addAttribute("itemId", itemId);
 			model.addAttribute("quantity", quantity);
 			model.addAttribute("errors", errors);
-			return "/module/inventory/substore/subStoreIndentItem";
+			return "/module/ehrinventory/substore/subStoreIndentItem";
 		}else if(CollectionUtils.isNotEmpty(item.getSpecifications()) && specification == 0 )
 		{
-			errors.add("inventory.receiptItem.specification.required");
-			return "/module/inventory/substore/subStoreIndentItem";
+			errors.add("ehrinventory.receiptItem.specification.required");
+			return "/module/ehrinventory/substore/subStoreIndentItem";
 		}
 		
 		InventoryStoreItemIndentDetail indentDetail = new InventoryStoreItemIndentDetail();
@@ -140,6 +140,6 @@ public class SubStoreIndentItemController {
 		
 		StoreSingleton.getInstance().getHash().put(fowardParam, listExt);
 		//model.addAttribute("listIndent", list);
-	 return "redirect:/module/inventory/subStoreIndentItem.form";
+	 return "redirect:/module/ehrinventory/subStoreIndentItem.form";
 }
 }

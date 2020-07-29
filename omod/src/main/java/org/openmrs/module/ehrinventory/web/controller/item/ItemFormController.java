@@ -48,7 +48,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.support.SessionStatus;
 
 @Controller("ItemFormController")
-@RequestMapping("/module/inventory/item.form")
+@RequestMapping("/module/ehrinventory/item.form")
 public class ItemFormController {
 Log log = LogFactory.getLog(this.getClass());
 	
@@ -64,7 +64,7 @@ Log log = LogFactory.getLog(this.getClass());
 			}
 			model.addAttribute("item",item);
 		}
-		return "/module/inventory/item/item";
+		return "/module/ehrinventory/item/item";
 	}
 	/*@ModelAttribute("categories")
 	public List<InventoryItemCategory> populateCategories() {
@@ -122,7 +122,7 @@ Log log = LogFactory.getLog(this.getClass());
 	public String onSubmit(@ModelAttribute("item") InventoryItem item, BindingResult bindingResult, HttpServletRequest request, SessionStatus status) {
 		new ItemValidator().validate(item, bindingResult);
 		if (bindingResult.hasErrors()) {
-			return "/module/inventory/item/item";
+			return "/module/ehrinventory/item/item";
 			
 		}else{
 			InventoryService inventoryService = (InventoryService) Context.getService(InventoryService.class);
@@ -131,7 +131,7 @@ Log log = LogFactory.getLog(this.getClass());
 			item.setCategory(item.getSubCategory().getCategory());
 			inventoryService.saveItem(item);
 			status.setComplete();
-			return "redirect:/module/inventory/itemList.form";
+			return "redirect:/module/ehrinventory/itemList.form";
 		}
 	}
 }

@@ -33,7 +33,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller("ListOfDrugOrderController")
-@RequestMapping("/module/inventory/listoforder.form")
+@RequestMapping("/module/ehrinventory/listoforder.form")
 public class ListOfDrugOrderController {
 	@RequestMapping(method = RequestMethod.GET)
 	public String main(Model model, 
@@ -66,6 +66,6 @@ public class ListOfDrugOrderController {
                 
                 
                 
-		return "/module/inventory/queue/listOfOrder";
+		return "/module/ehrinventory/queue/listOfOrder";
 	}
 }

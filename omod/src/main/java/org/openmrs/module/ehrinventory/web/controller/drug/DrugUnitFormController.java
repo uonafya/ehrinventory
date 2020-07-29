@@ -32,7 +32,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.support.SessionStatus;
 
 @Controller("DrugUnitFormController")
-@RequestMapping("/module/inventory/drugUnit.form")
+@RequestMapping("/module/ehrinventory/drugUnit.form")
 public class DrugUnitFormController {
 Log log = LogFactory.getLog(this.getClass());
 	
@@ -42,14 +42,14 @@ Log log = LogFactory.getLog(this.getClass());
 			drugUnit = Context.getService(InventoryService.class).getDrugUnitById(id);
 			model.addAttribute("drugUnit",drugUnit);
 		}
-		return "/module/inventory/drug/drugUnit";
+		return "/module/ehrinventory/drug/drugUnit";
 	}
 	
 	@RequestMapping(method = RequestMethod.POST)
 	public String onSubmit(@ModelAttribute("drugUnit") InventoryDrugUnit drugUnit, BindingResult bindingResult, HttpServletRequest request, SessionStatus status) {
 		new DrugUnitValidator().validate(drugUnit, bindingResult);
 		if (bindingResult.hasErrors()) {
-			return "/module/inventory/drug/drugUnit";
+			return "/module/ehrinventory/drug/drugUnit";
 			
 		}else{
 			InventoryService inventoryService = (InventoryService) Context.getService(InventoryService.class);
@@ -57,7 +57,7 @@ Log log = LogFactory.getLog(this.getClass());
 			drugUnit.setCreatedOn(new Date());
 			inventoryService.saveDrugUnit(drugUnit);
 			status.setComplete();
-			return "redirect:/module/inventory/drugUnitList.form";
+			return "redirect:/module/ehrinventory/drugUnitList.form";
 		}
 	}
 	

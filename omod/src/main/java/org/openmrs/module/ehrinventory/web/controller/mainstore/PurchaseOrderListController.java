@@ -34,7 +34,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller("PurchaseOrderListController")
-@RequestMapping("/module/inventory/purchaseOrderForGeneralStoreList.form")
+@RequestMapping("/module/ehrinventory/purchaseOrderForGeneralStoreList.form")
 public class PurchaseOrderListController {
 	@RequestMapping(method = RequestMethod.GET)
 	public String list( @RequestParam(value="pageSize",required=false)  Integer pageSize, 
@@ -95,7 +95,7 @@ public class PurchaseOrderListController {
 		model.put("toDate", toDate );
 		model.put("pagingUtil", pagingUtil );
 		model.put("purchases", purchases );
-	 return "/module/inventory/mainstore/purchaseOrderForGeneralStoreList";
+	 return "/module/ehrinventory/mainstore/purchaseOrderForGeneralStoreList";
 	 
 	}
 }

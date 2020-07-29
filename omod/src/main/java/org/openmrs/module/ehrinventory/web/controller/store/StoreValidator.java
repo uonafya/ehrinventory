@@ -36,10 +36,10 @@ public class StoreValidator implements Validator {
     	InventoryStore store = (InventoryStore) command;
     	
    	if( StringUtils.isBlank(store.getName())){
-    		error.reject("inventory.store.name.required");
+    		error.reject("ehrinventory.store.name.required");
     	}
     	if(store.getRole() == null){
-    		error.reject("inventory.store.role.required");
+    		error.reject("ehrinventory.store.role.required");
     	}
     	/*if( StringUtils.isBlank(store.getCode())){
     		error.reject("inventory.store.code.required");
@@ -48,14 +48,14 @@ public class StoreValidator implements Validator {
     	 
     	InventoryStore storeE = inventoryService.getStoreByName(store.getName());
       
-       if(store.getId() != null){  System.out.println(	"helllo ji");
+       if(store.getId() != null){
     		if(storeE != null && storeE.getId().intValue() != store.getId().intValue()){
     			
-    			error.reject("inventory.store.name.existed");
+    			error.reject("ehrinventory.store.name.existed");
     		}
     	}else{
     		if(storeE != null){
-    	    		error.reject("inventory.store.name.existed");
+    	    		error.reject("ehrinventory.store.name.existed");
     		}
     	}
     	

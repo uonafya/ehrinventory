@@ -43,11 +43,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
  **/
 
 @Controller("AddDescriptionItemSlipController")
-@RequestMapping("/module/inventory/itemAddDescriptionReceiptSlip.form")
+@RequestMapping("/module/ehrinventory/itemAddDescriptionReceiptSlip.form")
 public class AddDescriptionSlipController {
 	@RequestMapping(method = RequestMethod.GET)
 	public String firstView(Model model) {
-		return "/module/inventory/mainstoreItem/itemAddDescriptionReceiptSlip";
+		return "/module/ehrinventory/mainstoreItem/itemAddDescriptionReceiptSlip";
 	}
 	@RequestMapping(method = RequestMethod.POST)
 	public String submit(HttpServletRequest request, Model model) {
@@ -126,6 +126,6 @@ public class AddDescriptionSlipController {
 			model.addAttribute("message", "Sorry don't have any receipt to save");
 			model.addAttribute("urlS", "itemReceiptsToGeneralStore.form");
 		}
-	 return "/module/inventory/thickbox/success";
+	 return "/module/ehrinventory/thickbox/success";
 	}
 }

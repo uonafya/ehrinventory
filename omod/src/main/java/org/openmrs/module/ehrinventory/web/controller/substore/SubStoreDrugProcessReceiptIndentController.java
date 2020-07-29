@@ -40,7 +40,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller("SubStoreDrugProcessReceiptIndentController")
-@RequestMapping("/module/inventory/subStoreDrugProcessIndent.form")
+@RequestMapping("/module/ehrinventory/subStoreDrugProcessIndent.form")
 public class SubStoreDrugProcessReceiptIndentController {
 
 	
@@ -49,14 +49,14 @@ public class SubStoreDrugProcessReceiptIndentController {
 		InventoryService inventoryService = (InventoryService) Context.getService(InventoryService.class);
 		InventoryStoreDrugIndent indent = inventoryService.getStoreDrugIndentById(id);
 		if(indent != null && indent.getSubStoreStatus() != 3 && indent.getMainStoreStatus() != 3){
-			return "redirect:/module/inventory/subStoreIndentDrugList.form";
+			return "redirect:/module/ehrinventory/subStoreIndentDrugList.form";
 		}
 		List<InventoryStoreDrugIndentDetail> listDrugNeedProcess = inventoryService.listStoreDrugIndentDetail(id);
 		//Collection<Integer> formulationIds = new ArrayList<Integer>();
 		//Collection<Integer> drugIds = new ArrayList<Integer>();
 		model.addAttribute("listDrugNeedProcess", listDrugNeedProcess);
 		model.addAttribute("indent", indent);
-		return "/module/inventory/substore/subStoreDrugProcessIndent";
+		return "/module/ehrinventory/substore/subStoreDrugProcessIndent";
 		
 		
 		
@@ -169,7 +169,7 @@ public class SubStoreDrugProcessReceiptIndentController {
 				
 			}
 		}
-		return "redirect:/module/inventory/subStoreIndentDrugList.form";
+		return "redirect:/module/ehrinventory/subStoreIndentDrugList.form";
 	 }
 	 //save here 
 
@@ -237,7 +237,7 @@ public class SubStoreDrugProcessReceiptIndentController {
 	 //indent.setMainStoreStatus(ActionValue.INDENT_MAINSTORE[2]);
 	 indent.setSubStoreStatus(ActionValue.INDENT_SUBSTORE[4]);
 	 inventoryService.saveStoreDrugIndent(indent);
-	 return "redirect:/module/inventory/subStoreIndentDrugList.form";
+	 return "redirect:/module/ehrinventory/subStoreIndentDrugList.form";
 	 
  }
 }

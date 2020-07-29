@@ -37,7 +37,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.support.SessionStatus;
 
 @Controller("ItemSubCategoryFormController")
-@RequestMapping("/module/inventory/itemSubCategory.form")
+@RequestMapping("/module/ehrinventory/itemSubCategory.form")
 public class ItemSubCategoryFormController {
 Log log = LogFactory.getLog(this.getClass());
 	
@@ -47,7 +47,7 @@ Log log = LogFactory.getLog(this.getClass());
 			itemSubCategory = Context.getService(InventoryService.class).getItemSubCategoryById(id);
 			model.addAttribute("itemSubCategory",itemSubCategory);
 		}
-		return "/module/inventory/item/itemSubCategory";
+		return "/module/ehrinventory/item/itemSubCategory";
 	}
 	@ModelAttribute("categories")
 	public List<InventoryItemCategory> populateCategories() {
@@ -67,7 +67,7 @@ Log log = LogFactory.getLog(this.getClass());
 		//storeValidator.validate(store, bindingResult);
 		
 		if (bindingResult.hasErrors()) {
-			return "/module/inventory/item/itemSubCategory";
+			return "/module/ehrinventory/item/itemSubCategory";
 			
 		}else{
 			InventoryService inventoryService = (InventoryService) Context
@@ -77,7 +77,7 @@ Log log = LogFactory.getLog(this.getClass());
 			itemSubCategory.setCreatedOn(new Date());
 			inventoryService.saveItemSubCategory(itemSubCategory);
 			status.setComplete();
-			return "redirect:/module/inventory/itemSubCategoryList.form";
+			return "redirect:/module/ehrinventory/itemSubCategoryList.form";
 		}
 	}
 	

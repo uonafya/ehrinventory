@@ -38,7 +38,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller("SubStoreIndentDrugController")
-@RequestMapping("/module/inventory/subStoreIndentDrug.form")
+@RequestMapping("/module/ehrinventory/subStoreIndentDrug.form")
 public class SubStoreIndentDrugController {
 	@RequestMapping(method = RequestMethod.GET)
 	public String firstView(
@@ -76,7 +76,7 @@ public class SubStoreIndentDrugController {
 	 List<InventoryStoreDrugIndentDetail> list = (List<InventoryStoreDrugIndentDetail> )StoreSingleton.getInstance().getHash().get(fowardParam);
 	 model.addAttribute("listIndent", list);
 	 
-	 return "/module/inventory/substore/subStoreIndentDrug";
+	 return "/module/ehrinventory/substore/subStoreIndentDrug";
 	 
 	}
 	@RequestMapping(method = RequestMethod.POST)
@@ -108,7 +108,7 @@ public class SubStoreIndentDrugController {
 		
 		
 		if(drug == null){
-			errors.add("inventory.indent.drug.required");
+			errors.add("ehrinventory.indent.drug.required");
 			
 		} else 
 			{
@@ -122,13 +122,13 @@ public class SubStoreIndentDrugController {
 		InventoryDrugFormulation formulationO = inventoryService.getDrugFormulationById(formulation);
 		if(formulationO == null)
 		{
-			errors.add("inventory.receiptDrug.formulation.required");
+			errors.add("ehrinventory.receiptDrug.formulation.required");
 		}
 		
 	
 		if(formulationO != null && drug != null && !drug.getFormulations().contains(formulationO))
 		{
-			errors.add("inventory.receiptDrug.formulation.notCorrect");
+			errors.add("ehrinventory.receiptDrug.formulation.notCorrect");
 		}
 		
 		if(CollectionUtils.isNotEmpty(errors)){
@@ -137,7 +137,7 @@ public class SubStoreIndentDrugController {
 			model.addAttribute("drugId", drugId);
 			model.addAttribute("quantity", quantity);
 			model.addAttribute("errors", errors);
-			return "/module/inventory/substore/subStoreIndentDrug";
+			return "/module/ehrinventory/substore/subStoreIndentDrug";
 		}
 		InventoryStoreDrugIndentDetail indentDetail = new InventoryStoreDrugIndentDetail();
 		indentDetail.setDrug(drug);
@@ -168,6 +168,6 @@ public class SubStoreIndentDrugController {
 		listExt.add(indentDetail);
 		StoreSingleton.getInstance().getHash().put(fowardParam, listExt);
 		//model.addAttribute("listIndent", list);
-	 return "redirect:/module/inventory/subStoreIndentDrug.form";
+	 return "redirect:/module/ehrinventory/subStoreIndentDrug.form";
 }
 }

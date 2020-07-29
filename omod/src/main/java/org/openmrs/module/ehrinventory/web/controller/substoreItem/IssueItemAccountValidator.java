@@ -31,7 +31,7 @@ public class IssueItemAccountValidator {
     public void validate(Object command, Errors error) {
     	InventoryStoreItemAccount cmd = (InventoryStoreItemAccount) command;
     	if( StringUtils.isBlank(cmd.getName())){
-    		error.reject("inventory.issueItem.name.required");
+    		error.reject("ehrinventory.issueItem.name.required");
     	}
     }
 }

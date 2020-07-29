@@ -23,13 +23,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller("PatientQueueDrugOrderController")
-@RequestMapping("/module/inventory/patientQueueDrugOrder.form")
+@RequestMapping("/module/ehrinventory/patientQueueDrugOrder.form")
 public class PatientQueueDrugOrderController {
 	@RequestMapping(method = RequestMethod.GET)
 	public String queue(Model model) {
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 		String dateStr = sdf.format(new Date());
 		model.addAttribute("currentDate", dateStr);
-		return "/module/inventory/queue/patientQueueDrugOrder";
+		return "/module/ehrinventory/queue/patientQueueDrugOrder";
 	}
 }

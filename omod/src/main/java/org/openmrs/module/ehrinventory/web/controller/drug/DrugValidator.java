@@ -35,19 +35,19 @@ public class DrugValidator {
     	InventoryDrug drug = (InventoryDrug) command;
     	
     	if( StringUtils.isBlank(drug.getName())){
-    		error.reject("inventory.drug.name.required");
+    		error.reject("ehrinventory.drug.name.required");
     	}
     	if( drug.getCategory() == null){
-    		error.reject("inventory.drug.category.required");
+    		error.reject("ehrinventory.drug.category.required");
     	}
     	if( drug.getDrugCore() == null){
-    		error.reject("inventory.drug.drug.required");
+    		error.reject("ehrinventory.drug.drug.required");
     	}
     	if( CollectionUtils.isEmpty(drug.getFormulations()) && drug.getId() == null){
-    		error.reject("inventory.drug.formulation.required");
+    		error.reject("ehrinventory.drug.formulation.required");
     	}
     	if( drug.getUnit() == null ){
-    		error.reject("inventory.drug.unit.required");
+    		error.reject("ehrinventory.drug.unit.required");
     	}
     	InventoryService inventoryService = (InventoryService) Context.getService(InventoryService.class);
     	InventoryDrug drugE = inventoryService.getDrugByName(drug.getName());
@@ -59,12 +59,12 @@ public class DrugValidator {
 			}*/
     		if(drugE != null ){
     			if(drugE.getId().intValue() != drug.getId().intValue()){
-    				error.reject("inventory.drug.name.existed");
+    				error.reject("ehrinventory.drug.name.existed");
     			}
     		}
     	}else{
     		if(drugE != null){
-    	    		error.reject("inventory.drug.name.existed");
+    	    		error.reject("ehrinventory.drug.name.existed");
     		}
     	}
     	

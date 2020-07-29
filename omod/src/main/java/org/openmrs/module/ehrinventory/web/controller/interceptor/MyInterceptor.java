@@ -86,9 +86,9 @@ public class MyInterceptor implements HandlerInterceptor{
 				
 			}
 		if(store != null && store.getParentStores() == null){
-			 response.sendRedirect("/module/inventory/mainstore/mainPage");
+			 response.sendRedirect("/module/ehrinventory/mainstore/mainPage");
 		 }else{
-			 response.sendRedirect( "/module/inventory/substore/mainPage");
+			 response.sendRedirect( "/module/ehrinventory/substore/mainPage");
 		 }
 		return false;
 	}

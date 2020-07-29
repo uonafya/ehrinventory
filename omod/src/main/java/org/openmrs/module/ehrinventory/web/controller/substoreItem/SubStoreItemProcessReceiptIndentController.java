@@ -40,7 +40,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller("SubStoreItemProcessReceiptIndentController")
-@RequestMapping("/module/inventory/subStoreItemProcessIndent.form")
+@RequestMapping("/module/ehrinventory/subStoreItemProcessIndent.form")
 public class SubStoreItemProcessReceiptIndentController {
 
 	
@@ -49,14 +49,14 @@ public class SubStoreItemProcessReceiptIndentController {
 		InventoryService inventoryService = (InventoryService) Context.getService(InventoryService.class);
 		InventoryStoreItemIndent indent = inventoryService.getStoreItemIndentById(id);
 		if(indent != null && indent.getSubStoreStatus() != 3 && indent.getMainStoreStatus() != 3){
-			return "redirect:/module/inventory/subStoreIndentItemList.form";
+			return "redirect:/module/ehrinventory/subStoreIndentItemList.form";
 		}
 		List<InventoryStoreItemIndentDetail> listItemNeedProcess = inventoryService.listStoreItemIndentDetail(id);
 		//Collection<Integer> formulationIds = new ArrayList<Integer>();
 		//Collection<Integer> ItemIds = new ArrayList<Integer>();
 		model.addAttribute("listItemNeedProcess", listItemNeedProcess);
 		model.addAttribute("indent", indent);
-		return "/module/inventory/substoreItem/subStoreItemProcessIndent";
+		return "/module/ehrinventory/substoreItem/subStoreItemProcessIndent";
 		
 		
 		
@@ -170,7 +170,7 @@ public class SubStoreItemProcessReceiptIndentController {
 				
 			}
 		}
-		return "redirect:/module/inventory/subStoreIndentItemList.form";
+		return "redirect:/module/ehrinventory/subStoreIndentItemList.form";
 	 }
 	 //save here 
 
@@ -240,7 +240,7 @@ public class SubStoreItemProcessReceiptIndentController {
 	 //indent.setMainStoreStatus(ActionValue.INDENT_MAINSTORE[2]);
 	 indent.setSubStoreStatus(ActionValue.INDENT_SUBSTORE[4]);
 	 inventoryService.saveStoreItemIndent(indent);
-	 return "redirect:/module/inventory/subStoreIndentItemList.form";
+	 return "redirect:/module/ehrinventory/subStoreIndentItemList.form";
 	 
  }
 }

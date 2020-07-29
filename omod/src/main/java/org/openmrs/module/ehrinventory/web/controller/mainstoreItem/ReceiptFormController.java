@@ -39,7 +39,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller("itemReceiptFormController")
-@RequestMapping("/module/inventory/itemReceiptsToGeneralStore.form")
+@RequestMapping("/module/ehrinventory/itemReceiptsToGeneralStore.form")
 public class ReceiptFormController {
 	@RequestMapping(method = RequestMethod.GET)
 	public String firstView(
@@ -77,7 +77,7 @@ public class ReceiptFormController {
 	 List<InventoryStoreItemTransactionDetail> list = (List<InventoryStoreItemTransactionDetail> )StoreSingleton.getInstance().getHash().get(fowardParam);
 	 model.addAttribute("listReceipt", list);
 	 
-	 return "/module/inventory/mainstoreItem/itemReceiptsToGeneralStore";
+	 return "/module/ehrinventory/mainstoreItem/itemReceiptsToGeneralStore";
 	 
 	}
 	@RequestMapping(method = RequestMethod.POST)
@@ -123,11 +123,11 @@ public class ReceiptFormController {
 			model.addAttribute("dateManufacture", dateManufacture);
 			model.addAttribute("companyName", companyName);
 			model.addAttribute("receiptDate", receiptDate);
-			return "/module/inventory/mainstoreItem/itemReceiptsToGeneralStore";
+			return "/module/ehrinventory/mainstoreItem/itemReceiptsToGeneralStore";
 		}else if(CollectionUtils.isNotEmpty(item.getSpecifications()) && specification == 0 )
 		{
 			errors.add("inventory.receiptItem.specification.required");
-			return "/module/inventory/mainstoreItem/itemReceiptsToGeneralStore";
+			return "/module/ehrinventory/mainstoreItem/itemReceiptsToGeneralStore";
 		}
 		
 		InventoryStoreItemTransactionDetail transactionDetail = new InventoryStoreItemTransactionDetail();
@@ -170,6 +170,6 @@ public class ReceiptFormController {
 		//System.out.println("list receipt: "+list);
 		StoreSingleton.getInstance().getHash().put(fowardParam, list);
 		//model.addAttribute("listReceipt", list);
-	 return "redirect:/module/inventory/itemReceiptsToGeneralStore.form";
+	 return "redirect:/module/ehrinventory/itemReceiptsToGeneralStore.form";
 	}
 }

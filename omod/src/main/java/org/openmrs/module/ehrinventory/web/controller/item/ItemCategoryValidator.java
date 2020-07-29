@@ -36,17 +36,17 @@ public class ItemCategoryValidator implements Validator {
     	InventoryItemCategory category = (InventoryItemCategory) command;
     	
     	if( StringUtils.isBlank(category.getName())){
-    		error.reject("inventory.itemCategory.name.required");
+    		error.reject("ehrinventory.itemCategory.name.required");
     	}
     	InventoryService inventoryService = (InventoryService) Context.getService(InventoryService.class);
     	InventoryItemCategory categoryE = inventoryService.getItemCategoryByName(category.getName());
     	if(category.getId() != null){
     		if(categoryE != null && categoryE.getId().intValue() != category.getId().intValue()){
-    			error.reject("inventory.itemCategory.name.existed");
+    			error.reject("ehrinventory.itemCategory.name.existed");
     		}
     	}else{
     		if(categoryE != null){
-    	    		error.reject("inventory.itemCategory.name.existed");
+    	    		error.reject("ehrinventory.itemCategory.name.existed");
     		}
     	}
     	

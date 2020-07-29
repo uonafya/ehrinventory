@@ -32,7 +32,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller("CreatePatientIssueItemController")
-@RequestMapping("/module/inventory/createPatientIssueItem.form")
+@RequestMapping("/module/ehrinventory/createPatientIssueItem.form")
 public class CreatePatientIssueItemController {
 
 	@RequestMapping(method = RequestMethod.GET)
@@ -73,11 +73,11 @@ public class CreatePatientIssueItemController {
 				issue.setPatient(patient);
 				String fowardParam = "issueItemPatient_"+userId;
 				StoreSingleton.getInstance().getHash().put(fowardParam,issue);
-				return "redirect:/module/inventory/subStoreIssueItemPatientForm.form";
+				return "redirect:/module/ehrinventory/subStoreIssueItemPatientForm.form";
 			}
 			
 		}
-		return "/module/inventory/substoreItem/createPatientIssueItem";
+		return "/module/ehrinventory/substoreItem/createPatientIssueItem";
 	}
 	
 }

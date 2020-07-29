@@ -32,7 +32,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller("PurchaseOrderFormController")
-@RequestMapping("/module/inventory/purchaseOrderForGeneralStore.form")
+@RequestMapping("/module/ehrinventory/purchaseOrderForGeneralStore.form")
 public class PurchaseOrderFormController {
 	@RequestMapping(method = RequestMethod.GET)
 	public String firstView(
@@ -48,7 +48,7 @@ public class PurchaseOrderFormController {
 	 List<InventoryStoreDrugIndentDetail> list = (List<InventoryStoreDrugIndentDetail> )StoreSingleton.getInstance().getHash().get(fowardParam);
 	 model.addAttribute("listPurchase", list);
 	 
-	 return "/module/inventory/mainstore/purchaseOrderForGeneralStore";
+	 return "/module/ehrinventory/mainstore/purchaseOrderForGeneralStore";
 	 
 	}
 	@RequestMapping(method = RequestMethod.POST)
@@ -64,13 +64,13 @@ public class PurchaseOrderFormController {
 		
 		InventoryDrug drug = inventoryService.getDrugByName(drugName);
 		if(drug == null){
-			errors.add("inventory.purchase.drug.required");
+			errors.add("ehrinventory.purchase.drug.required");
 			model.addAttribute("category", category);
 			model.addAttribute("formulation", formulation);
 			model.addAttribute("drugName", drugName);
 			model.addAttribute("quantity", quantity);
 		
-			return "/module/inventory/mainstore/purchaseOrderForGeneralStore";
+			return "/module/ehrinventory/mainstore/purchaseOrderForGeneralStore";
 		}
 		
 		InventoryStoreDrugIndentDetail indentDetail = new InventoryStoreDrugIndentDetail();
@@ -86,6 +86,6 @@ public class PurchaseOrderFormController {
 		list.add(indentDetail);
 		StoreSingleton.getInstance().getHash().put(fowardParam, list);
 		model.addAttribute("listPurchase", list);
-	 return "/module/inventory/mainstore/purchaseOrderForGeneralStore";
+	 return "/module/ehrinventory/mainstore/purchaseOrderForGeneralStore";
 	}
 }

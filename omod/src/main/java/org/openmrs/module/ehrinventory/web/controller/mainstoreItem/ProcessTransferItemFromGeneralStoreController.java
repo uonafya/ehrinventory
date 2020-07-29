@@ -41,7 +41,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller("ProcessTransferItemFromGeneralStoreController")
-@RequestMapping("/module/inventory/mainStoreItemProcessIndent.form")
+@RequestMapping("/module/ehrinventory/mainStoreItemProcessIndent.form")
 public class ProcessTransferItemFromGeneralStoreController {
 	@RequestMapping(method = RequestMethod.GET)
 	public String sendIndent( @RequestParam(value="indentId",required=false)  Integer id,Model model) {
@@ -106,10 +106,10 @@ public class ProcessTransferItemFromGeneralStoreController {
 			//System.out.println("truong hop bo het: "+inventoryService.listStoreDrugAvaiable(mainStore.getId(), null, null));
 			model.addAttribute("listItemNeedProcess", listItemTP);
 			model.addAttribute("indent", indent);
-			return "/module/inventory/mainstoreItem/mainStoreItemProcessIndent";
+			return "/module/ehrinventory/mainstoreItem/mainStoreItemProcessIndent";
 		}
 		
-		return "redirect:/module/inventory/transferItemFromGeneralStore.form";
+		return "redirect:/module/ehrinventory/transferItemFromGeneralStore.form";
 		
 	}
 	@RequestMapping(method = RequestMethod.POST)
@@ -135,7 +135,7 @@ public class ProcessTransferItemFromGeneralStoreController {
 				
 			}
 		}
-		return "redirect:/module/inventory/transferItemFromGeneralStore.form";
+		return "redirect:/module/ehrinventory/transferItemFromGeneralStore.form";
 	 }
 	 //validate here 
 	 
@@ -184,7 +184,7 @@ public class ProcessTransferItemFromGeneralStoreController {
 						t.setMainStoreTransfer(trDetail.getCurrentQuantity());
 						if(temp > trDetail.getCurrentQuantity() || temp < 0 ){
 							//System.out.println("nhay avo day 1");
-							errors.add("inventory.indent.error.quantity");
+							errors.add("ehrinventory.indent.error.quantity");
 							break;
 						}
 					}
@@ -198,7 +198,7 @@ public class ProcessTransferItemFromGeneralStoreController {
 					if(temp > trDetail.getCurrentQuantity() || temp < 0 ){
 						//System.out.println("temp: "+temp+" itemName: "+t.getItem().getName()+" current quantity: "+trDetail.getCurrentQuantity());
 						//System.out.println("nhay avo day 2");
-						errors.add("inventory.indent.error.quantity");
+						errors.add("ehrinventory.indent.error.quantity");
 						break;
 					}
 				}
@@ -209,7 +209,7 @@ public class ProcessTransferItemFromGeneralStoreController {
 		}
 		}else{
 			//System.out.println("nhay avo day 3");
-			errors.add("inventory.indent.error.quantity");
+			errors.add("ehrinventory.indent.error.quantity");
 			break;
 		}
 		 if(temp > 0){
@@ -219,14 +219,14 @@ public class ProcessTransferItemFromGeneralStoreController {
 	}
 	 if(passTransfer){
 		// System.out.println("nhay avo day 4");
-		 errors.add("inventory.indent.error.transfer");
+		 errors.add("ehrinventory.indent.error.transfer");
 	 }
 	 if(errors != null && errors.size() > 0){
 			model.addAttribute("listItemNeedProcess", listItemTP);
 			model.addAttribute("indent", indent);
 			model.addAttribute("errors", errors);
 			model.addAttribute("quantityTransfers", quantityTransfers);
-		 return "/module/inventory/mainstoreItem/mainStoreItemProcessIndent";
+		 return "/module/ehrinventory/mainstoreItem/mainStoreItemProcessIndent";
 	 }
 	 
 	 //create transaction
@@ -378,7 +378,7 @@ public class ProcessTransferItemFromGeneralStoreController {
 	 indent.setSubStoreStatus(ActionValue.INDENT_SUBSTORE[2]);
 	 indent.setTransaction(transaction);
 	 inventoryService.saveStoreItemIndent(indent);
-	 return "redirect:/module/inventory/transferItemFromGeneralStore.form";
+	 return "redirect:/module/ehrinventory/transferItemFromGeneralStore.form";
 	 
  }
 }

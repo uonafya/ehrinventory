@@ -36,7 +36,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller("TransferDrugFromGeneralStoreController")
-@RequestMapping("/module/inventory/transferDrugFromGeneralStore.form")
+@RequestMapping("/module/ehrinventory/transferDrugFromGeneralStore.form")
 public class TransferDrugFromGeneralStoreController {
 	@RequestMapping(method = RequestMethod.GET)
 	public String showAttributeList( 
@@ -119,7 +119,7 @@ public class TransferDrugFromGeneralStoreController {
 		model.addAttribute("pagingUtil", pagingUtil);
 		model.addAttribute("viewIndent", viewIndent);
 		
-		return "/module/inventory/mainstore/transferDrugFromGeneralStore";
+		return "/module/ehrinventory/mainstore/transferDrugFromGeneralStore";
 	}
 
 }

@@ -32,7 +32,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller("itemPurchaseOrderFormController")
-@RequestMapping("/module/inventory/itemPurchaseOrderForGeneralStore.form")
+@RequestMapping("/module/ehrinventory/itemPurchaseOrderForGeneralStore.form")
 public class PurchaseOrderFormController {
 	@RequestMapping(method = RequestMethod.GET)
 	public String firstView(
@@ -48,7 +48,7 @@ public class PurchaseOrderFormController {
 	 List<InventoryStoreItemIndentDetail> list = (List<InventoryStoreItemIndentDetail> )StoreSingleton.getInstance().getHash().get(fowardParam);
 	 model.addAttribute("listPurchase", list);
 	 
-	 return "/module/inventory/mainstoreItem/itemPurchaseOrderForGeneralStore";
+	 return "/module/ehrinventory/mainstoreItem/itemPurchaseOrderForGeneralStore";
 	 
 	}
 	@RequestMapping(method = RequestMethod.POST)
@@ -70,7 +70,7 @@ public class PurchaseOrderFormController {
 			model.addAttribute("itemName", itemName);
 			model.addAttribute("quantity", quantity);
 		
-			return "/module/inventory/mainstoreItem/itemPurchaseOrderForGeneralStore";
+			return "/module/ehrinventory/mainstoreItem/itemPurchaseOrderForGeneralStore";
 		}
 		
 		InventoryStoreItemIndentDetail indentDetail = new InventoryStoreItemIndentDetail();
@@ -86,6 +86,6 @@ public class PurchaseOrderFormController {
 		list.add(indentDetail);
 		StoreSingleton.getInstance().getHash().put(fowardParam, list);
 		model.addAttribute("listPurchase", list);
-	 return "/module/inventory/mainstoreItem/itemPurchaseOrderForGeneralStore";
+	 return "/module/ehrinventory/mainstoreItem/itemPurchaseOrderForGeneralStore";
 	}
 }

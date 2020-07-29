@@ -36,17 +36,17 @@ public class DrugUnitValidator implements Validator {
     	InventoryDrugUnit unit = (InventoryDrugUnit) command;
     	
     	if( StringUtils.isBlank(unit.getName())){
-    		error.reject("inventory.drugUnit.name.required");
+    		error.reject("ehrinventory.drugUnit.name.required");
     	}
     	InventoryService inventoryService = (InventoryService) Context.getService(InventoryService.class);
     	InventoryDrugUnit unitE = inventoryService.getDrugUnitByName(unit.getName());
     	if(unit.getId() != null){
     		if(unitE != null && unitE.getId().intValue() != unit.getId().intValue()){
-    			error.reject("inventory.drugUnit.name.existed");
+    			error.reject("ehrinventory.drugUnit.name.existed");
     		}
     	}else{
     		if(unitE != null){
-    	    		error.reject("inventory.drugUnit.name.existed");
+    	    		error.reject("ehrinventory.drugUnit.name.existed");
     		}
     	}
     	
