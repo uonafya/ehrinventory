@@ -35,7 +35,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller("AutoCompleteController")
 public class AutoCompleteController {
-		@RequestMapping("/module/inventory/autoCompleteDrugCoreList.form")
+		@RequestMapping("/module/ehrinventory/autoCompleteDrugCoreList.form")
 		public String drugCore(@RequestParam(value="q",required=false) String name, Model model) {
 			List<Drug> drugs = new ArrayList<Drug>();
 			if(!StringUtils.isBlank(name)){
@@ -44,24 +44,24 @@ public class AutoCompleteController {
 				drugs = Context.getConceptService().getAllDrugs();
 			}
 				model.addAttribute("drugs",drugs);
-			return "/module/inventory/autocomplete/autoCompleteDrugCoreList";
+			return "/module/ehrinventory/autocomplete/autoCompleteDrugCoreList";
 		}
-		@RequestMapping("/module/inventory/autoCompleteDrugList.form")
+		@RequestMapping("/module/ehrinventory/autoCompleteDrugList.form")
 		public String drug(@RequestParam(value="q",required=false) String name,@RequestParam(value="categoryId",required=false) Integer categoryId, Model model) {
 			InventoryService inventoryService = (InventoryService) Context.getService(InventoryService.class);
 			List<InventoryDrug> drugs = inventoryService.findDrug(categoryId, name);
 			model.addAttribute("drugs",drugs);
-			return "/module/inventory/autocomplete/autoCompleteDrugList";
+			return "/module/ehrinventory/autocomplete/autoCompleteDrugList";
 		}
-		@RequestMapping("/module/inventory/autoCompleteItemList.form")
+		@RequestMapping("/module/ehrinventory/autoCompleteItemList.form")
 		public String item(@RequestParam(value="term",required=false) String name,@RequestParam(value="categoryId",required=false) Integer categoryId, Model model) {
 			InventoryService inventoryService = (InventoryService) Context.getService(InventoryService.class);
 			List<InventoryItem> items = inventoryService.findItem(categoryId, name);
 			model.addAttribute("items",items);
-			return "/module/inventory/autocomplete/autoCompleteItemList";
+			return "/module/ehrinventory/autocomplete/autoCompleteItemList";
 		}
 		
-		@RequestMapping("/module/inventory/checkSession.form")
+		@RequestMapping("/module/ehrinventory/checkSession.form")
 		public String checkSession(HttpServletRequest request,Model model) {
 			 if( Context.getAuthenticatedUser() != null &&  Context.getAuthenticatedUser().getId() != null){
 				 model.addAttribute("session","1");
@@ -69,7 +69,7 @@ public class AutoCompleteController {
 				 model.addAttribute("session","0");
 			 }
 			
-			return "/module/inventory/session/checkSession";
+			return "/module/ehrinventory/session/checkSession";
 		}
 
 	public static void main(String[] args) {

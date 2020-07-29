@@ -36,17 +36,17 @@ public class DrugCategoryValidator implements Validator {
     	InventoryDrugCategory category = (InventoryDrugCategory) command;
     	
     	if( StringUtils.isBlank(category.getName())){
-    		error.reject("inventory.drugCategory.name.required");
+    		error.reject("ehrinventory.drugCategory.name.required");
     	}
     	InventoryService inventoryService = (InventoryService) Context.getService(InventoryService.class);
     	InventoryDrugCategory categoryE = inventoryService.getDrugCategoryByName(category.getName());
     	if(category.getId() != null){
     		if(categoryE != null && categoryE.getId().intValue() != category.getId().intValue()){
-    			error.reject("inventory.drugCategory.name.existed");
+    			error.reject("ehrinventory.drugCategory.name.existed");
     		}
     	}else{
     		if(categoryE != null){
-    	    		error.reject("inventory.drugCategory.name.existed");
+    	    		error.reject("ehrinventory.drugCategory.name.existed");
     		}
     	}
     	

@@ -40,7 +40,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller("storeListController")
-@RequestMapping("/module/inventory/storeList.form")
+@RequestMapping("/module/ehrinventory/storeList.form")
 public class StoreListController {
 	 Log log = LogFactory.getLog(this.getClass());
 	@RequestMapping(method=RequestMethod.POST)
@@ -99,6 +99,6 @@ public class StoreListController {
 		
 		model.put("pagingUtil", pagingUtil);
 		
-		return "/module/inventory/store/list";
+		return "/module/ehrinventory/store/list";
 	}
 }

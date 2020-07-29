@@ -36,7 +36,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 
 @Controller("DrugCategoryListController")
-@RequestMapping("/module/inventory/drugCategoryList.form")
+@RequestMapping("/module/ehrinventory/drugCategoryList.form")
 public class DrugCategoryListController {
 	 Log log = LogFactory.getLog(this.getClass());
 		@RequestMapping(method=RequestMethod.POST)
@@ -67,7 +67,7 @@ public class DrugCategoryListController {
 			}
 			httpSession.setAttribute(WebConstants.OPENMRS_MSG_ATTR,StringUtils.isBlank(temp) ?  "drugCategory.deleted" : temp);
 	    	
-	    	return "redirect:/module/inventory/drugCategoryList.form";
+	    	return "redirect:/module/ehrinventory/drugCategoryList.form";
 	    }
 		
 		@RequestMapping(method=RequestMethod.GET)
@@ -91,6 +91,6 @@ public class DrugCategoryListController {
 			model.put("searchName", searchName);
 			model.put("pagingUtil", pagingUtil);
 			
-			return "/module/inventory/drug/drugCategoryList";
+			return "/module/ehrinventory/drug/drugCategoryList";
 		}
 }

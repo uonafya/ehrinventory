@@ -32,7 +32,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.support.SessionStatus;
 
 @Controller("DrugCategoryFormController")
-@RequestMapping("/module/inventory/drugCategory.form")
+@RequestMapping("/module/ehrinventory/drugCategory.form")
 public class DrugCategoryFormController {
 Log log = LogFactory.getLog(this.getClass());
 	
@@ -42,7 +42,7 @@ Log log = LogFactory.getLog(this.getClass());
 			drugCategory = Context.getService(InventoryService.class).getDrugCategoryById(id);
 			model.addAttribute("drugCategory",drugCategory);
 		}
-		return "/module/inventory/drug/drugCategory";
+		return "/module/ehrinventory/drug/drugCategory";
 	}
 	
 	@RequestMapping(method = RequestMethod.POST)
@@ -51,7 +51,7 @@ Log log = LogFactory.getLog(this.getClass());
 		//storeValidator.validate(store, bindingResult);
 		
 		if (bindingResult.hasErrors()) {
-			return "/module/inventory/drug/drugCategory";
+			return "/module/ehrinventory/drug/drugCategory";
 			
 		}else{
 			InventoryService inventoryService = (InventoryService) Context
@@ -61,7 +61,7 @@ Log log = LogFactory.getLog(this.getClass());
 			drugCategory.setCreatedOn(new Date());
 			inventoryService.saveDrugCategory(drugCategory);
 			status.setComplete();
-			return "redirect:/module/inventory/drugCategoryList.form";
+			return "redirect:/module/ehrinventory/drugCategoryList.form";
 		}
 	}
 	

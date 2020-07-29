@@ -47,7 +47,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.support.SessionStatus;
 
 @Controller("DrugFormController")
-@RequestMapping("/module/inventory/drug.form")
+@RequestMapping("/module/ehrinventory/drug.form")
 public class DrugFormController {
 Log log = LogFactory.getLog(this.getClass());
 	
@@ -71,7 +71,7 @@ Log log = LogFactory.getLog(this.getClass());
 				drug.setFormulations(inventoryService.getDrugById(drug.getId()).getFormulations());
 			}*/
 					}
-		return "/module/inventory/drug/drug";
+		return "/module/ehrinventory/drug/drug";
 	}
 	@ModelAttribute("categories")
 	public List<InventoryDrugCategory> populateCategories() {
@@ -124,7 +124,7 @@ Log log = LogFactory.getLog(this.getClass());
 		   
 		new DrugValidator().validate(drug, bindingResult);
 		if (bindingResult.hasErrors()) {
-			return "/module/inventory/drug/drug";
+			return "/module/ehrinventory/drug/drug";
 			
 		}
 		else{
@@ -137,7 +137,7 @@ Log log = LogFactory.getLog(this.getClass());
 
 						status.setComplete();
 			
-			return "redirect:/module/inventory/drugList.form";
+			return "redirect:/module/ehrinventory/drugList.form";
 		}
 	}
 }
