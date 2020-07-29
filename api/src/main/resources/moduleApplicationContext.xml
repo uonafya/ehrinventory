@@ -14,7 +14,7 @@
 		class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping"/>
 	-->
 	<!-- The default place to look for controllers that have annotations -->
-	<context:component-scan base-package="org.openmrs.module.inventory.web" />
+	<context:component-scan base-package="org.openmrs.module.ehrinventory.web" />
 	<!--<bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping">
 	   <property name="interceptors">
 	      <ref bean="myInterceptor" />
@@ -24,17 +24,17 @@
 	<bean parent="serviceContext">
 		<property name="moduleService">
 			<list>
-				<value>org.openmrs.module.inventory.InventoryService</value>
+				<value>org.openmrs.module.ehrinventory.InventoryService</value>
 				<bean
 					class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
 					<property name="transactionManager">
 						<ref bean="transactionManager" />
 					</property>
 					<property name="target">
-						<bean class="org.openmrs.module.inventory.impl.InventoryServiceImpl">
+						<bean class="org.openmrs.module.ehrinventory.impl.InventoryServiceImpl">
 							<property name="dao">
 								<bean
-									class="org.openmrs.module.inventory.db.hibernate.HibernateInventoryDAO">
+									class="org.openmrs.module.ehrinventory.db.hibernate.HibernateInventoryDAO">
 									<property name="sessionFactory">
 										<ref bean="sessionFactory" />
 									</property>

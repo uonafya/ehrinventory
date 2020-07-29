@@ -3,7 +3,7 @@
     "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
     "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
 
-<hibernate-mapping package="org.openmrs.module.inventory.model">
+<hibernate-mapping package="org.openmrs.module.ehrinventory.model">
 
 	<class name="InventoryStoreItemTransactionDetail" table="inventory_store_item_transaction_detail" batch-size="500">
 
@@ -11,11 +11,11 @@
 				<generator class="native" />
 		</id>
 		
-		<many-to-one name="transaction" class="org.openmrs.module.inventory.model.InventoryStoreItemTransaction"
+		<many-to-one name="transaction" class="org.openmrs.module.ehrinventory.model.InventoryStoreItemTransaction"
 	        column="transaction_id" cascade="none" lazy="false" />
-	    <many-to-one name="item" class="org.openmrs.module.inventory.model.InventoryItem"
+	    <many-to-one name="item" class="org.openmrs.module.ehrinventory.model.InventoryItem"
 	        column="item_id" cascade="none" lazy="false" />
-	    <many-to-one name="specification" class="org.openmrs.module.inventory.model.InventoryItemSpecification"
+	    <many-to-one name="specification" class="org.openmrs.module.ehrinventory.model.InventoryItemSpecification"
 	        column="specification_id" cascade="none" lazy="false" />    
 	    <property name="quantity" column="quantity"  />
 		<property name="currentQuantity" column="current_quantity" />
@@ -37,11 +37,11 @@
 		<property name="patientType" column="patient_type"  />
 		<property name="flag" column="flag"  />
 		
-		<many-to-one name="parent" class="org.openmrs.module.inventory.model.InventoryStoreItemTransactionDetail"
+		<many-to-one name="parent" class="org.openmrs.module.ehrinventory.model.InventoryStoreItemTransactionDetail"
 	        column="parent_id"  lazy="false" />	 
 	    <set name="subDetails"  table="inventory_store_item_transaction_detail" cascade="save-update,merge,evict" >
 	      <key column="parent_id"/>
-	      <one-to-many class="org.openmrs.module.inventory.model.InventoryStoreItemTransactionDetail"/>
+	      <one-to-many class="org.openmrs.module.ehrinventory.model.InventoryStoreItemTransactionDetail"/>
 	    </set> 
 	</class>
 </hibernate-mapping>

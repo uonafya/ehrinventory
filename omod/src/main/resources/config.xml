@@ -13,7 +13,7 @@
 			Inventory module
 	</description>
 
-	<activator>org.openmrs.module.inventory.InventoryModuleActivator</activator>
+	<activator>org.openmrs.module.ehrinventory.InventoryModuleActivator</activator>
 	<require_modules>
                   <require_module>org.openmrs.module.hospitalcore</require_module>
     </require_modules>
@@ -23,11 +23,11 @@
 	<!-- Extensions -->
 	<extension>
 		<point>org.openmrs.admin.list</point>
-		<class>org.openmrs.module.inventory.extension.html.AdminList</class>
+		<class>org.openmrs.module.ehrinventory.extension.html.AdminList</class>
 	</extension>
 	<extension>
 		<point>org.openmrs.gutter.tools</point>
-		<class>org.openmrs.module.inventory.extension.html.InventoryHeader</class>
+		<class>org.openmrs.module.ehrinventory.extension.html.InventoryHeader</class>
 	</extension>
 	
 	
