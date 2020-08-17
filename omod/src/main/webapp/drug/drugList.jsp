@@ -15,26 +15,26 @@
 --%>
 <%@ include file="/WEB-INF/template/include.jsp" %>
 
-<openmrs:require privilege="View drug" otherwise="/login.htm" redirect="/module/inventory/drugList.form" />
+<openmrs:require privilege="View drug" otherwise="/login.htm" redirect="/module/ehrinventory/drugList.form" />
 
-<spring:message var="pageTitle" code="inventory.drug.manage" scope="page"/>
+<spring:message var="pageTitle" code="ehrinventory.drug.manage" scope="page"/>
 
 <%@ include file="/WEB-INF/template/header.jsp" %>
 
 <%@ include file="nav.jsp" %>
-<h2><spring:message code="inventory.drug.manage"/></h2>	
+<h2><spring:message code="ehrinventory.drug.manage"/></h2>
 
 <br />
 <c:forEach items="${errors.allErrors}" var="error">
 	<span class="error"><spring:message code="${error.defaultMessage}" text="${error.defaultMessage}"/></span><
 </c:forEach>
-<input type="button" class="ui-button ui-widget ui-state-default ui-corner-all" value="<spring:message code='inventory.drug.add'/>" onclick="ACT.go('drug.form');"/>
+<input type="button" class="ui-button ui-widget ui-state-default ui-corner-all" value="<spring:message code='ehrinventory.drug.add'/>" onclick="ACT.go('drug.form');"/>
 
 <br /><br />
 <form method="post" onsubmit="return false" id="form">
 <table cellpadding="5" cellspacing="0">
 	<tr>
-		<td><spring:message code="inventory.drug.category"/></td>
+		<td><spring:message code="ehrinventory.drug.category"/></td>
 		<td>
 			<select name="categoryId" id="categoryId"   style="width: 250px;">
 				<option value=""></option>
@@ -48,25 +48,25 @@
 		<td><input type="button" class="ui-button ui-widget ui-state-default ui-corner-all" value="Search" onclick="DRUG.searchDrug(this);"/></td>
 	</tr>
 </table>
-<span class="boxHeader"><spring:message code="inventory.drug.list"/></span>
+<span class="boxHeader"><spring:message code="ehrinventory.drug.list"/></span>
 <div class="box">
 <c:choose>
 
 
 <c:when test="${not empty drugs}">
-<input type="button" class="ui-button ui-widget ui-state-default ui-corner-all" onclick="INVENTORY.checkValue();" value="<spring:message code='inventory.deleteSelected'/>"/>
+<input type="button" class="ui-button ui-widget ui-state-default ui-corner-all" onclick="INVENTORY.checkValue();" value="<spring:message code='ehrinventory.deleteSelected'/>"/>
 <table cellpadding="5" cellspacing="0" width="100%">
 <tr>
 	<th>S.No</th>
-	<th><spring:message code="inventory.drug.name"/></th>
-	<th><spring:message code="inventory.drug.drug"/></th>
-	<th><spring:message code="inventory.drug.formulation"/></th>
-	<th><spring:message code="inventory.drug.unit"/></th>
-	<th><spring:message code="inventory.drug.category"/></th>
-	<th><spring:message code="inventory.drug.attribute"/></th>
-	<th><spring:message code="inventory.drug.reorderQty"/></th>
-	<th><spring:message code="inventory.drug.createdDate"/></th>
-	<th><spring:message code="inventory.drug.createdBy"/></th>
+	<th><spring:message code="ehrinventory.drug.name"/></th>
+	<th><spring:message code="ehrinventory.drug.drug"/></th>
+	<th><spring:message code="ehrinventory.drug.formulation"/></th>
+	<th><spring:message code="ehrinventory.drug.unit"/></th>
+	<th><spring:message code="ehrinventory.drug.category"/></th>
+	<th><spring:message code="ehrinventory.drug.attribute"/></th>
+	<th><spring:message code="ehrinventory.drug.reorderQty"/></th>
+	<th><spring:message code="ehrinventory.drug.createdDate"/></th>
+	<th><spring:message code="ehrinventory.drug.createdBy"/></th>
 	<th></th>
 </tr>
 <c:forEach items="${drugs}" var="drug" varStatus="varStatus">

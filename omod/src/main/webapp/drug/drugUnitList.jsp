@@ -15,20 +15,20 @@
 --%>
 <%@ include file="/WEB-INF/template/include.jsp" %>
 
-<openmrs:require privilege="View drugUnit" otherwise="/login.htm" redirect="/module/inventory/drugUnitList.form" />
+<openmrs:require privilege="View drugUnit" otherwise="/login.htm" redirect="/module/ehrinventory/drugUnitList.form" />
 
-<spring:message var="pageTitle" code="inventory.drugUnit.manage" scope="page"/>
+<spring:message var="pageTitle" code="ehrinventory.drugUnit.manage" scope="page"/>
 
 <%@ include file="/WEB-INF/template/header.jsp" %>
 
 <%@ include file="nav.jsp" %>
-<h2><spring:message code="inventory.drugUnit.manage"/></h2>	
+<h2><spring:message code="ehrinventory.drugUnit.manage"/></h2>
 
 <br />
 <c:forEach items="${errors.allErrors}" var="error">
 	<span class="error"><spring:message code="${error.defaultMessage}" text="${error.defaultMessage}"/></span><
 </c:forEach>
-<input type="button" class="ui-button ui-widget ui-state-default ui-corner-all" value="<spring:message code='inventory.drugUnit.add'/>" onclick="ACT.go('drugUnit.form');"/>
+<input type="button" class="ui-button ui-widget ui-state-default ui-corner-all" value="<spring:message code='iehrnventory.drugUnit.add'/>" onclick="ACT.go('drugUnit.form');"/>
 
 <br /><br />
 
@@ -41,20 +41,20 @@
 	</tr>
 </table>
 
-<span class="boxHeader"><spring:message code="inventory.drugUnit.list"/></span>
+<span class="boxHeader"><spring:message code="ehrinventory.drugUnit.list"/></span>
 <div class="box">
 <c:choose>
 
 
 <c:when test="${not empty drugUnits}">
-<input type="button" class="ui-button ui-widget ui-state-default ui-corner-all" onclick="INVENTORY.checkValue();" value="<spring:message code='inventory.deleteSelected'/>"/>
+<input type="button" class="ui-button ui-widget ui-state-default ui-corner-all" onclick="INVENTORY.checkValue();" value="<spring:message code='ehrinventory.deleteSelected'/>"/>
 <table cellpadding="5" cellspacing="0" width="100%">
 <tr>
 	<th>S.No</th>
-	<th><spring:message code="inventory.drugUnit.name"/></th>
-	<th><spring:message code="inventory.drugUnit.description"/></th>
-	<th><spring:message code="inventory.drugUnit.createdDate"/></th>
-	<th><spring:message code="inventory.drugUnit.createdBy"/></th>
+	<th><spring:message code="ehrinventory.drugUnit.name"/></th>
+	<th><spring:message code="ehrinventory.drugUnit.description"/></th>
+	<th><spring:message code="ehrinventory.drugUnit.createdDate"/></th>
+	<th><spring:message code="ehrinventory.drugUnit.createdBy"/></th>
 	<th></th>
 </tr>
 <c:forEach items="${drugUnits}" var="drugUnit" varStatus="varStatus">

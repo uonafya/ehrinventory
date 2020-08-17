@@ -15,20 +15,20 @@
 --%>
 <%@ include file="/WEB-INF/template/include.jsp" %>
 
-<openmrs:require privilege="View drugCategory" otherwise="/login.htm" redirect="/module/inventory/drugCategoryList.form" />
+<openmrs:require privilege="View drugCategory" otherwise="/login.htm" redirect="/module/ehrinventory/drugCategoryList.form" />
 
-<spring:message var="pageTitle" code="inventory.drugCategory.manage" scope="page"/>
+<spring:message var="pageTitle" code="ehrinventory.drugCategory.manage" scope="page"/>
 
 <%@ include file="/WEB-INF/template/header.jsp" %>
 
 <%@ include file="nav.jsp" %>
-<h2><spring:message code="inventory.drugCategory.manage"/></h2>	
+<h2><spring:message code="ehrinventory.drugCategory.manage"/></h2>
 
 <br />
 <c:forEach items="${errors.allErrors}" var="error">
 	<span class="error"><spring:message code="${error.defaultMessage}" text="${error.defaultMessage}"/></span><
 </c:forEach>
-<input type="button" class="ui-button ui-widget ui-state-default ui-corner-all" value="<spring:message code='inventory.drugCategory.add'/>" onclick="ACT.go('drugCategory.form');"/>
+<input type="button" class="ui-button ui-widget ui-state-default ui-corner-all" value="<spring:message code='ehrinventory.drugCategory.add'/>" onclick="ACT.go('drugCategory.form');"/>
 
 <br /><br />
 
@@ -41,7 +41,7 @@
 	</tr>
 </table>
 
-<span class="boxHeader"><spring:message code="inventory.drugCategory.list"/></span>
+<span class="boxHeader"><spring:message code="ehrinventory.drugCategory.list"/></span>
 <div class="box">
 <c:choose>
 <c:when test="${not empty drugCategories}">
@@ -49,10 +49,10 @@
 <table cellpadding="5" cellspacing="0" width="100%">
 <tr>
 	<th>S.No</th>
-	<th><spring:message code="inventory.drugCategory.name"/></th>
-	<th><center><spring:message code="inventory.drugCategory.description"/></center></th>
-	<th><spring:message code="inventory.drugCategory.createdDate"/></th>
-	<th><spring:message code="inventory.drugCategory.createdBy"/></th>
+	<th><spring:message code="ehrinventory.drugCategory.name"/></th>
+	<th><center><spring:message code="ehrinventory.drugCategory.description"/></center></th>
+	<th><spring:message code="ehrinventory.drugCategory.createdDate"/></th>
+	<th><spring:message code="ehrinventory.drugCategory.createdBy"/></th>
 	<th></th>
 </tr>
 <c:forEach items="${drugCategories}" var="drugCategory" varStatus="varStatus">

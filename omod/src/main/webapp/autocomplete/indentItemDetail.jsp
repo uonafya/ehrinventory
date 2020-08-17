@@ -17,15 +17,15 @@
 <%@ include file="/WEB-INF/template/headerMinimal.jsp" %>
 <%@ include file="../includes/js_css.jsp" %>
 <div class="box">
-<span class="boxHeader"><spring:message code="inventory.indentItem.detail"/></span>
+<span class="boxHeader"><spring:message code="ehrinventory.indentItem.detail"/></span>
 <table width="100%" cellpadding="5" cellspacing="0">
 	<tr align="center">
 	<th>S.No</th>
-	<th><spring:message code="inventory.indentItem.category"/></th>
-	<th><spring:message code="inventory.indentItem.name"/></th>
-	<th><spring:message code="inventory.indentItem.specification"/></th>
-	<th><spring:message code="inventory.indentItem.quantity"/></th>
-	<th><spring:message code="inventory.indentItem.transferQuantity"/></th>
+	<th><spring:message code="ehrinventory.indentItem.category"/></th>
+	<th><spring:message code="ehrinventory.indentItem.name"/></th>
+	<th><spring:message code="ehrinventory.indentItem.specification"/></th>
+	<th><spring:message code="ehrinventory.indentItem.quantity"/></th>
+	<th><spring:message code="ehrinventory.indentItem.transferQuantity"/></th>
 	</tr>
 	<c:choose>
 	<c:when test="${not empty listIndentDetail}">
@@ -43,7 +43,7 @@
 	</c:choose>	
 </table>
 </div>
-<input type="button" class="ui-button ui-widget ui-state-default ui-corner-all" value="<spring:message code="inventory.indentItem.print"/>" onClick="INDENT.printDiv();" />
+<input type="button" class="ui-button ui-widget ui-state-default ui-corner-all" value="<spring:message code="ehrinventory.indentItem.print"/>" onClick="INDENT.printDiv();" />
 <!-- PRINT DIV -->
 <div  id="printDiv" style="display: none; ">
 <div style="margin: 10px auto; width: 981px; font-size: 1.0em;font-family:'Dot Matrix Normal',Arial,Helvetica,sans-serif;">        		
@@ -59,10 +59,10 @@
 	<tr>
 	<th>S.No</th>
 	<th>Item Category</th>
-	<th><spring:message code="inventory.item.name"/></th>
-	<th><spring:message code="inventory.item.specification"/></th>
-	<th><spring:message code="inventory.indentItem.quantity"/></th>
-	<th><spring:message code="inventory.indentItem.transferQuantity"/></th>
+	<th><spring:message code="ehrinventory.item.name"/></th>
+	<th><spring:message code="ehrinventory.item.specification"/></th>
+	<th><spring:message code="ehrinventory.indentItem.quantity"/></th>
+	<th><spring:message code="ehrinventory.indentItem.transferQuantity"/></th>
 	</tr>
 	<c:choose>
 	<c:when test="${not empty listIndentDetail}">

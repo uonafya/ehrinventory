@@ -15,11 +15,11 @@
 --%>
 <%@ include file="/WEB-INF/template/include.jsp" %>
 
-<openmrs:require privilege="Add/Edit drugUnit" otherwise="/login.htm" redirect="/module/inventory/drugUnit.form" />
+<openmrs:require privilege="Add/Edit drugUnit" otherwise="/login.htm" redirect="/module/ehrinventory/drugUnit.form" />
 
 <%@ include file="/WEB-INF/template/header.jsp" %>
 <%@ include file="../includes/js_css.jsp" %>
-<h2><spring:message code="inventory.drugUnit.manage"/></h2>
+<h2><spring:message code="ehrinventory.drugUnit.manage"/></h2>
 
 <c:forEach items="${errors.allErrors}" var="error">
 	<span class="error"><spring:message code="${error.defaultMessage}" text="${error.defaultMessage}"/></span>
@@ -41,7 +41,7 @@
 		<spring:bind path="drugUnit.id">
 			<input type="hidden" name="${status.expression}" id="${status.expression}" value="${status.value}" />
 		</spring:bind>
-		<td><spring:message code="inventory.drugUnit.name"/><em>*</em></td>
+		<td><spring:message code="ehrinventory.drugUnit.name"/><em>*</em></td>
 		<td>
 			<spring:bind path="drugUnit.name">
 				<input type="text" id="${status.expression}" name="${status.expression}" value="${status.value}" size="35" />
@@ -50,7 +50,7 @@
 		</td>
 	</tr>
 	<tr>
-		<td valign="top"><spring:message code="inventory.drugUnit.description"/></td>
+		<td valign="top"><spring:message code="ehrinventory.drugUnit.description"/></td>
 		<td>
 			<spring:bind path="drugUnit.description">
 				<input type="text" name="${status.expression}" id="${status.expression}" value="${status.value}" size="35" />

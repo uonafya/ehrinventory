@@ -15,11 +15,11 @@
 --%>
 <%@ include file="/WEB-INF/template/include.jsp" %>
 
-<openmrs:require privilege="Add/Edit drugFormulation" otherwise="/login.htm" redirect="/module/inventory/drugFormulation.form" />
+<openmrs:require privilege="Add/Edit drugFormulation" otherwise="/login.htm" redirect="/module/ehrinventory/drugFormulation.form" />
 
 <%@ include file="/WEB-INF/template/header.jsp" %>
 <%@ include file="../includes/js_css.jsp" %>
-<h2><spring:message code="inventory.drugFormulation.manage"/></h2>
+<h2><spring:message code="ehrinventory.drugFormulation.manage"/></h2>
 
 <c:forEach items="${errors.allErrors}" var="error">
 	<span class="error"><spring:message code="${error.defaultMessage}" text="${error.defaultMessage}"/></span>
@@ -41,7 +41,7 @@
 		<spring:bind path="drugFormulation.id">
 			<input type="hidden" name="${status.expression}" id="${status.expression}" value="${status.value}" />
 		</spring:bind>
-		<td><spring:message code="inventory.drugFormulation.name"/><em>*</em></td>
+		<td><spring:message code="ehrinventory.drugFormulation.name"/><em>*</em></td>
 		<td>
 			<spring:bind path="drugFormulation.name">
 				<input type="text" id="${status.expression}" name="${status.expression}" value="${status.value}" size="35" />
@@ -50,7 +50,7 @@
 		</td>
 	</tr>
 	<tr>
-		<td valign="top"><spring:message code="inventory.drugFormulation.dozage"/><em>*</em></td>
+		<td valign="top"><spring:message code="ehrinventory.drugFormulation.dozage"/><em>*</em></td>
 		<td>
 			<spring:bind path="drugFormulation.dozage">
 				<input type="text" name="${status.expression}" id="${status.expression}" value="${status.value}" size="35" />
@@ -59,7 +59,7 @@
 		</td>
 	</tr>
 	<tr>
-		<td valign="top"><spring:message code="inventory.drugFormulation.description"/></td>
+		<td valign="top"><spring:message code="ehrinventory.drugFormulation.description"/></td>
 		<td>
 			<spring:bind path="drugFormulation.description">
 				<input type="text" name="${status.expression}" id="${status.expression}" value="${status.value}" size="35" />

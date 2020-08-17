@@ -15,10 +15,10 @@
 --%>
 <%@ include file="/WEB-INF/template/include.jsp" %>
 <c:if test="${not empty  specifications}">
-<td><spring:message code="inventory.item.specification"/><em>*</em></td>
+<td><spring:message code="ehrinventory.item.specification"/><em>*</em></td>
 <td>
 <select name="specification" id="specification"  onchange="ISSUE.specificationOnChange(this);"  style="width: 200px;">
-	   <option value=""><spring:message code="inventory.pleaseSelect"/></option>
+	   <option value=""><spring:message code="ehrinventory.pleaseSelect"/></option>
        <c:forEach items="${specifications}" var="specification">
            <option value="${specification.id}" <c:if test="${specification.id == specificationId }">selected</c:if> >${specification.name}</option>
        </c:forEach>

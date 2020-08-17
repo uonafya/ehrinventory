@@ -19,17 +19,17 @@
 
 <c:choose>
 	<c:when test="${empty listTransactionDetail}">
-		<span class="boxHeader"><spring:message code="inventory.indent.detail"/></span>
+		<span class="boxHeader"><spring:message code="ehrinventory.indent.detail"/></span>
 		<div class="box">
 		
 		<table width="100%" cellpadding="5" cellspacing="0">
 			<tr align="center">
 			<th>S.No</th>
-			<th><spring:message code="inventory.indent.category"/></th>
-			<th><spring:message code="inventory.indent.name"/></th>
-			<th><spring:message code="inventory.indent.formulation"/></th>
-			<th><spring:message code="inventory.indent.quantity"/></th>
-			<th><spring:message code="inventory.indent.transferQuantity"/></th>
+			<th><spring:message code="ehrinventory.indent.category"/></th>
+			<th><spring:message code="ehrinventory.indent.name"/></th>
+			<th><spring:message code="ehrinventory.indent.formulation"/></th>
+			<th><spring:message code="ehrinventory.indent.quantity"/></th>
+			<th><spring:message code="ehrinventory.indent.transferQuantity"/></th>
 			</tr>
 			<c:choose>
 			<c:when test="${not empty listIndentDetail}">
@@ -47,7 +47,7 @@
 			</c:choose>	
 		</table>
 		</div>
-		<input type="button" class="ui-button ui-widget ui-state-default ui-corner-all" value="<spring:message code="inventory.indent.print"/>" onClick="INDENT.printDiv();" />
+		<input type="button" class="ui-button ui-widget ui-state-default ui-corner-all" value="<spring:message code="ehrinventory.indent.print"/>" onClick="INDENT.printDiv();" />
 		
 		<!-- PRINT DIV -->
 		<div  id="printDiv" style="display: none;">  
@@ -63,11 +63,11 @@
 		<table border="1">
 			<tr>
 			<th>S.No</th>
-			<th><spring:message code="inventory.drug.category"/></th>
-			<th><spring:message code="inventory.drug.name"/></th>
-			<th><spring:message code="inventory.drug.formulation"/></th>
-			<th><spring:message code="inventory.indent.quantity"/></th>
-			<th><spring:message code="inventory.indent.transferQuantity"/></th>
+			<th><spring:message code="ehrinventory.drug.category"/></th>
+			<th><spring:message code="ehrinventory.drug.name"/></th>
+			<th><spring:message code="ehrinventory.drug.formulation"/></th>
+			<th><spring:message code="ehrinventory.indent.quantity"/></th>
+			<th><spring:message code="ehrinventory.indent.transferQuantity"/></th>
 			</tr>
 			<c:choose>
 			<c:when test="${not empty listIndentDetail}">
@@ -94,20 +94,20 @@
 		<!-- END PRINT DIV -->   
 	</c:when>
 	<c:otherwise>
-		<span class="boxHeader"><spring:message code="inventory.indent.detail"/></span>
+		<span class="boxHeader"><spring:message code="ehrinventory.indent.detail"/></span>
 		<div class="box">
 		
 		<table width="100%" cellpadding="5" cellspacing="0">
 			<tr align="center">
 			<th>S.No</th>
-			<th><spring:message code="inventory.indent.category"/></th>
-			<th><spring:message code="inventory.indent.name"/></th>
-			<th><spring:message code="inventory.indent.formulation"/></th>
-			<th><spring:message code="inventory.indent.quantityIndent"/></th>
-			<th><spring:message code="inventory.receiptDrug.batchNo"/></th>
-			<th><spring:message code="inventory.receiptDrug.dateExpiry"/></th>
-			<th><spring:message code="inventory.receiptDrug.companyName"/></th>
-			<th><spring:message code="inventory.indent.transferQuantity"/></th>
+			<th><spring:message code="ehrinventory.indent.category"/></th>
+			<th><spring:message code="ehrinventory.indent.name"/></th>
+			<th><spring:message code="ehrinventory.indent.formulation"/></th>
+			<th><spring:message code="ehrinventory.indent.quantityIndent"/></th>
+			<th><spring:message code="ehrinventory.receiptDrug.batchNo"/></th>
+			<th><spring:message code="ehrinventory.receiptDrug.dateExpiry"/></th>
+			<th><spring:message code="ehrinventory.receiptDrug.companyName"/></th>
+			<th><spring:message code="ehrinventory.indent.transferQuantity"/></th>
 			</tr>
 			<c:choose>
 			<c:when test="${not empty listIndentDetail}">
@@ -163,7 +163,7 @@
 			</c:choose>	
 		</table>
 		</div>
-		<input type="button" class="ui-button ui-widget ui-state-default ui-corner-all" value="<spring:message code="inventory.indent.print"/>" onClick="INDENT.printDiv();" />
+		<input type="button" class="ui-button ui-widget ui-state-default ui-corner-all" value="<spring:message code="ehrinventory.indent.print"/>" onClick="INDENT.printDiv();" />
 		
 		<!-- PRINT DIV -->
 		<div  id="printDiv" style="display: none;">  
@@ -179,14 +179,14 @@
 		<table border="1">
 			<tr>
 			<th>S.No</th>
-			<th><spring:message code="inventory.indent.category"/></th>
-			<th><spring:message code="inventory.indent.name"/></th>
-			<th><spring:message code="inventory.indent.formulation"/></th>
-			<th><spring:message code="inventory.indent.quantityIndent"/></th>
-			<th><spring:message code="inventory.receiptDrug.batchNo"/></th>
-			<th><spring:message code="inventory.receiptDrug.dateExpiry"/></th>
-			<th><spring:message code="inventory.receiptDrug.companyName"/></th>
-			<th><spring:message code="inventory.indent.transferQuantity"/></th>
+			<th><spring:message code="ehrinventory.indent.category"/></th>
+			<th><spring:message code="ehrinventory.indent.name"/></th>
+			<th><spring:message code="ehrinventory.indent.formulation"/></th>
+			<th><spring:message code="ehrinventory.indent.quantityIndent"/></th>
+			<th><spring:message code="ehrinventory.receiptDrug.batchNo"/></th>
+			<th><spring:message code="ehrinventory.receiptDrug.dateExpiry"/></th>
+			<th><spring:message code="ehrinventory.receiptDrug.companyName"/></th>
+			<th><spring:message code="ehrinventory.indent.transferQuantity"/></th>
 			</tr>
 			<c:choose>
 			<c:when test="${not empty listIndentDetail}">

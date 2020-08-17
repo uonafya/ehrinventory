@@ -15,7 +15,7 @@
 --%>
 <%@ include file="/WEB-INF/template/include.jsp" %>
 <select id="itemId" name="itemId" onchange="ISSUE.onBlurItem(this);"  style="width: 200px;">
-	<option value=""><spring:message code="inventory.pleaseSelect"/></option>
+	<option value=""><spring:message code="ehrinventory.pleaseSelect"/></option>
 	   <c:if test ="${not empty items }">
 	       <c:forEach items="${items}" var="item">
 	           <option value="${item.id}" title="${item.name}">${item.name}</option>
