@@ -15,11 +15,11 @@
 --%>
 <%@ include file="/WEB-INF/template/include.jsp" %>
 
-<openmrs:require privilege="Add/Edit itemSpecification" otherwise="/login.htm" redirect="/module/inventory/itemSpecification.form" />
+<openmrs:require privilege="Add/Edit itemSpecification" otherwise="/login.htm" redirect="/module/ehrinventory/itemSpecification.form" />
 
 <%@ include file="/WEB-INF/template/header.jsp" %>
 <%@ include file="../includes/js_css.jsp" %>
-<h2><spring:message code="inventory.itemSpecification.manage"/></h2>
+<h2><spring:message code="ehrinventory.itemSpecification.manage"/></h2>
 
 <c:forEach items="${errors.allErrors}" var="error">
 	<span class="error"><spring:message code="${error.defaultMessage}" text="${error.defaultMessage}"/></span>
@@ -41,7 +41,7 @@
 		<spring:bind path="itemSpecification.id">
 			<input type="hidden" name="${status.expression}" id="${status.expression}" value="${status.value}" />
 		</spring:bind>
-		<td><spring:message code="inventory.itemSpecification.name"/><em>*</em></td>
+		<td><spring:message code="ehrinventory.itemSpecification.name"/><em>*</em></td>
 		<td>
 			<spring:bind path="itemSpecification.name">
 				<input type="text" id="${status.expression}" name="${status.expression}" value="${status.value}" size="35" />
@@ -50,7 +50,7 @@
 		</td>
 	</tr>
 	<tr>
-		<td valign="top"><spring:message code="inventory.itemSpecification.description"/></td>
+		<td valign="top"><spring:message code="ehrinventory.itemSpecification.description"/></td>
 		<td>
 			<spring:bind path="itemSpecification.description">
 				<input type="text" name="${status.expression}" id="${status.expression}" value="${status.value}" size="35" />

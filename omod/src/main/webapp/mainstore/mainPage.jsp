@@ -16,7 +16,7 @@
 <%@ include file="/WEB-INF/template/include.jsp" %>
 
 
-<spring:message var="pageTitle" code="inventory.mainStore.manage" scope="page"/>
+<spring:message var="pageTitle" code="ehrinventory.mainStore.manage" scope="page"/>
 <%@ include file="/WEB-INF/template/header.jsp" %>
 
 <%@ include file="nav.jsp" %>

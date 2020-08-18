@@ -15,11 +15,11 @@
 --%>
 <%@ include file="/WEB-INF/template/include.jsp" %>
 
-<openmrs:require privilege="Add/Edit mainstore" otherwise="/login.htm" redirect="/module/inventory/main.form" />
-<spring:message var="pageTitle" code="inventory.viewStockBalanceExpiry.manage" scope="page"/>
+<openmrs:require privilege="Add/Edit mainstore" otherwise="/login.htm" redirect="/module/ehrinventory/main.form" />
+<spring:message var="pageTitle" code="ehrinventory.viewStockBalanceExpiry.manage" scope="page"/>
 <%@ include file="/WEB-INF/template/header.jsp" %>
 <%@ include file="nav.jsp" %>
-<h2><spring:message code="inventory.viewStockBalanceExpiry.manage"/></h2>	
+<h2><spring:message code="ehrinventory.viewStockBalanceExpiry.manage"/></h2>
 <br />
 <c:forEach items="${errors.allErrors}" var="error">
 	<span class="error"><spring:message code="${error.defaultMessage}" text="${error.defaultMessage}"/></span><
@@ -28,7 +28,7 @@
 <form method="get"  id="form">
 <table >
 	<tr >
-		<td><spring:message code="inventory.receiptDrug.category"/></td>
+		<td><spring:message code="ehrinventory.receiptDrug.category"/></td>
 		<td>
 			<select name="categoryId" id="categoryId"  style="width: 250px;">
       			<option value=""></option>
@@ -39,32 +39,32 @@
 				</c:forEach>
 	   		</select>
 		</td>
-		<td><spring:message code="inventory.receiptDrug.drugName"/></td>
+		<td><spring:message code="ehrinventory.receiptDrug.drugName"/></td>
 		<td>
 			<input type="text" name="drugName" id="drugName" value="${drugName }"/>
 		</td>
-		<!--<td><spring:message code="inventory.fromDate"/></td>
+		<!--<td><spring:message code="ehrinventory.fromDate"/></td>
 		<td><input type="text" id="fromDate" class="date-pick left" readonly="readonly" name="fromDate" value="${fromDate}" title="Double Click to Clear" ondblclick="this.value='';"/></td>
-		<td><spring:message code="inventory.toDate"/></td>
+		<td><spring:message code="ehrinventory.toDate"/></td>
 		<td><input type="text" id="toDate" class="date-pick left" readonly="readonly" name="toDate" value="${toDate}" title="Double Click to Clear" ondblclick="this.value='';"/></td>
 		-->
 		<td><input type="submit" class="ui-button ui-widget ui-state-default ui-corner-all" value="Search"/></td>
 	</tr>
 </table>
-<span class="boxHeader"><spring:message code="inventory.viewStockBalance.list"/></span>
+<span class="boxHeader"><spring:message code="ehrinventory.viewStockBalance.list"/></span>
 <div class="box">
 <table width="100%" cellpadding="5" cellspacing="0">
 	<tr  align="center" >
 	<th>S.No</th>
-	<th><spring:message code="inventory.viewStockBalance.name"/></th>
-	<th><spring:message code="inventory.viewStockBalance.category"/></th>
-	<th><spring:message code="inventory.viewStockBalance.formulation"/></th>
+	<th><spring:message code="ehrinventory.viewStockBalance.name"/></th>
+	<th><spring:message code="ehrinventory.viewStockBalance.category"/></th>
+	<th><spring:message code="ehrinventory.viewStockBalance.formulation"/></th>
 	<!--
-		<th ><spring:message code="inventory.viewStockBalance.receiptQty"/></th>
-		<th><spring:message code="inventory.viewStockBalance.STTSS"/></th>
+		<th ><spring:message code="ehrinventory.viewStockBalance.receiptQty"/></th>
+		<th><spring:message code="ehrinventory.viewStockBalance.STTSS"/></th>
 	-->
-	<th ><spring:message code="inventory.receiptDrug.currentQuantity"/></th>
-	<th ><spring:message code="inventory.viewStockBalance.reorderPoint"/></th>
+	<th ><spring:message code="ehrinventory.receiptDrug.currentQuantity"/></th>
+	<th ><spring:message code="ehrinventory.viewStockBalance.reorderPoint"/></th>
 	</tr>
 	<c:choose>
 	<c:when test="${not empty stockBalances}">

@@ -16,26 +16,26 @@
 <%@ include file="/WEB-INF/template/include.jsp" %>
 <%@ include file="/WEB-INF/template/headerMinimal.jsp" %>
 <%@ include file="../includes/js_css.jsp" %>
-<span class="boxHeader"><spring:message code="inventory.receiptDrug.receiptDrugList"/></span>
+<span class="boxHeader"><spring:message code="ehrinventory.receiptDrug.receiptDrugList"/></span>
 <div class="box">
 <table width="100%" border="1" cellpadding="5" cellspacing="0">
 	<tr align="center">
 	<th>S.No</th>
-	<th><spring:message code="inventory.drug.category"/></th>
-	<th><spring:message code="inventory.drug.name"/></th>
-	<th><spring:message code="inventory.drug.formulation"/></th>
-	<th><spring:message code="inventory.receiptDrug.receiptQuantity"/></th>
+	<th><spring:message code="ehrinventory.drug.category"/></th>
+	<th><spring:message code="ehrinventory.drug.name"/></th>
+	<th><spring:message code="ehrinventory.drug.formulation"/></th>
+	<th><spring:message code="ehrinventory.receiptDrug.receiptQuantity"/></th>
 	<th>Unit Price</th>
-	<th><spring:message code="inventory.receiptDrug.VAT"/></th>
-	<th><spring:message code="inventory.receiptDrug.costToPatient"/></th>
-	<!-- <th><spring:message code="inventory.receiptDrug.totalPrice"/></th> -->
-	<th><spring:message code="inventory.receiptDrug.batchNo"/></th>
-	<th title="<spring:message code="inventory.receiptDrug.companyName"/>">CN</th>
-	<th title="<spring:message code="inventory.receiptDrug.dateManufacture"/>">DM</th>
-	<th title="<spring:message code="inventory.receiptDrug.dateExpiry"/>">DE</th>
-	<th title="<spring:message code="inventory.receiptDrug.receiptDate"/>">RD</th>
+	<th><spring:message code="ehrinventory.receiptDrug.VAT"/></th>
+	<th><spring:message code="ehrinventory.receiptDrug.costToPatient"/></th>
+	<!-- <th><spring:message code="ehrinventory.receiptDrug.totalPrice"/></th> -->
+	<th><spring:message code="ehrinventory.receiptDrug.batchNo"/></th>
+	<th title="<spring:message code="ehrinventory.receiptDrug.companyName"/>">CN</th>
+	<th title="<spring:message code="ehrinventory.receiptDrug.dateManufacture"/>">DM</th>
+	<th title="<spring:message code="ehrinventory.receiptDrug.dateExpiry"/>">DE</th>
+	<th title="<spring:message code="ehrinventory.receiptDrug.receiptDate"/>">RD</th>
 	<!-- Sagar Bele : Date - 22-01-2013 Issue Number 660 : [Inventory] Add receipt from field in Table and front end -->	
-	<th title="<spring:message code="inventory.receiptDrug.receiptFrom"/>">RF</th>
+	<th title="<spring:message code="ehrinventory.receiptDrug.receiptFrom"/>">RF</th>
 	</tr>
 	<c:choose>
 	<c:when test="${not empty transactionDetails}">
@@ -63,7 +63,7 @@
 </table>
 </div>
 
-<input type="button" class="ui-button ui-widget ui-state-default ui-corner-all" value="<spring:message code="inventory.receiptDrug.print"/>" onClick="INDENT.printDiv();" />
+<input type="button" class="ui-button ui-widget ui-state-default ui-corner-all" value="<spring:message code="ehrinventory.receiptDrug.print"/>" onClick="INDENT.printDiv();" />
 
 <!-- PRINT DIV -->
 <div  id="printDiv" style="display: none;">
@@ -79,15 +79,15 @@
 <table border="1">
 	<tr align="center">
 	<th>S.No</th>
-	<th><spring:message code="inventory.drug.category"/></th>
-	<th><spring:message code="inventory.drug.name"/></th>
-	<th><spring:message code="inventory.drug.formulation"/></th>
-	<th><spring:message code="inventory.receiptDrug.quantity"/></th>
+	<th><spring:message code="ehrinventory.drug.category"/></th>
+	<th><spring:message code="ehrinventory.drug.name"/></th>
+	<th><spring:message code="ehrinventory.drug.formulation"/></th>
+	<th><spring:message code="ehrinventory.receiptDrug.quantity"/></th>
 	<th>Unit Price</th>
-	<th><spring:message code="inventory.receiptDrug.VAT"/></th>
-	<th><spring:message code="inventory.receiptDrug.costToPatient"/></th>
-	<!-- <th><spring:message code="inventory.receiptDrug.totalPrice"/></th> -->
-	<th><spring:message code="inventory.receiptDrug.batchNo"/></th>
+	<th><spring:message code="ehrinventory.receiptDrug.VAT"/></th>
+	<th><spring:message code="ehrinventory.receiptDrug.costToPatient"/></th>
+	<!-- <th><spring:message code="ehrinventory.receiptDrug.totalPrice"/></th> -->
+	<th><spring:message code="ehrinventory.receiptDrug.batchNo"/></th>
 	<th>CN</th>
 	<th>DM</th>
 	<th>DE</th>

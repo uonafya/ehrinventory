@@ -15,27 +15,27 @@
 --%>
 <%@ include file="/WEB-INF/template/include.jsp" %>
 
-<openmrs:require privilege="View Item" otherwise="/login.htm" redirect="/module/inventory/itemList.form" />
+<openmrs:require privilege="View Item" otherwise="/login.htm" redirect="/module/ehrinventory/itemList.form" />
 
-<spring:message var="pageTitle" code="inventory.item.manage" scope="page"/>
+<spring:message var="pageTitle" code="ehrinventory.item.manage" scope="page"/>
 
 <%@ include file="/WEB-INF/template/header.jsp" %>
 
 <%@ include file="nav.jsp" %>
-<h2><spring:message code="inventory.item.manage"/></h2>	
+<h2><spring:message code="ehrinventory.item.manage"/></h2>
 
 <br />
 <c:forEach items="${errors.allErrors}" var="error">
 	<span class="error"><spring:message code="${error.defaultMessage}" text="${error.defaultMessage}"/></span><
 </c:forEach>
-<input type="button" class="ui-button ui-widget ui-state-default ui-corner-all" value="<spring:message code='inventory.item.add'/>" onclick="ACT.go('item.form');"/>
+<input type="button" class="ui-button ui-widget ui-state-default ui-corner-all" value="<spring:message code='ehrinventory.item.add'/>" onclick="ACT.go('item.form');"/>
 
 <br /><br />
 
 <form method="post" onsubmit="return false"  id="form">
 <table cellpadding="5" cellspacing="0">
 	<tr>
-	    <td><spring:message code="inventory.item.subCategory"/></td>
+	    <td><spring:message code="ehrinventory.item.subCategory"/></td>
 		<td>
 			<select name="categoryId" id="categoryId"   style="width: 250px;">
 				<option value=""></option>
@@ -52,23 +52,23 @@
 		</td>
 	</tr>
 </table>
-<span class="boxHeader"><spring:message code="inventory.item.list"/></span>
+<span class="boxHeader"><spring:message code="ehrinventory.item.list"/></span>
 <div class="box">
-<input type="button" class="ui-button ui-widget ui-state-default ui-corner-all" onclick="INVENTORY.checkValue();" value="<spring:message code='inventory.deleteSelected'/>"/>
+<input type="button" class="ui-button ui-widget ui-state-default ui-corner-all" onclick="INVENTORY.checkValue();" value="<spring:message code='ehrinventory.deleteSelected'/>"/>
 <c:choose>
 <c:when test="${not empty items}">
 <table cellpadding="5" cellspacing="0" width="100%">
 <tr>
 	<th>S.No</th>
-	<th><spring:message code="inventory.item.name"/></th>
-	<th><spring:message code="inventory.item.unit"/></th>
-	<th><spring:message code="inventory.item.specification"/></th>
-	<th><spring:message code="inventory.item.category"/></th>
-	<th><spring:message code="inventory.item.subCategory"/></th>
-	<th><spring:message code="inventory.item.attribute"/></th>
-	<th><spring:message code="inventory.item.reorderQty"/></th>
-	<th><spring:message code="inventory.item.createdDate"/></th>
-	<th><spring:message code="inventory.item.createdBy"/></th>
+	<th><spring:message code="ehrinventory.item.name"/></th>
+	<th><spring:message code="ehrinventory.item.unit"/></th>
+	<th><spring:message code="ehrinventory.item.specification"/></th>
+	<th><spring:message code="ehrinventory.item.category"/></th>
+	<th><spring:message code="ehrinventory.item.subCategory"/></th>
+	<th><spring:message code="ehrinventory.item.attribute"/></th>
+	<th><spring:message code="ehrinventory.item.reorderQty"/></th>
+	<th><spring:message code="ehrinventory.item.createdDate"/></th>
+	<th><spring:message code="ehrinventory.item.createdBy"/></th>
 	<th></th>
 </tr>
 <c:forEach items="${items}" var="item" varStatus="varStatus">

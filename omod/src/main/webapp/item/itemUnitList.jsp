@@ -16,20 +16,20 @@
 --%> 
 <%@ include file="/WEB-INF/template/include.jsp" %>
 
-<openmrs:require privilege="View itemUnit" otherwise="/login.htm" redirect="/module/inventory/itemUnitList.form" />
+<openmrs:require privilege="View itemUnit" otherwise="/login.htm" redirect="/module/ehrinventory/itemUnitList.form" />
 
-<spring:message var="pageTitle" code="inventory.itemUnit.manage" scope="page"/>
+<spring:message var="pageTitle" code="ehrinventory.itemUnit.manage" scope="page"/>
 
 <%@ include file="/WEB-INF/template/header.jsp" %>
 
 <%@ include file="nav.jsp" %>
-<h2><spring:message code="inventory.itemUnit.manage"/></h2>	
+<h2><spring:message code="ehrinventory.itemUnit.manage"/></h2>
 
 <br />
 <c:forEach items="${errors.allErrors}" var="error">
 	<span class="error"><spring:message code="${error.defaultMessage}" text="${error.defaultMessage}"/></span><
 </c:forEach>
-<input type="button" class="ui-button ui-widget ui-state-default ui-corner-all" value="<spring:message code='inventory.itemUnit.add'/>" onclick="ACT.go('itemUnit.form');"/>
+<input type="button" class="ui-button ui-widget ui-state-default ui-corner-all" value="<spring:message code='ehrinventory.itemUnit.add'/>" onclick="ACT.go('itemUnit.form');"/>
 
 <br /><br />
 <form method="post" onsubmit="return false" id="form">
@@ -41,18 +41,18 @@
 	</tr>
 </table>
 
-<span class="boxHeader"><spring:message code="inventory.itemUnit.list"/></span>
+<span class="boxHeader"><spring:message code="ehrinventory.itemUnit.list"/></span>
 <div class="box">
 <c:choose>
 <c:when test="${not empty itemUnits}">
-<input type="button" class="ui-button ui-widget ui-state-default ui-corner-all" onclick="INVENTORY.checkValue();" value="<spring:message code='inventory.deleteSelected'/>"/>
+<input type="button" class="ui-button ui-widget ui-state-default ui-corner-all" onclick="INVENTORY.checkValue();" value="<spring:message code='ehrinventory.deleteSelected'/>"/>
 <table cellpadding="5" cellspacing="0" width="100%">
 <tr>
 	<th>S.No</th>
-	<th><spring:message code="inventory.itemUnit.name"/></th>
-	<th><spring:message code="inventory.itemUnit.description"/></th>
-	<th><spring:message code="inventory.itemUnit.createdDate"/></th>
-	<th><spring:message code="inventory.itemUnit.createdBy"/></th>
+	<th><spring:message code="ehrinventory.itemUnit.name"/></th>
+	<th><spring:message code="ehrinventory.itemUnit.description"/></th>
+	<th><spring:message code="ehrinventory.itemUnit.createdDate"/></th>
+	<th><spring:message code="ehrinventory.itemUnit.createdBy"/></th>
 	<th></th>
 </tr>
 <c:forEach items="${itemUnits}" var="itemUnit" varStatus="varStatus">

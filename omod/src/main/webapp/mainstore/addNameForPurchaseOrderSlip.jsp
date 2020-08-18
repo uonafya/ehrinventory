@@ -19,7 +19,7 @@
 <form method="post" id="formAddNameForPurchase">
 <table class="box" width="100%">
 	<tr>
-		<td><spring:message code="inventory.purchase.name"/><em>*</em></td>
+		<td><spring:message code="ehrinventory.purchase.name"/><em>*</em></td>
 		<td><input type="text" name="indentName" id="indentName" size="35"/></td>
 	</tr>
 	<tr>

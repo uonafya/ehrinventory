@@ -15,20 +15,20 @@
 --%>
 <%@ include file="/WEB-INF/template/include.jsp" %>
 
-<openmrs:require privilege="View itemSpecification" otherwise="/login.htm" redirect="/module/inventory/itemSpecificationList.form" />
+<openmrs:require privilege="View itemSpecification" otherwise="/login.htm" redirect="/module/ehrinventory/itemSpecificationList.form" />
 
-<spring:message var="pageTitle" code="inventory.itemSpecification.manage" scope="page"/>
+<spring:message var="pageTitle" code="ehrinventory.itemSpecification.manage" scope="page"/>
 
 <%@ include file="/WEB-INF/template/header.jsp" %>
 
 <%@ include file="nav.jsp" %>
-<h2><spring:message code="inventory.itemSpecification.manage"/></h2>	
+<h2><spring:message code="ehrinventory.itemSpecification.manage"/></h2>
 
 <br />
 <c:forEach items="${errors.allErrors}" var="error">
 	<span class="error"><spring:message code="${error.defaultMessage}" text="${error.defaultMessage}"/></span><
 </c:forEach>
-<input type="button" class="ui-button ui-widget ui-state-default ui-corner-all" value="<spring:message code='inventory.itemSpecification.add'/>" onclick="ACT.go('itemSpecification.form');"/>
+<input type="button" class="ui-button ui-widget ui-state-default ui-corner-all" value="<spring:message code='ehrinventory.itemSpecification.add'/>" onclick="ACT.go('itemSpecification.form');"/>
 
 <br /><br />
 <form method="post" onsubmit="return false" id="form">
@@ -40,18 +40,18 @@
 	</tr>
 </table>
 
-<span class="boxHeader"><spring:message code="inventory.itemSpecification.list"/></span>
+<span class="boxHeader"><spring:message code="ehrinventory.itemSpecification.list"/></span>
 <div class="box">
 <c:choose>
 <c:when test="${not empty itemSpecifications}">
-<input type="button" class="ui-button ui-widget ui-state-default ui-corner-all" onclick="INVENTORY.checkValue();" value="<spring:message code='inventory.deleteSelected'/>"/>
+<input type="button" class="ui-button ui-widget ui-state-default ui-corner-all" onclick="INVENTORY.checkValue();" value="<spring:message code='ehrinventory.deleteSelected'/>"/>
 <table cellpadding="5" cellspacing="0" width="100%">
 <tr>
 	<th>S.No</th>
-	<th><spring:message code="inventory.itemSpecification.name"/></th>
-	<th><spring:message code="inventory.itemSpecification.description"/></th>
-	<th><spring:message code="inventory.itemSpecification.createdDate"/></th>
-	<th><spring:message code="inventory.itemSpecification.createdBy"/></th>
+	<th><spring:message code="ehrinventory.itemSpecification.name"/></th>
+	<th><spring:message code="ehrinventory.itemSpecification.description"/></th>
+	<th><spring:message code="ehrinventory.itemSpecification.createdDate"/></th>
+	<th><spring:message code="ehrinventory.itemSpecification.createdBy"/></th>
 	<th></th>
 </tr>
 <c:forEach items="${itemSpecifications}" var="itemSpecification" varStatus="varStatus">

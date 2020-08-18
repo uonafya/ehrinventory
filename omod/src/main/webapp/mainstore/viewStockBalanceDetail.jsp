@@ -15,8 +15,8 @@
 --%>
 <%@ include file="/WEB-INF/template/include.jsp" %>
 
-<openmrs:require privilege="Add/Edit mainstore" otherwise="/login.htm" redirect="/module/inventory/main.form" />
-<spring:message var="pageTitle" code="inventory.viewStockBalance.manage" scope="page"/>
+<openmrs:require privilege="Add/Edit mainstore" otherwise="/login.htm" redirect="/module/ehrinventory/main.form" />
+<spring:message var="pageTitle" code="ehrinventory.viewStockBalance.manage" scope="page"/>
 <%@ include file="/WEB-INF/template/header.jsp" %>
 <%@ include file="nav.jsp" %>
 
@@ -25,17 +25,17 @@
 <table width="100%" cellpadding="5" cellspacing="0">
 	<tr align="center">
 	<th>S.No</th>
-	<th><spring:message code="inventory.viewStockBalance.name"/></th>
-	<th><spring:message code="inventory.viewStockBalance.category"/></th>
-	<th><spring:message code="inventory.viewStockBalance.formulation"/></th>
-	<th><spring:message code="inventory.viewStockBalance.transaction"/></th>
-	<th><spring:message code="inventory.viewStockBalance.toStore"/></th>
-	<th ><spring:message code="inventory.viewStockBalance.openingBalance"/></th>
-	<th ><spring:message code="inventory.viewStockBalance.receiptQty"/></th>
-	<th><spring:message code="inventory.viewStockBalance.STTSS"/></th>
-	<th ><spring:message code="inventory.receiptDrug.closingBalance"/></th>
-	<th ><spring:message code="inventory.receiptDrug.dateExpiry"/></th>
-	<th><spring:message code="inventory.viewStockBalance.receiptIssueDate"/></th>
+	<th><spring:message code="ehrinventory.viewStockBalance.name"/></th>
+	<th><spring:message code="ehrinventory.viewStockBalance.category"/></th>
+	<th><spring:message code="ehrinventory.viewStockBalance.formulation"/></th>
+	<th><spring:message code="ehrinventory.viewStockBalance.transaction"/></th>
+	<th><spring:message code="ehrinventory.viewStockBalance.toStore"/></th>
+	<th ><spring:message code="ehrinventory.viewStockBalance.openingBalance"/></th>
+	<th ><spring:message code="ehrinventory.viewStockBalance.receiptQty"/></th>
+	<th><spring:message code="ehrinventory.viewStockBalance.STTSS"/></th>
+	<th ><spring:message code="ehrinventory.receiptDrug.closingBalance"/></th>
+	<th ><spring:message code="ehrinventory.receiptDrug.dateExpiry"/></th>
+	<th><spring:message code="ehrinventory.viewStockBalance.receiptIssueDate"/></th>
 	</tr>
 	<c:choose>
 	<c:when test="${not empty listViewStockBalance}">

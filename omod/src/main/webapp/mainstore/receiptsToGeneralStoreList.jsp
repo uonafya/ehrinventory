@@ -15,28 +15,28 @@
 --%>
 <%@ include file="/WEB-INF/template/include.jsp" %>
 
-<openmrs:require privilege="Add/Edit mainstore" otherwise="/login.htm" redirect="/module/inventory/main.form" />
-<spring:message var="pageTitle" code="inventory.receiptDrug.manage" scope="page"/>
+<openmrs:require privilege="Add/Edit mainstore" otherwise="/login.htm" redirect="/module/ehrinventory/main.form" />
+<spring:message var="pageTitle" code="ehrinventory.receiptDrug.manage" scope="page"/>
 <%@ include file="/WEB-INF/template/header.jsp" %>
 <%@ include file="nav.jsp" %>
-<h2><spring:message code="inventory.receiptDrug.manage"/></h2>	
+<h2><spring:message code="ehrinventory.receiptDrug.manage"/></h2>
 <br />
 <c:forEach items="${errors.allErrors}" var="error">
 	<span class="error"><spring:message code="${error.defaultMessage}" text="${error.defaultMessage}"/></span><
 </c:forEach>
-<input type="button" class="ui-button ui-widget ui-state-default ui-corner-all" value="<spring:message code='inventory.receiptDrug.add'/>" onclick="ACT.go('receiptsToGeneralStore.form');"/>
+<input type="button" class="ui-button ui-widget ui-state-default ui-corner-all" value="<spring:message code='ehrinventory.receiptDrug.add'/>" onclick="ACT.go('receiptsToGeneralStore.form');"/>
 <br /><br />
 
 <form method="get"  id="form">
 <table >
 	<tr>
-		<td><spring:message code="inventory.receiptDrug.description"/></td>
+		<td><spring:message code="ehrinventory.receiptDrug.description"/></td>
 		<td>
 			<input type="text" name="receiptName" id="receiptName" value="${receiptName }"/>
 		</td>
-		<td><spring:message code="inventory.fromDate"/></td>
+		<td><spring:message code="ehrinventory.fromDate"/></td>
 		<td><input type="text" id="fromDate" class="date-pick left" readonly="readonly" name="fromDate" value="${fromDate}" title="Double Click to Clear" ondblclick="this.value='';"/></td>
-		<td><spring:message code="inventory.toDate"/></td>
+		<td><spring:message code="ehrinventory.toDate"/></td>
 		<td><input type="text" id="toDate" class="date-pick left" readonly="readonly" name="toDate" value="${toDate}" title="Double Click to Clear" ondblclick="this.value='';"/></td>
 		<td><input type="submit" class="ui-button ui-widget ui-state-default ui-corner-all" value="Search"/></td>
 	</tr>

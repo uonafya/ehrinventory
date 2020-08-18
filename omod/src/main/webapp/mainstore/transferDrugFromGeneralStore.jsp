@@ -15,9 +15,9 @@
 --%>
 <%@ include file="/WEB-INF/template/include.jsp" %>
 
-<openmrs:require privilege="View mainstore" otherwise="/login.htm" redirect="/module/inventory/main.form" />
+<openmrs:require privilege="View mainstore" otherwise="/login.htm" redirect="/module/ehrinventory/main.form" />
 
-<spring:message var="pageTitle" code="inventory.indent.manage" scope="page"/>
+<spring:message var="pageTitle" code="ehrinventory.indent.manage" scope="page"/>
 
 <%@ include file="/WEB-INF/template/header.jsp" %>
 
@@ -31,7 +31,7 @@
 		}
 	});
 </script>
-<h2><spring:message code="inventory.indent.manage"/></h2>	
+<h2><spring:message code="ehrinventory.indent.manage"/></h2>
 
 <br />
 <c:forEach items="${errors.allErrors}" var="error">
@@ -44,10 +44,10 @@
 <input type="hidden" id="viewIndent" name="viewIndent" value="${viewIndent }" />
 <table >
 	<tr>
-		<td valign="top"><spring:message code="inventory.store.store"/></td>
+		<td valign="top"><spring:message code="ehrinventory.store.store"/></td>
 		<td>
 			<select name="storeId" style="width:200px;">
-	    	    <option value=""><spring:message code="inventory.pleaseSelect"/></option>
+	    	    <option value=""><spring:message code="ehrinventory.pleaseSelect"/></option>
 				<c:forEach items="${listStore}" var="store">
 					<option value="${store.id}"
 					<c:if test="${store.id == storeId}"> selected</c:if>
@@ -55,37 +55,37 @@
 				</c:forEach>
 	   		</select>
 		</td>
-		<td><spring:message code="inventory.indent.status"/></td>
+		<td><spring:message code="ehrinventory.indent.status"/></td>
 		<td>
 			<select name="statusId" >
-      		<option value=""><spring:message code="inventory.pleaseSelect"/></option>
+      		<option value=""><spring:message code="ehrinventory.pleaseSelect"/></option>
 			<c:forEach items="${listMainStoreStatus}" var="status">
 				<option value="${status.id}" 
 				<c:if test="${status.id == statusId }">selected</c:if>
 				>${status.name}</option>
 			</c:forEach>
 	   </select>
-		<td><spring:message code="inventory.indent.name"/></td>
+		<td><spring:message code="ehrinventory.indent.name"/></td>
 		<td><input type="text" id="indentName" name="indentName" value="${indentName}" /></td>
-		<td><spring:message code="inventory.fromDate"/></td>
+		<td><spring:message code="ehrinventory.fromDate"/></td>
 		<td><input type="text" id="fromDate" class="date-pick left" readonly="readonly" name="fromDate" value="${fromDate}" title="Double Click to Clear" ondblclick="this.value='';"/></td>
-		<td><spring:message code="inventory.toDate"/></td>
+		<td><spring:message code="ehrinventory.toDate"/></td>
 		<td><input type="text" id="toDate" class="date-pick left" readonly="readonly" name="toDate" value="${toDate}" title="Double Click to Clear" ondblclick="this.value='';"/></td>
 		<td><input type="submit" class="ui-button ui-widget ui-state-default ui-corner-all" value="Search" /></td>
 	</tr>
 </table>
 
-<span class="boxHeader"><spring:message code="inventory.indent.list"/></span>
+<span class="boxHeader"><spring:message code="ehrinventory.indent.list"/></span>
 <div class="box">
 <c:choose>
 <c:when test="${not empty listIndent}">
 <table width="100%" cellpadding="0" cellspacing="0">
 <tr align="center">
 	<th >S.No</th>
-	<th align="center" ><spring:message code="inventory.indent.fromStore"/></th>
+	<th align="center" ><spring:message code="ehrinventory.indent.fromStore"/></th>
 	<th align="center" >Indent Name</th>
-	<th align="center" ><spring:message code="inventory.indent.createdOn"/></th>
-	<th align="center" ><spring:message code="inventory.indent.status"/></th>
+	<th align="center" ><spring:message code="ehrinventory.indent.createdOn"/></th>
+	<th align="center" ><spring:message code="ehrinventory.indent.status"/></th>
 	<th></th>
 	
 </tr>
@@ -98,7 +98,7 @@
 		<td align="center">${indent.mainStoreStatusName} </td>
 		<td>
 		<c:if test="${indent.mainStoreStatus == 1 }">
-			<a href="#" onclick="ACT.go('mainStoreDrugProcessIndent.form?indentId=${ indent.id}');"><spring:message code="inventory.indent.process"/></a>
+			<a href="#" onclick="ACT.go('mainStoreDrugProcessIndent.form?indentId=${ indent.id}');"><spring:message code="ehrinventory.indent.process"/></a>
 		</c:if>
 		</td>
 	</tr>

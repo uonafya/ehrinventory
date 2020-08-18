@@ -15,40 +15,40 @@
 --%>
 <%@ include file="/WEB-INF/template/include.jsp" %>
 
-<openmrs:require privilege="Add/Edit mainstore" otherwise="/login.htm" redirect="/module/inventory/main.form" />
-<spring:message var="pageTitle" code="inventory.purchase.manage" scope="page"/>
+<openmrs:require privilege="Add/Edit mainstore" otherwise="/login.htm" redirect="/module/ehrinventory/main.form" />
+<spring:message var="pageTitle" code="ehrinventory.purchase.manage" scope="page"/>
 <%@ include file="/WEB-INF/template/header.jsp" %>
 <%@ include file="nav.jsp" %>
-<h2><spring:message code="inventory.purchase.manage"/></h2>	
+<h2><spring:message code="ehrinventory.purchase.manage"/></h2>
 <br />
 <c:forEach items="${errors.allErrors}" var="error">
 	<span class="error"><spring:message code="${error.defaultMessage}" text="${error.defaultMessage}"/></span><
 </c:forEach>
-<input type="button" class="ui-button ui-widget ui-state-default ui-corner-all" value="<spring:message code='inventory.purchase.add'/>" onclick="ACT.go('purchaseOrderForGeneralStore.form');"/>
+<input type="button" class="ui-button ui-widget ui-state-default ui-corner-all" value="<spring:message code='ehrinventory.purchase.add'/>" onclick="ACT.go('purchaseOrderForGeneralStore.form');"/>
 <br /><br />
 
 <form method="get"  id="form">
 <table >
 	<tr>
-		<td><spring:message code="inventory.purchase.name"/></td>
+		<td><spring:message code="ehrinventory.purchase.name"/></td>
 		<td>
 			<input type="text" name="indentName" id="indentName" value="${indentName }"/>
 		</td>
-		<td><spring:message code="inventory.fromDate"/></td>
+		<td><spring:message code="ehrinventory.fromDate"/></td>
 		<td><input type="text" id="fromDate" class="date-pick left" readonly="readonly" name="fromDate" value="${fromDate}" title="Double Click to Clear" ondblclick="this.value='';"/></td>
-		<td><spring:message code="inventory.toDate"/></td>
+		<td><spring:message code="ehrinventory.toDate"/></td>
 		<td><input type="text" id="toDate" class="date-pick left" readonly="readonly" name="toDate" value="${toDate}" title="Double Click to Clear" ondblclick="this.value='';"/></td>
 		<td><input type="submit" class="ui-button ui-widget ui-state-default ui-corner-all" value="Search"/></td>
 	</tr>
 </table>
 <br />
-<span class="boxHeader"><spring:message code="inventory.purchase.list"/></span>
+<span class="boxHeader"><spring:message code="ehrinventory.purchase.list"/></span>
 <div class="box">
 <table width="100%" cellpadding="5" cellspacing="0">
 	<tr>
 	<th>S.No</th>
-	<th><spring:message code="inventory.purchase.name"/></th>
-	<th><spring:message code="inventory.purchase.createdOn"/></th>
+	<th><spring:message code="ehrinventory.purchase.name"/></th>
+	<th><spring:message code="ehrinventory.purchase.createdOn"/></th>
 	</tr>
 	<c:choose>
 	<c:when test="${not empty purchases}">

@@ -17,32 +17,32 @@
 
 <%@ include file="/WEB-INF/template/include.jsp" %>
 
-<openmrs:require privilege="Add/Edit mainstore" otherwise="/login.htm" redirect="/module/inventory/main.form" />
+<openmrs:require privilege="Add/Edit mainstore" otherwise="/login.htm" redirect="/module/ehrinventory/main.form" />
 
 <%@ include file="/WEB-INF/template/header.jsp" %>
 <%@ include file="../includes/js_css.jsp" %>
 
-<h2><spring:message code="inventory.indent.process"/></h2>
+<h2><spring:message code="ehrinventory.indent.process"/></h2>
 <form method="post" class="box" id="formMainStoreProcessIndent">
 <input type="hidden" name="indentId" id="indentId"  value="${indent.id}">
 <c:forEach items="${errors}" var="error">
 	<span class="error"><spring:message code="${error}" /></span><br/>
 </c:forEach>
 <div class="box">
-<span class="boxHeader"><spring:message code="inventory.indent"/></span>
+<span class="boxHeader"><spring:message code="ehrinventory.indent"/></span>
 <table>
 <tr>
-	<td><spring:message code="inventory.indent.name"/></td>
+	<td><spring:message code="ehrinventory.indent.name"/></td>
 	<td><input type="text" disabled="disabled"  value="${indent.name}" size="50"></td>
 
 </tr>
 <tr>
-	<td><spring:message code="inventory.indent.fromStore"/></td>
+	<td><spring:message code="ehrinventory.indent.fromStore"/></td>
 	<td><input type="text" disabled="disabled"  value="${indent.store.name}" size="50"></td>
 
 </tr>
 <tr>
-	<td><spring:message code="inventory.indent.createdOn"/></td>
+	<td><spring:message code="ehrinventory.indent.createdOn"/></td>
 	<td><input type="text" disabled="disabled"  value="<openmrs:formatDate date="${indent.createdOn}" type="textbox"/>"> </td>
 
 </tr>
@@ -50,15 +50,15 @@
 </div>
 <br/>
 <div class="box">
-<span class="boxHeader"><spring:message code="inventory.indent.processingIndent"/></span>
+<span class="boxHeader"><spring:message code="ehrinventory.indent.processingIndent"/></span>
 <table  width="100%" id="tableIndent">
 	<tr align="center">
 		<th >S.No</th>
-		<th ><spring:message code="inventory.indent.drug"/></th>
-		<th  ><spring:message code="inventory.indent.formulation"/></th>
-		<th  ><spring:message code="inventory.indent.quantityIndent"/></th>
-		<th  ><spring:message code="inventory.indent.transferQuantity"/></th>
-		<th  ><spring:message code="inventory.indent.mainStoreQuantity"/></th>
+		<th ><spring:message code="ehrinventory.indent.drug"/></th>
+		<th  ><spring:message code="ehrinventory.indent.formulation"/></th>
+		<th  ><spring:message code="ehrinventory.indent.quantityIndent"/></th>
+		<th  ><spring:message code="ehrinventory.indent.transferQuantity"/></th>
+		<th  ><spring:message code="ehrinventory.indent.mainStoreQuantity"/></th>
 	</tr>
 	
 	<c:forEach items="${listDrugNeedProcess}" var="drugIndent" varStatus="varStatus">
@@ -109,10 +109,10 @@
 </div>
 		
 <br />		
-<input type="submit" class="ui-button ui-widget ui-state-default ui-corner-all" value="<spring:message code="inventory.indent.accept"/>">
+<input type="submit" class="ui-button ui-widget ui-state-default ui-corner-all" value="<spring:message code="ehrinventory.indent.accept"/>">
 <input type="hidden" id="refuse" name="refuse" value="">
-<input type="button" class="ui-button ui-widget ui-state-default ui-corner-all" value="<spring:message code="inventory.indent.refuse"/>" onclick="INDENT.refuseIndentFromMainStore(this);">
-<input type="button" class="ui-button ui-widget ui-state-default ui-corner-all" value="<spring:message code="inventory.returnList"/>" onclick="ACT.go('transferDrugFromGeneralStore.form');">
+<input type="button" class="ui-button ui-widget ui-state-default ui-corner-all" value="<spring:message code="ehrinventory.indent.refuse"/>" onclick="INDENT.refuseIndentFromMainStore(this);">
+<input type="button" class="ui-button ui-widget ui-state-default ui-corner-all" value="<spring:message code="ehrinventory.returnList"/>" onclick="ACT.go('transferDrugFromGeneralStore.form');">
 </form>
 
 <%@ include file="/WEB-INF/template/footer.jsp" %>

@@ -15,8 +15,8 @@
 --%>
 <%@ include file="/WEB-INF/template/include.jsp" %>
 
-<openmrs:require privilege="Add/Edit mainstore" otherwise="/login.htm" redirect="/module/inventory/main.form" />
-<spring:message var="pageTitle" code="inventory.receiptDrug.manage" scope="page"/>
+<openmrs:require privilege="Add/Edit mainstore" otherwise="/login.htm" redirect="/module/ehrinventory/main.form" />
+<spring:message var="pageTitle" code="ehrinventory.receiptDrug.manage" scope="page"/>
 <%@ include file="/WEB-INF/template/header.jsp" %>
 <%@ include file="../includes/js_css.jsp" %>
 
@@ -82,10 +82,10 @@ if($("#companyName").val().length > 100)
  
 
 <%-- 	// Sagar Bele - 07-08-2012 New Requirement #302 [INVENTORY] Non Mandatory Drug Category filter for drug search  --%>
-		<td><spring:message code="inventory.drug.category"/></td>
+		<td><spring:message code="ehrinventory.drug.category"/></td>
 		<td>
 			<select name="category" id="category" onchange="RECEIPT.onChangeCategory(this);"  style="width: 80%;">
-				<option value=""><spring:message code="inventory.pleaseSelect"/></option>
+				<option value=""><spring:message code="ehrinventory.pleaseSelect"/></option>
                 <c:forEach items="${listCategory}" var="vCat">
                     <option value="${vCat.id}" title="${vCat.name}" <c:if test="${vCat.id == categoryId }">selected</c:if> >${vCat.name}</option>
                 </c:forEach>
@@ -103,11 +103,11 @@ if($("#companyName").val().length > 100)
 		</td>
 	</tr>
 	<tr>
-		<td><spring:message code="inventory.drug.formulation"/><em>*</em></td>
+		<td><spring:message code="ehrinventory.drug.formulation"/><em>*</em></td>
 		<td>
 			<div id="divFormulation"  >
 				<select id="formulation"  name="formulation" style="width: 80%;">
-					<option value=""><spring:message code="inventory.pleaseSelect"/></option>
+					<option value=""><spring:message code="ehrinventory.pleaseSelect"/></option>
 				</select>
 			</div>
 		</td>
@@ -116,7 +116,7 @@ if($("#companyName").val().length > 100)
 <br/>
 <table class="box">
 	<tr>
-		<td><spring:message code="inventory.receiptDrug.quantiry"/><em>*</em></td>
+		<td><spring:message code="ehrinventory.receiptDrug.quantiry"/><em>*</em></td>
 		<td>
 			<input type="text" id="quantity" name="quantity" />
 		</td>
@@ -128,50 +128,50 @@ if($("#companyName").val().length > 100)
 		</td>
 	</tr>
 	<tr>
-		<td><spring:message code="inventory.receiptDrug.VAT"/></td>
+		<td><spring:message code="ehrinventory.receiptDrug.VAT"/></td>
 		<td>
 			<input type="text" id="VAT" name="VAT" />
 		</td>
 	</tr>
 	<tr>
-		<td><spring:message code="inventory.receiptDrug.costToPatient"/><em>*</em></td>
+		<td><spring:message code="ehrinventory.receiptDrug.costToPatient"/><em>*</em></td>
 		<td>
 			<input type="text" id="costToPatient" name="costToPatient" />
 		</td>
 	</tr>
 	<tr>
-		<td><spring:message code="inventory.receiptDrug.batchNo"/><em>*</em></td>
+		<td><spring:message code="ehrinventory.receiptDrug.batchNo"/><em>*</em></td>
 		<td>
 			<input type="text" id="batchNo" name="batchNo" />
 		</td>
 	</tr>
 	<tr>
-		<td><spring:message code="inventory.receiptDrug.companyName"/><em>*</em></td>
+		<td><spring:message code="ehrinventory.receiptDrug.companyName"/><em>*</em></td>
 		<td>
 			<input type="text" id="companyName" name="companyName" onblur="checkCompany();" />
 		</td>
 	</tr>
 	<tr>
-		<td><spring:message code="inventory.receiptDrug.dateManufacture"/><em>*</em></td>
+		<td><spring:message code="ehrinventory.receiptDrug.dateManufacture"/><em>*</em></td>
 		<td>
 			<input type="text" id="dateManufacture" name="dateManufacture" class="date-pick left" readonly="readonly"  ondblclick="this.value='';"/>
 		</td>
 	</tr>
 	<tr>
-		<td><spring:message code="inventory.receiptDrug.dateExpiry"/><em>*</em></td>
+		<td><spring:message code="ehrinventory.receiptDrug.dateExpiry"/><em>*</em></td>
 		<td>
 			<input type="text" id="dateExpiry" name="dateExpiry" class="date-pick left" readonly="readonly"  ondblclick="this.value='';"/>
 		</td>
 	</tr>
 	<tr>
-		<td><spring:message code="inventory.receiptDrug.receiptDate"/><em>*</em></td>
+		<td><spring:message code="ehrinventory.receiptDrug.receiptDate"/><em>*</em></td>
 		<td>
 			<input type="text" id="receiptDate" name="receiptDate" class="date-pick left" readonly="readonly"  ondblclick="this.value='';"/>
 		</td>
 	</tr>
 	<!-- Sagar Bele : Date - 22-01-2013 Issue Number 660 : [Inventory] Add receipt from field in Table and front end -->
 	<tr>
-		<td><spring:message code="inventory.receiptDrug.receiptFrom"/></td>
+		<td><spring:message code="ehrinventory.receiptDrug.receiptFrom"/></td>
 		<td>
 			<input type="text" id="receiptFrom" name="receiptFrom" />
 		</td>
@@ -179,8 +179,8 @@ if($("#companyName").val().length > 100)
 
 </table>
 <br/>
-<input type="submit" class="ui-button ui-widget ui-state-default ui-corner-all" value="<spring:message code="inventory.receiptDrug.addToSlip"/>">
-<input type="button" class="ui-button ui-widget ui-state-default ui-corner-all" value="<spring:message code="inventory.back"/>" onclick="ACT.go('receiptsToGeneralStoreList.form');">
+<input type="submit" class="ui-button ui-widget ui-state-default ui-corner-all" value="<spring:message code="ehrinventory.receiptDrug.addToSlip"/>">
+<input type="button" class="ui-button ui-widget ui-state-default ui-corner-all" value="<spring:message code="ehrinventory.back"/>" onclick="ACT.go('receiptsToGeneralStoreList.form');">
 </form>
 </div>
 </div>
@@ -191,20 +191,20 @@ if($("#companyName").val().length > 100)
 <table class="box" width="100%" border="1" cellpadding="5" cellspacing="0">
 	<tr>
 	<th>S.No</th>
-	<th><spring:message code="inventory.drug.category"/></th>
-	<th><spring:message code="inventory.drug.name"/></th>
-	<th><spring:message code="inventory.drug.formulation"/></th>
-	<th><spring:message code="inventory.receiptDrug.quantity"/></th>
+	<th><spring:message code="ehrinventory.drug.category"/></th>
+	<th><spring:message code="ehrinventory.drug.name"/></th>
+	<th><spring:message code="ehrinventory.drug.formulation"/></th>
+	<th><spring:message code="ehrinventory.receiptDrug.quantity"/></th>
 	<th>Unit Price</th>
-	<th><spring:message code="inventory.receiptDrug.VAT"/></th>
-	<th><spring:message code="inventory.receiptDrug.costToPatient"/></th>
-	<!-- <th><spring:message code="inventory.receiptDrug.totalPrice"/></th> -->
-	<th><spring:message code="inventory.receiptDrug.batchNo"/></th>
-	<th title="<spring:message code="inventory.receiptDrug.companyName"/>">CN</th>
-	<th title="<spring:message code="inventory.receiptDrug.dateManufacture"/>">DM</th>
-	<th title="<spring:message code="inventory.receiptDrug.dateExpiry"/>">DE</th>
-	<th title="<spring:message code="inventory.receiptDrug.receiptDate"/>">RD</th>
-	<th title="<spring:message code="inventory.receiptDrug.receiptFrom"/>">RF</th>
+	<th><spring:message code="ehrinventory.receiptDrug.VAT"/></th>
+	<th><spring:message code="ehrinventory.receiptDrug.costToPatient"/></th>
+	<!-- <th><spring:message code="ehrinventory.receiptDrug.totalPrice"/></th> -->
+	<th><spring:message code="ehrinventory.receiptDrug.batchNo"/></th>
+	<th title="<spring:message code="ehrinventory.receiptDrug.companyName"/>">CN</th>
+	<th title="<spring:message code="ehrinventory.receiptDrug.dateManufacture"/>">DM</th>
+	<th title="<spring:message code="ehrinventory.receiptDrug.dateExpiry"/>">DE</th>
+	<th title="<spring:message code="ehrinventory.receiptDrug.receiptDate"/>">RD</th>
+	<th title="<spring:message code="ehrinventory.receiptDrug.receiptFrom"/>">RF</th>
 	</tr>
 	<c:choose>
 	<c:when test="${not empty listReceipt}">
@@ -236,9 +236,9 @@ if($("#companyName").val().length > 100)
 		<table class="box" width="100%" cellpadding="5" cellspacing="0">
 		<tr>
 			<td>
-				<input type="button" class="ui-button ui-widget ui-state-default ui-corner-all" value="<spring:message code="inventory.receiptDrug.finish"/>" onclick="RECEIPT.receiptSlip('0');" />
-				<input type="button" class="ui-button ui-widget ui-state-default ui-corner-all" value="<spring:message code="inventory.receiptDrug.clear"/>"  onclick="RECEIPT.receiptSlip('1');"/>
-				<input type="button" class="ui-button ui-widget ui-state-default ui-corner-all" value="<spring:message code="inventory.receiptDrug.print"/>" onClick="RECEIPT.printDiv();" />
+				<input type="button" class="ui-button ui-widget ui-state-default ui-corner-all" value="<spring:message code="ehrinventory.receiptDrug.finish"/>" onclick="RECEIPT.receiptSlip('0');" />
+				<input type="button" class="ui-button ui-widget ui-state-default ui-corner-all" value="<spring:message code="ehrinventory.receiptDrug.clear"/>"  onclick="RECEIPT.receiptSlip('1');"/>
+				<input type="button" class="ui-button ui-widget ui-state-default ui-corner-all" value="<spring:message code="ehrinventory.receiptDrug.print"/>" onClick="RECEIPT.printDiv();" />
 			</td>
 		</tr>
 		</table>
@@ -259,21 +259,21 @@ if($("#companyName").val().length > 100)
 <table border="1">
 	<tr>
 	<th>S.No</th>
-	<th><spring:message code="inventory.drug.category"/></th>
-	<th><spring:message code="inventory.drug.name"/></th>
-	<th><spring:message code="inventory.drug.formulation"/></th>
-	<th><spring:message code="inventory.receiptDrug.quantity"/></th>
-	<th><spring:message code="inventory.receiptDrug.unitPrice"/></th>
-	<th><spring:message code="inventory.receiptDrug.VAT"/></th>
-	<th><spring:message code="inventory.receiptDrug.costToPatient"/></th>
-	<!-- <th><spring:message code="inventory.receiptDrug.totalPrice"/></th> -->
-	<th><spring:message code="inventory.receiptDrug.batchNo"/></th>
-	<th><spring:message code="inventory.receiptDrug.companyName"/></th>
-	<th><spring:message code="inventory.receiptDrug.dateManufacture"/></th>
-	<th><spring:message code="inventory.receiptDrug.dateExpiry"/></th>
-	<th><spring:message code="inventory.receiptDrug.receiptDate"/></th>
+	<th><spring:message code="ehrinventory.drug.category"/></th>
+	<th><spring:message code="ehrinventory.drug.name"/></th>
+	<th><spring:message code="ehrinventory.drug.formulation"/></th>
+	<th><spring:message code="ehrinventory.receiptDrug.quantity"/></th>
+	<th><spring:message code="ehrinventory.receiptDrug.unitPrice"/></th>
+	<th><spring:message code="ehrinventory.receiptDrug.VAT"/></th>
+	<th><spring:message code="ehrinventory.receiptDrug.costToPatient"/></th>
+	<!-- <th><spring:message code="ehrinventory.receiptDrug.totalPrice"/></th> -->
+	<th><spring:message code="ehrinventory.receiptDrug.batchNo"/></th>
+	<th><spring:message code="ehrinventory.receiptDrug.companyName"/></th>
+	<th><spring:message code="ehrinventory.receiptDrug.dateManufacture"/></th>
+	<th><spring:message code="ehrinventory.receiptDrug.dateExpiry"/></th>
+	<th><spring:message code="ehrinventory.receiptDrug.receiptDate"/></th>
 	<!-- Sagar Bele : Date - 22-01-2013 Issue Number 660 : [Inventory] Add receipt from field in Table and front end -->	
-	<th><spring:message code="inventory.receiptDrug.receiptFrom"/></th>	
+	<th><spring:message code="ehrinventory.receiptDrug.receiptFrom"/></th>
 	</tr>
 	<c:choose>
 	<c:when test="${not empty listReceipt}">

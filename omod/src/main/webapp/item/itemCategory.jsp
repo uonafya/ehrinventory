@@ -15,11 +15,11 @@
 --%>
 <%@ include file="/WEB-INF/template/include.jsp" %>
 
-<openmrs:require privilege="Add/Edit itemCategory" otherwise="/login.htm" redirect="/module/inventory/itemCategory.form" />
+<openmrs:require privilege="Add/Edit itemCategory" otherwise="/login.htm" redirect="/module/ehrinventory/itemCategory.form" />
 
 <%@ include file="/WEB-INF/template/header.jsp" %>
 <%@ include file="../includes/js_css.jsp" %>
-<h2><spring:message code="inventory.itemCategory.manage"/></h2>
+<h2><spring:message code="ehrinventory.itemCategory.manage"/></h2>
 
 <c:forEach items="${errors.allErrors}" var="error">
 	<span class="error"><spring:message code="${error.defaultMessage}" text="${error.defaultMessage}"/></span>
@@ -41,7 +41,7 @@
 		<spring:bind path="itemCategory.id">
 			<input type="hidden" name="${status.expression}" id="${status.expression}" value="${status.value}" />
 		</spring:bind>
-		<td><spring:message code="inventory.itemCategory.name"/><em>*</em></td>
+		<td><spring:message code="ehrinventory.itemCategory.name"/><em>*</em></td>
 		<td>
 			<spring:bind path="itemCategory.name">
 				<input type="text" id="${status.expression}" name="${status.expression}" value="${status.value}" size="35" />
@@ -50,7 +50,7 @@
 		</td>
 	</tr>
 	<tr>
-		<td valign="top"><spring:message code="inventory.itemCategory.description"/></td>
+		<td valign="top"><spring:message code="ehrinventory.itemCategory.description"/></td>
 		<td>
 			<spring:bind path="itemCategory.description">
 				<input type="text" name="${status.expression}" id="${status.expression}" value="${status.value}" size="35" />

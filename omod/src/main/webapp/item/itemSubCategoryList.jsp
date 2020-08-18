@@ -15,20 +15,20 @@
 --%>
 <%@ include file="/WEB-INF/template/include.jsp" %>
 
-<openmrs:require privilege="View itemSubCategory" otherwise="/login.htm" redirect="/module/inventory/itemSubCategoryList.form" />
+<openmrs:require privilege="View itemSubCategory" otherwise="/login.htm" redirect="/module/ehrinventory/itemSubCategoryList.form" />
 
-<spring:message var="pageTitle" code="inventory.itemSubCategory.manage" scope="page"/>
+<spring:message var="pageTitle" code="ehrinventory.itemSubCategory.manage" scope="page"/>
 
 <%@ include file="/WEB-INF/template/header.jsp" %>
 
 <%@ include file="nav.jsp" %>
-<h2><spring:message code="inventory.itemSubCategory.manage"/></h2>	
+<h2><spring:message code="ehrinventory.itemSubCategory.manage"/></h2>
 
 <br />
 <c:forEach items="${errors.allErrors}" var="error">
 	<span class="error"><spring:message code="${error.defaultMessage}" text="${error.defaultMessage}"/></span><
 </c:forEach>
-<input type="button" class="ui-button ui-widget ui-state-default ui-corner-all" value="<spring:message code='inventory.itemSubCategory.add'/>" onclick="ACT.go('itemSubCategory.form');"/>
+<input type="button" class="ui-button ui-widget ui-state-default ui-corner-all" value="<spring:message code='ehrinventory.itemSubCategory.add'/>" onclick="ACT.go('itemSubCategory.form');"/>
 
 <br /><br />
 <form method="post" onsubmit="return false" id="form">
@@ -40,20 +40,20 @@
 	</tr>
 </table>
 
-<span class="boxHeader"><spring:message code="inventory.itemSubCategory.list"/></span>
+<span class="boxHeader"><spring:message code="ehrinventory.itemSubCategory.list"/></span>
 <div class="box">
 <c:choose>
 <c:when test="${not empty itemSubCategorys}">
-<input type="button" class="ui-button ui-widget ui-state-default ui-corner-all" onclick="INVENTORY.checkValue();" value="<spring:message code='inventory.deleteSelected'/>"/>
+<input type="button" class="ui-button ui-widget ui-state-default ui-corner-all" onclick="INVENTORY.checkValue();" value="<spring:message code='ehrinventory.deleteSelected'/>"/>
 <table cellpadding="5" cellspacing="0" width="100%">
 <tr>
 	<th>S.No</th>
-	<th><spring:message code="inventory.itemSubCategory.name"/></th>
-	<th><spring:message code="inventory.itemSubCategory.code"/></th>
-	<th><spring:message code="inventory.itemSubCategory.description"/></th>
-	<th><spring:message code="inventory.itemSubCategory.category"/></th>
-	<th><spring:message code="inventory.itemSubCategory.createdDate"/></th>
-	<th><spring:message code="inventory.itemSubCategory.createdBy"/></th>
+	<th><spring:message code="ehrinventory.itemSubCategory.name"/></th>
+	<th><spring:message code="ehrinventory.itemSubCategory.code"/></th>
+	<th><spring:message code="ehrinventory.itemSubCategory.description"/></th>
+	<th><spring:message code="ehrinventory.itemSubCategory.category"/></th>
+	<th><spring:message code="ehrinventory.itemSubCategory.createdDate"/></th>
+	<th><spring:message code="ehrinventory.itemSubCategory.createdBy"/></th>
 	<th></th>
 </tr>
 <c:forEach items="${itemSubCategorys}" var="itemSubCategory" varStatus="varStatus">
