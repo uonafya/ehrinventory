@@ -24,7 +24,7 @@
 </style>
 <div  id="printDiv" style="display: none; ">        		
 <div style="width: 1280px; font-size: 0.8em">
-<center><img width="100" height="100" align="center" title="OpenMRS" alt="OpenMRS" src="${pageContext.request.contextPath}/moduleResources/inventory/kenya_logo.bmp"><center>
+<center><img width="100" height="100" align="center" title="OpenMRS" alt="OpenMRS" src="${pageContext.request.contextPath}/moduleResources/ehrinventory/kenya_logo.bmp"><center>
   <table  class="spacer" style="margin-left: 60px;"> 		
 <tr><h3><center><b><u>${userLocation}</u> </b></center></h3></tr>
 <tr><h5><b><center>CASH RECEIPT</center></b></h5></tr>
@@ -44,9 +44,9 @@
 <table class="spacer" style="margin-left: 60px; margin-top: 40px;">
 	<tr>
 	<th>S.No</th>
-	<th><spring:message code="inventory.item.name"/></th>
-	<th><spring:message code="inventory.item.specification"/></th>
-	<th><spring:message code="inventory.receiptItem.quantity"/></th>
+	<th><spring:message code="ehrinventory.item.name"/></th>
+	<th><spring:message code="ehrinventory.item.specification"/></th>
+	<th><spring:message code="ehrinventory.receiptItem.quantity"/></th>
 	<th><spring:message text="Amount" /></th>
 	</tr>
 	<c:choose>

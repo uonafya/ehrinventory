@@ -20,12 +20,12 @@
 <center><openmrs:hasPrivilege privilege="Drug order queue"><b><a href="#" onclick="ACT.go('patientQueueDrugOrder.form');">Drug</a>&nbsp;| Item </b></openmrs:hasPrivilege></center>
 <center><openmrs:hasPrivilege privilege="Drug/Item Dispense"><b><a href="#" onclick="ACT.go('subStoreIssueDrugList.form');">Drug</a>&nbsp;| Item </b></openmrs:hasPrivilege></center>
 <br/><br/>
-<openmrs:hasPrivilege privilege="Add/Edit substore"><b><a href="#" onclick="ACT.go('subStoreIssueItem.form');"><spring:message code="inventory.substore.issueItemPatient"/></a></b></openmrs:hasPrivilege>
-<openmrs:hasPrivilege privilege="Drug/Item Dispense"><b><a href="#" onclick="ACT.go('subStoreIssueItemPatientList.form');"><spring:message code="inventory.substore.listItemPatient"/></a></b></openmrs:hasPrivilege>
-<openmrs:hasPrivilege privilege="Add/Edit substore">|&nbsp;<b><a href="#" onclick="ACT.go('subStoreListItemPatient.form');"><spring:message code="inventory.substore.listPatientItem"/></a></b></openmrs:hasPrivilege>
-<openmrs:hasPrivilege privilege="Add/Edit substore">|&nbsp;<b><a href="#" onclick="ACT.go('subStoreIndentItemList.form');"><spring:message code="inventory.substore.indentItem"/></a></b></openmrs:hasPrivilege>
-<openmrs:hasPrivilege privilege="Add/Edit substore">|&nbsp;<b><a href="#" onclick="ACT.go('subStoreIssueItemList.form');"><spring:message code="inventory.substore.issueItem"/></a></b></openmrs:hasPrivilege>
-<openmrs:hasPrivilege privilege="Add/Edit substore">|&nbsp;<b><a href="#" onclick="ACT.go('itemViewStockBalanceSubStore.form');"><spring:message code="inventory.substoreItem.viewitemStockBalance"/></a></b></openmrs:hasPrivilege>
+<openmrs:hasPrivilege privilege="Add/Edit substore"><b><a href="#" onclick="ACT.go('subStoreIssueItem.form');"><spring:message code="ehrinventory.substore.issueItemPatient"/></a></b></openmrs:hasPrivilege>
+<openmrs:hasPrivilege privilege="Drug/Item Dispense"><b><a href="#" onclick="ACT.go('subStoreIssueItemPatientList.form');"><spring:message code="ehrinventory.substore.listItemPatient"/></a></b></openmrs:hasPrivilege>
+<openmrs:hasPrivilege privilege="Add/Edit substore">|&nbsp;<b><a href="#" onclick="ACT.go('subStoreListItemPatient.form');"><spring:message code="ehrinventory.substore.listPatientItem"/></a></b></openmrs:hasPrivilege>
+<openmrs:hasPrivilege privilege="Add/Edit substore">|&nbsp;<b><a href="#" onclick="ACT.go('subStoreIndentItemList.form');"><spring:message code="ehrinventory.substore.indentItem"/></a></b></openmrs:hasPrivilege>
+<openmrs:hasPrivilege privilege="Add/Edit substore">|&nbsp;<b><a href="#" onclick="ACT.go('subStoreIssueItemList.form');"><spring:message code="ehrinventory.substore.issueItem"/></a></b></openmrs:hasPrivilege>
+<openmrs:hasPrivilege privilege="Add/Edit substore">|&nbsp;<b><a href="#" onclick="ACT.go('itemViewStockBalanceSubStore.form');"><spring:message code="ehrinventory.substoreItem.viewitemStockBalance"/></a></b></openmrs:hasPrivilege>
 
 <br/><br/>
 

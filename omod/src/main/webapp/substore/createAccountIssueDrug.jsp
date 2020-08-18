@@ -19,7 +19,7 @@
 <form class="box" method="post" id="createAccountIssueDrug">
 <table width="100%">
 	<tr>
-		<td><spring:message code="inventory.issueDrug.account"/><em>*</em></td>
+		<td><spring:message code="ehrinventory.issueDrug.account"/><em>*</em></td>
 		<td><input type="text" name="accountName" id="accountName" size="35"/>
 		</td>
 	</tr>

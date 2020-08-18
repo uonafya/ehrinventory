@@ -15,8 +15,8 @@
 --%>
 <%@ include file="/WEB-INF/template/include.jsp" %>
 
-<openmrs:require privilege="Add/Edit substore" otherwise="/login.htm" redirect="/module/inventory/main.form" />
-<spring:message var="pageTitle" code="inventory.issueItem.manage" scope="page"/>
+<openmrs:require privilege="Add/Edit substore" otherwise="/login.htm" redirect="/module/ehrinventory/main.form" />
+<spring:message var="pageTitle" code="ehrinventory.issueItem.manage" scope="page"/>
 <%@ include file="/WEB-INF/template/header.jsp" %>
 <%@ include file="../includes/js_css.jsp" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
@@ -64,10 +64,10 @@ function getValue()
 <table class="box">
 <tr><td><b>Item Info</b></td></tr>
 <tr>
-		<td><spring:message code="inventory.item.subCategory"/><em>*</em></td>
+		<td><spring:message code="ehrinventory.item.subCategory"/><em>*</em></td>
 		<td>
 			<select name="category" id="category" onchange="ISSUE.onChangeCategoryItemPatient(this);"  style="width: 250px;">
-				<option value=""><spring:message code="inventory.pleaseSelect"/></option>
+				<option value=""><spring:message code="ehrinventory.pleaseSelect"/></option>
                 <c:forEach items="${listCategory}" var="vCat">
                     <option value="${vCat.id}" <c:if test="${vCat.id == categoryId }">selected</c:if> >${vCat.name}</option>
                 </c:forEach>
@@ -79,7 +79,7 @@ function getValue()
 		<td>
 			<div id="divItem">
 				<select id="itemId" name="itemId" onchange="ISSUE.onBlurItemPatient(this);"  style="width: 250px;">
-					<option value=""><spring:message code="inventory.pleaseSelect"/></option>
+					<option value=""><spring:message code="ehrinventory.pleaseSelect"/></option>
 					   <c:if test ="${not empty items}">
 					       <c:forEach items="${items}" var="item">
 					           <option value="${item.id}" >${item.name}</option>
@@ -128,7 +128,7 @@ function getValue()
 					value="Find Patient"
 					onclick="ISSUE.createPatientForItem();">
 			</c:if>
-<input type="button" class="ui-button ui-widget ui-state-default ui-corner-all" value="<spring:message code="inventory.back"/>" onclick="ACT.go('subStoreIssueItemPatientList.form');">
+<input type="button" class="ui-button ui-widget ui-state-default ui-corner-all" value="<spring:message code="ehrinventory.back"/>" onclick="ACT.go('subStoreIssueItemPatientList.form');">
 </form>
 </div>
 </div>
@@ -166,11 +166,11 @@ function getValue()
 <table class="box" width="100%" cellpadding="5" cellspacing="0">
 	<tr>
 	<th>S.No</th>
-	<th><spring:message code="inventory.item.subCategory"/></th>
-	<th><spring:message code="inventory.item.name"/></th>
-	<th><spring:message code="inventory.item.specification"/></th>
-	<th><spring:message code="inventory.receiptItem.quantity"/></th>
-	<th><spring:message code="inventory.receiptItem.price" text="Price" /></th>
+	<th><spring:message code="ehrinventory.item.subCategory"/></th>
+	<th><spring:message code="ehrinventory.item.name"/></th>
+	<th><spring:message code="ehrinventory.item.specification"/></th>
+	<th><spring:message code="ehrinventory.receiptItem.quantity"/></th>
+	<th><spring:message code="ehrinventory.receiptItem.price" text="Price" /></th>
 	</tr>
 	<c:choose>
 	<c:when test="${not empty listItemDetail}">
@@ -200,7 +200,7 @@ function getValue()
 		<td></td>
 		<td></td>
 		<td></td>
-		<td><b><spring:message code="inventory.receiptItem.total" text="Total" /></b></td>
+		<td><b><spring:message code="ehrinventory.receiptItem.total" text="Total" /></b></td>
 		<td>	
 			<c:choose>
 				<c:when test ="${paymentSubCategory == generalVar}">
@@ -223,16 +223,7 @@ function getValue()
 		</td>						
 	</tr>
 <!-- <tr class='${varStatus.index % 2 == 0 ? "oddRow" : "evenRow" } '>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<!-- <td><b>Payment Mode</b></td>
-		<td><select id="paymentMode" name="paymentMode">
-			<option value="Cash">Cash</option>
-			<option value="Card">Card</option>
-		</select> 
-		</td>	-->					
+
 	</c:when>
 	</c:choose>
 </table>
@@ -252,7 +243,7 @@ function getValue()
 	
 </div>
 </div>
-<!-- PRINT DIV -->
+
 <div  id="printDiv" style="display: none; ">        		
 <div style="width: 1280px; font-size: 0.8em">
 		
@@ -296,9 +287,9 @@ function getValue()
 			width="80%">
 	<tr>
 	<th>S.No</th>
-	<th><spring:message code="inventory.item.name"/></th>
-	<th><spring:message code="inventory.item.specification"/></th>
-	<th><spring:message code="inventory.receiptItem.quantity"/></th>
+	<th><spring:message code="ehrinventory.item.name"/></th>
+	<th><spring:message code="ehrinventory.item.specification"/></th>
+	<th><spring:message code="ehrinventory.receiptItem.quantity"/></th>
 	<th><spring:message text="Amount" /></th>
 	</tr>
 	<c:choose>
@@ -328,7 +319,7 @@ function getValue()
 		<td></td>
 		<td></td>
 		<td></td>
-		<td><spring:message code="inventory.receiptItem.total" text="Total" /></td>
+		<td><spring:message code="ehrinventory.receiptItem.total" text="Total" /></td>
 			
 			<c:choose>
 				<c:when test ="${paymentSubCategory == generalVar}">
@@ -360,7 +351,6 @@ function getValue()
 <span style="float:right;font-size: 1.5em">Signature of Inventory Clerk/ Stamp</span>
 </div>
 </div>
-<!-- END PRINT DIV -->   
 
  
 <%@ include file="/WEB-INF/template/footer.jsp" %>

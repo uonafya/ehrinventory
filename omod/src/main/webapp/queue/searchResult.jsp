@@ -14,7 +14,7 @@
  */
 --%>
 <%@ include file="/WEB-INF/template/include.jsp"%>
-<openmrs:require privilege="Drug order queue" otherwise="/login.htm" redirect="/module/inventory/main.form" />
+<openmrs:require privilege="Drug order queue" otherwise="/login.htm" redirect="/module/ehrinventory/main.form" />
 
 <script type="text/javascript">
 // get context path in order to build controller url
@@ -33,7 +33,7 @@
 		
 		visit: function(patientId,date){
 		    var dat = date.toString(); 			
-			window.location.href = openmrsContextPath + "/module/inventory/listoforder.form?patientId=" + patientId + "&date=" + dat;
+			window.location.href = openmrsContextPath + "/module/ehrinventory/listoforder.form?patientId=" + patientId + "&date=" + dat;
 		}
 	};
 

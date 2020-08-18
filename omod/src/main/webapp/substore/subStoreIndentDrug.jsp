@@ -15,9 +15,9 @@
 --%>
 <%@ include file="/WEB-INF/template/include.jsp" %>
 
-<openmrs:require privilege="Add/Edit substore" otherwise="/login.htm" redirect="/module/inventory/main.form" />
+<openmrs:require privilege="Add/Edit substore" otherwise="/login.htm" redirect="/module/ehrinventory/main.form" />
 <%@ include file="/WEB-INF/template/header.jsp" %>
-<spring:message var="pageTitle" code="inventory.indent.manager" scope="page"/>
+<spring:message var="pageTitle" code="ehrinventory.indent.manager" scope="page"/>
 <%@ include file="../includes/js_css.jsp" %>
 
 <div style="width: 45%; float: left; margin-left: 4px; ">
@@ -32,10 +32,10 @@
 <tr>
 
 <%-- 	// Sagar Bele - 07-08-2012 New Requirement #302 [INVENTORY] Non Mandatory Drug Category filter for drug search  --%>
-		<td><spring:message code="inventory.drug.category"/></td>
+		<td><spring:message code="ehrinventory.drug.category"/></td>
 		<td>
 			<select name="category" id="category" onchange="INDENT.onChangeCategory(this);"  style="width: 250px;">
-				<option value=""><spring:message code="inventory.pleaseSelect"/></option>
+				<option value=""><spring:message code="ehrinventory.pleaseSelect"/></option>
                 <c:forEach items="${listCategory}" var="vCat">
                     <option value="${vCat.id}"  <c:if test="${vCat.id == categoryId }">selected</c:if> >${vCat.name}</option>
                 </c:forEach>
@@ -53,11 +53,11 @@
 		</td>
 	</tr>
 	<tr>
-		<td><spring:message code="inventory.drug.formulation"/><em>*</em></td>
+		<td><spring:message code="ehrinventory.drug.formulation"/><em>*</em></td>
 		<td>
 			<div id="divFormulation"  >
 				<select id="formulation"  name="formulation">
-					<option value=""><spring:message code="inventory.pleaseSelect"/></option>
+					<option value=""><spring:message code="ehrinventory.pleaseSelect"/></option>
 				</select>
 			</div>
 		</td>
@@ -66,15 +66,15 @@
 <br/>
 <table class="box">
 	<tr>
-		<td><spring:message code="inventory.indent.quantity"/><em>*</em></td>
+		<td><spring:message code="ehrinventory.indent.quantity"/><em>*</em></td>
 		<td>
 			<input type="text" id="quantity" name="quantity" />
 		</td>
 	</tr>
 </table>
 <br/>
-<input type="submit" class="ui-button ui-widget ui-state-default ui-corner-all" value="<spring:message code="inventory.indent.addToSlip"/>">
-<input type="button" class="ui-button ui-widget ui-state-default ui-corner-all" value="<spring:message code="inventory.back"/>" onclick="ACT.go('subStoreIndentDrugList.form');">
+<input type="submit" class="ui-button ui-widget ui-state-default ui-corner-all" value="<spring:message code="ehrinventory.indent.addToSlip"/>">
+<input type="button" class="ui-button ui-widget ui-state-default ui-corner-all" value="<spring:message code="ehrinventory.back"/>" onclick="ACT.go('subStoreIndentDrugList.form');">
 </form>
 </div>
 </div>
@@ -85,10 +85,10 @@
 <table class="box" width="100%" cellpadding="5" cellspacing="0">
 	<tr>
 	<th>S.No</th>
-	<th><spring:message code="inventory.drug.category"/></th>
-	<th><spring:message code="inventory.drug.name"/></th>
-	<th><spring:message code="inventory.drug.formulation"/></th>
-	<th><spring:message code="inventory.receiptDrug.quantity"/></th>
+	<th><spring:message code="ehrinventory.drug.category"/></th>
+	<th><spring:message code="ehrinventory.drug.name"/></th>
+	<th><spring:message code="ehrinventory.drug.formulation"/></th>
+	<th><spring:message code="ehrinventory.receiptDrug.quantity"/></th>
 	</tr>
 	<c:choose>
 	<c:when test="${not empty listIndent}">
@@ -111,9 +111,9 @@
 		<tr>
 			<td>
 				<!--<input type="button" value="<spring:message code="inventory.indent.finish"/>" onclick="INDENT.processSlip('0');" />
-				--><input type="button" class="ui-button ui-widget ui-state-default ui-corner-all" value="<spring:message code="inventory.indent.saveAndSend"/>" onclick="INDENT.processSlip('2');" />
-				<input type="button" class="ui-button ui-widget ui-state-default ui-corner-all" value="<spring:message code="inventory.indent.print"/>" onClick="INDENT.printDiv();" />
-				<input type="button" class="ui-button ui-widget ui-state-default ui-corner-all" value="<spring:message code="inventory.indent.clear"/>"  onclick="INDENT.processSlip('1');"/>
+				--><input type="button" class="ui-button ui-widget ui-state-default ui-corner-all" value="<spring:message code="ehrinventory.indent.saveAndSend"/>" onclick="INDENT.processSlip('2');" />
+				<input type="button" class="ui-button ui-widget ui-state-default ui-corner-all" value="<spring:message code="ehrinventory.indent.print"/>" onClick="INDENT.printDiv();" />
+				<input type="button" class="ui-button ui-widget ui-state-default ui-corner-all" value="<spring:message code="ehrinventory.indent.clear"/>"  onclick="INDENT.processSlip('1');"/>
 			</td>
 		</tr>
 		</table>
@@ -134,10 +134,10 @@
 <table border="1">
 	<tr>
 	<th>S.No</th>
-	<th><spring:message code="inventory.drug.category"/></th>
-	<th><spring:message code="inventory.drug.name"/></th>
-	<th><spring:message code="inventory.drug.formulation"/></th>
-	<th><spring:message code="inventory.indent.quantity"/></th>
+	<th><spring:message code="ehrinventory.drug.category"/></th>
+	<th><spring:message code="ehrinventory.drug.name"/></th>
+	<th><spring:message code="ehrinventory.drug.formulation"/></th>
+	<th><spring:message code="ehrinventory.indent.quantity"/></th>
 	</tr>
 	<c:choose>
 	<c:when test="${not empty listIndent}">

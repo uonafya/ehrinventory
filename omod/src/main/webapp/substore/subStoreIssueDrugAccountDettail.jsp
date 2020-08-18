@@ -22,11 +22,11 @@
 <table width="100%" cellpadding="5" cellspacing="0">
 	<tr align="center">
 	<th>S.No</th>
-	<th><spring:message code="inventory.viewStockBalance.category"/></th>
-	<th><spring:message code="inventory.viewStockBalance.drug"/></th>
-	<th><spring:message code="inventory.viewStockBalance.formulation"/></th>
-	<th ><spring:message code="inventory.receiptDrug.dateExpiry"/></th>
-	<th><spring:message code="inventory.issueDrug.quantity"/></th>
+	<th><spring:message code="ehrinventory.viewStockBalance.category"/></th>
+	<th><spring:message code="ehrinventory.viewStockBalance.drug"/></th>
+	<th><spring:message code="ehrinventory.viewStockBalance.formulation"/></th>
+	<th ><spring:message code="ehrinventory.receiptDrug.dateExpiry"/></th>
+	<th><spring:message code="ehrinventory.issueDrug.quantity"/></th>
 	</tr>
 	<c:choose>
 	<c:when test="${not empty listDrugIssue}">
@@ -45,7 +45,7 @@
 </table>
 </div>
 
-<input type="button" class="ui-button ui-widget ui-state-default ui-corner-all" value="<spring:message code="inventory.receiptItem.print"/>" onClick="INDENT.printDiv();" />
+<input type="button" class="ui-button ui-widget ui-state-default ui-corner-all" value="<spring:message code="ehrinventory.receiptItem.print"/>" onClick="INDENT.printDiv();" />
 
 <!-- PRINT DIV -->
 <div  id="printDiv" style="display: none;">        		
@@ -63,10 +63,10 @@
 <table border="1">
 	<tr>
 	<th>S.No</th>
-	<th><spring:message code="inventory.drug.category"/></th>
-	<th><spring:message code="inventory.drug.name"/></th>
-	<th><spring:message code="inventory.drug.formulation"/></th>
-	<th><spring:message code="inventory.receiptDrug.quantity"/></th>
+	<th><spring:message code="ehrinventory.drug.category"/></th>
+	<th><spring:message code="ehrinventory.drug.name"/></th>
+	<th><spring:message code="ehrinventory.drug.formulation"/></th>
+	<th><spring:message code="ehrinventory.receiptDrug.quantity"/></th>
 	</tr>
 	<c:choose>
 	<c:when test="${not empty listDrugIssue}">

@@ -15,30 +15,30 @@
 --%>
 <%@ include file="/WEB-INF/template/include.jsp" %>
 
-<openmrs:require privilege="Add/Edit substore" otherwise="/login.htm" redirect="/module/inventory/main.form" />
+<openmrs:require privilege="Add/Edit substore" otherwise="/login.htm" redirect="/module/ehrinventory/main.form" />
 
-<spring:message var="pageTitle" code="inventory.indentItem.manage" scope="page"/>
+<spring:message var="pageTitle" code="ehrinventory.indentItem.manage" scope="page"/>
 <%@ include file="/WEB-INF/template/header.jsp" %>
 <%@ include file="../includes/js_css.jsp" %>
 <%@ include file="nav.jsp" %>
-<h2><spring:message code="inventory.indentItem.manage"/></h2>	
+<h2><spring:message code="ehrinventory.indentItem.manage"/></h2>
 
 <br />
 <c:forEach items="${errors.allErrors}" var="error">
 	<span class="error"><spring:message code="${error.defaultMessage}" text="${error.defaultMessage}"/></span><
 </c:forEach>
 
-<input type="button" class="ui-button ui-widget ui-state-default ui-corner-all" value="<spring:message code='inventory.indentItem.add'/>" onclick="ACT.go('subStoreIndentItem.form');"/>
+<input type="button" class="ui-button ui-widget ui-state-default ui-corner-all" value="<spring:message code='ehrinventory.indentItem.add'/>" onclick="ACT.go('subStoreIndentItem.form');"/>
 
 <br /><br />
 <form method="get"  id="formSubStoreIndentList">
 <table >
 	<tr>
     
-		<td><spring:message code="inventory.indentItem.status"/></td>
+		<td><spring:message code="ehrinventory.indentItem.status"/></td>
 		<td>
 			<select name="statusId" >
-      		<option value=""><spring:message code="inventory.pleaseSelect"/></option>
+      		<option value=""><spring:message code="ehrinventory.pleaseSelect"/></option>
 			<c:forEach items="${listSubStoreStatus}" var="status">
 				<option value="${status.id}" 
 				<c:if test="${status.id == statusId }">selected</c:if>
@@ -46,22 +46,22 @@
 			</c:forEach>
 	   </select>
 	   </td><td>&nbsp;&nbsp;</td>
-		<td><spring:message code="inventory.indentItem.name"/></td>
+		<td><spring:message code="ehrinventory.indentItem.name"/></td>
 
         <td><input type="text" id="indentName" name="indentName" value="${indentName}" /></td>
         <td>&nbsp;&nbsp;</td>
-		<td><spring:message code="inventory.fromDate"/></td>
+		<td><spring:message code="ehrinventory.fromDate"/></td>
      
 		<td><input type="text" id="fromDate" class="date-pick left" readonly="readonly" name="fromDate" value="${fromDate}" title="Double Click to Clear" ondblclick="this.value='';"/></td>
         <td>&nbsp;&nbsp;</td>
-		<td><spring:message code="inventory.toDate"/></td>
+		<td><spring:message code="ehrinventory.toDate"/></td>
 		<td><input type="text" id="toDate" class="date-pick left" readonly="readonly" name="toDate" value="${toDate}" title="Double Click to Clear" ondblclick="this.value='';"/></td>
         <td>&nbsp;&nbsp;</td>
 		<td><input type="submit" class="ui-button ui-widget ui-state-default ui-corner-all" value="Search" /></td>
 	</tr>
 </table>
 
-<span class="boxHeader"><spring:message code="inventory.indentItem.list"/></span>
+<span class="boxHeader"><spring:message code="ehrinventory.indentItem.list"/></span>
 <div class="box">
 <c:choose>
 <c:when test="${not empty listIndent}">
@@ -69,8 +69,8 @@
 <tr>
 	<th>S.No</th>
 	<th align="center" >Indent Name</th>
-	<th align="center" ><spring:message code="inventory.indentItem.createdOn"/></th>
-	<th align="center" ><spring:message code="inventory.indentItem.status"/></th>
+	<th align="center" ><spring:message code="ehrinventory.indentItem.createdOn"/></th>
+	<th align="center" ><spring:message code="ehrinventory.indentItem.status"/></th>
 	<th></th>
 	
 </tr>
@@ -82,10 +82,10 @@
 		<td align="center">${indent.subStoreStatusName} </td>
 		<td>
 		<c:if test="${indent.subStoreStatus == 1 }">
-			<a href="#" onclick="INDENT.sendToMainStoreItem('${ indent.id}');"><spring:message code="inventory.indentItem.send"/></a>
+			<a href="#" onclick="INDENT.sendToMainStoreItem('${ indent.id}');"><spring:message code="ehrinventory.indentItem.send"/></a>
 		</c:if>
 		<c:if test="${indent.subStoreStatus == 3 }">
-			<a href="#" onclick="ACT.go('subStoreItemProcessIndent.form?indentId=${ indent.id}');"><spring:message code="inventory.indentItem.process"/></a>
+			<a href="#" onclick="ACT.go('subStoreItemProcessIndent.form?indentId=${ indent.id}');"><spring:message code="ehrinventory.indentItem.process"/></a>
 		</c:if>
 	
 		</td>

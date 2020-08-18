@@ -16,7 +16,7 @@
 <%@ include file="/WEB-INF/template/include.jsp"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <openmrs:require privilege="Add/Edit substore" otherwise="/login.htm"
-	redirect="/module/inventory/main.form" />
+	redirect="/module/ehrinventory/main.form" />
 
 <spring:message var="pageTitle" code="inventory.issueDrug.manage"
 	scope="page" />
@@ -77,11 +77,11 @@ function getValue()
 				<tr>
 
 <%-- 	// Sagar Bele - 07-08-2012 New Requirement #302 [INVENTORY] Non Mandatory Drug Category filter for drug search  --%>
-					<td><spring:message code="inventory.drug.category" /></td>
+					<td><spring:message code="ehrinventory.drug.category" /></td>
 					<td><select name="category" id="category"
 						onchange="ISSUE.onChangeCategory(this);" style="width: 250px;">
 							<option value="">
-								<spring:message code="inventory.pleaseSelect" />
+								<spring:message code="ehrinventory.pleaseSelect" />
 							</option>
 							<c:forEach items="${listCategory}" var="vCat">
 								<option value="${vCat.id}"
@@ -101,12 +101,12 @@ function getValue()
 				</tr>
 				
 					<tr>
-					<td><spring:message code="inventory.drug.formulation" /><em>*</em></td>
+					<td><spring:message code="ehrinventory.drug.formulation" /><em>*</em></td>
 					<td>
 						<div id="divFormulation">
 							<select id="formulation" name="formulation" >
 								<option value="">
-									<spring:message code="inventory.pleaseSelect" />
+									<spring:message code="ehrinventory.pleaseSelect" />
 								</option>
 							</select>
 						</div>
@@ -158,17 +158,17 @@ function getValue()
 			</div>
 			<br /> <input type="submit"
 				class="ui-button ui-widget ui-state-default ui-corner-all"
-				value="<spring:message code="inventory.issueDrug.addToSlip"/>">
+				value="<spring:message code="ehrinventory.issueDrug.addToSlip"/>">
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 			<c:if test="${empty issueDrugPatient}">
 				<input type="button"
 					class="ui-button ui-widget ui-state-default ui-corner-all"
-					value="<spring:message code="inventory.issueDrug.createPatient"/>"
+					value="<spring:message code="ehrinventory.issueDrug.createPatient"/>"
 					onclick="ISSUE.createPatient();">
 			</c:if>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 			<input type="button"
 				class="ui-button ui-widget ui-state-default ui-corner-all"
-				value="<spring:message code="inventory.back"/>"
+				value="<spring:message code="ehrinventory.back"/>"
 				onclick="ACT.go('patientQueueDrugOrder.form');">
 		</form>
 	</div>
@@ -208,14 +208,14 @@ function getValue()
 		<table class="box" width="100%" cellpadding="5" cellspacing="0">
 			<tr>
 				<th>S.No</th>
-				<th><spring:message code="inventory.drug.category" /></th>
-				<th><spring:message code="inventory.drug.name" /></th>
-				<th><spring:message code="inventory.drug.formulation" /></th>
-				<th><spring:message code="inventory.viewStockBalance.frequency"/></th>
-				<th><spring:message code="inventory.issueDrug.noOfDays"/></th>
-	            <th><spring:message code="inventory.issueDrug.comments"/></th>
-				<th><spring:message code="inventory.receiptDrug.quantity" /></th>
-				<th><spring:message code="inventory.receiptDrug.price" text="Price" /></th>
+				<th><spring:message code="ehrinventory.drug.category" /></th>
+				<th><spring:message code="ehrinventory.drug.name" /></th>
+				<th><spring:message code="ehrinventory.drug.formulation" /></th>
+				<th><spring:message code="ehrinventory.viewStockBalance.frequency"/></th>
+				<th><spring:message code="ehrinventory.issueDrug.noOfDays"/></th>
+	            <th><spring:message code="ehrinventory.issueDrug.comments"/></th>
+				<th><spring:message code="ehrinventory.receiptDrug.quantity" /></th>
+				<th><spring:message code="ehrinventory.receiptDrug.price" text="Price" /></th>
 			</tr>
 			<c:choose>
 				<c:when test="${not empty listPatientDetail}">
@@ -309,7 +309,7 @@ function getValue()
 		<br/>
 <br/>     
 
-<center><img width="100" height="100" align="center" title="OpenMRS" alt="OpenMRS" src="${pageContext.request.contextPath}/moduleResources/inventory/kenya_logo.bmp"><center>
+<center><img width="100" height="100" align="center" title="OpenMRS" alt="OpenMRS" src="${pageContext.request.contextPath}/moduleResources/ehrinventory/kenya_logo.bmp"><center>
   <table  class="spacer" style="margin-left: 60px;"> 		
 <tr><h3><center><b><u>${userLocation}</u> </b></center></h3></tr>
 <tr><h5><b><center>CASH RECEIPT</center></b></h5></tr>
@@ -349,13 +349,13 @@ function getValue()
 			width="80%">
 			<tr>
 				<th>S.No</th>
-				<th><spring:message code="inventory.drug.name" /></th>
-				<th><spring:message code="inventory.drug.formulation" /></th>
-				<th><spring:message code="inventory.receiptDrug.quantity" /></th>
-				<th><spring:message code="inventory.viewStockBalance.frequency"/></th>
-				<th><spring:message code="inventory.issueDrug.noOfDays"/></th>
-	            <th><spring:message code="inventory.issueDrug.comments"/></th>
-				<th><spring:message code="inventory.receiptDrug.price" text="Price" /></th>
+				<th><spring:message code="ehrinventory.drug.name" /></th>
+				<th><spring:message code="ehrinventory.drug.formulation" /></th>
+				<th><spring:message code="ehrinventory.receiptDrug.quantity" /></th>
+				<th><spring:message code="ehrinventory.viewStockBalance.frequency"/></th>
+				<th><spring:message code="ehrinventory.issueDrug.noOfDays"/></th>
+	            <th><spring:message code="ehrinventory.issueDrug.comments"/></th>
+				<th><spring:message code="ehrinventory.receiptDrug.price" text="Price" /></th>
 			</tr>
 			<c:choose>
 				<c:when test="${not empty listPatientDetail}">
@@ -386,7 +386,7 @@ function getValue()
 							<td></td>
 							<td></td>
 							<td></td>
-							<td><spring:message code="inventory.receiptDrug.total" text="Total" /></td>
+							<td><spring:message code="ehrinventory.receiptDrug.total" text="Total" /></td>
 								
 								<c:choose>
 								<c:when test ="${paymentSubCategory == generalVar}">

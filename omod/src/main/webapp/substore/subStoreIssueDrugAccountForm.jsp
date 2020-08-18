@@ -15,8 +15,8 @@
 --%>
 <%@ include file="/WEB-INF/template/include.jsp" %>
 
-<openmrs:require privilege="Add/Edit substore" otherwise="/login.htm" redirect="/module/inventory/main.form" />
-<spring:message var="pageTitle" code="inventory.issueDrug.manage" scope="page"/>
+<openmrs:require privilege="Add/Edit substore" otherwise="/login.htm" redirect="/module/ehrinventory/main.form" />
+<spring:message var="pageTitle" code="ehrinventory.issueDrug.manage" scope="page"/>
 <%@ include file="/WEB-INF/template/header.jsp" %>
 <%@ include file="../includes/js_css.jsp" %>
 
@@ -36,10 +36,10 @@
 <tr>
 
 <%-- 	// Sagar Bele - 07-08-2012 New Requirement #302 [INVENTORY] Non Mandatory Drug Category filter for drug search  --%>
-		<td><spring:message code="inventory.drug.category"/></td>
+		<td><spring:message code="ehrinventory.drug.category"/></td>
 		<td>
 			<select name="category" id="category" onchange="ISSUE.onChangeCategoryAccount(this);"  style="width: 250px;">
-				<option value=""><spring:message code="inventory.pleaseSelect"/></option>
+				<option value=""><spring:message code="ehrinventory.pleaseSelect"/></option>
                 <c:forEach items="${listCategory}" var="vCat">
                     <option value="${vCat.id}"  <c:if test="${vCat.id == categoryId }">selected</c:if> >${vCat.name}</option>
                 </c:forEach>
@@ -56,11 +56,11 @@
 		</td>
 	</tr>
 	<tr>
-		<td><spring:message code="inventory.drug.formulation"/><em>*</em></td>
+		<td><spring:message code="ehrinventory.drug.formulation"/><em>*</em></td>
 		<td>
 			<div id="divFormulation"  >
 				<select id="formulation" name="formulation" >
-					<option value=""><spring:message code="inventory.pleaseSelect"/></option>
+					<option value=""><spring:message code="ehrinventory.pleaseSelect"/></option>
 				</select>
 			</div>
 		</td>
@@ -107,11 +107,11 @@
 
 --></div>
 <br/>
-<input type="submit" class="ui-button ui-widget ui-state-default ui-corner-all" value="<spring:message code="inventory.issueDrug.addToSlip"/>">
+<input type="submit" class="ui-button ui-widget ui-state-default ui-corner-all" value="<spring:message code="ehrinventory.issueDrug.addToSlip"/>">
 <c:if  test="${empty issueDrugAccount}">
-<input type="button" class="ui-button ui-widget ui-state-default ui-corner-all" value="<spring:message code="inventory.issueDrug.createAccount"/>" onclick="ISSUE.createAccountIssueDrug();">
+<input type="button" class="ui-button ui-widget ui-state-default ui-corner-all" value="<spring:message code="ehrinventory.issueDrug.createAccount"/>" onclick="ISSUE.createAccountIssueDrug();">
 </c:if>
-<input type="button" class="ui-button ui-widget ui-state-default ui-corner-all" value="<spring:message code="inventory.back"/>" onclick="ACT.go('subStoreIssueDrugAccountList.form');">
+<input type="button" class="ui-button ui-widget ui-state-default ui-corner-all" value="<spring:message code="ehrinventory.back"/>" onclick="ACT.go('subStoreIssueDrugAccountList.form');">
 </form>
 </div>
 </div>
@@ -131,10 +131,10 @@
 <table class="box" width="100%" cellpadding="5" cellspacing="0">
 	<tr>
 	<th>S.No</th>
-	<th><spring:message code="inventory.drug.category"/></th>
-	<th><spring:message code="inventory.drug.name"/></th>
-	<th><spring:message code="inventory.drug.formulation"/></th>
-	<th><spring:message code="inventory.receiptDrug.quantity"/></th>
+	<th><spring:message code="ehrinventory.drug.category"/></th>
+	<th><spring:message code="ehrinventory.drug.name"/></th>
+	<th><spring:message code="ehrinventory.drug.formulation"/></th>
+	<th><spring:message code="ehrinventory.receiptDrug.quantity"/></th>
 	</tr>
 	<c:choose>
 	<c:when test="${not empty listDrugAccountDetail}">
@@ -157,11 +157,11 @@
 		<tr>
 			<td>
 				<c:if  test="${not empty listDrugAccountDetail && not empty issueDrugAccount}">
-					<input type="button" class="ui-button ui-widget ui-state-default ui-corner-all" id="bttprocess" value="<spring:message code="inventory.finish"/>" onclick="ISSUE.processIssueDrugToAccount('0');" />
-					<input type="button" class="ui-button ui-widget ui-state-default ui-corner-all" id="bttprint"   value="<spring:message code="inventory.print"/>" onClick="PURCHASE.printDiv();" />
+					<input type="button" class="ui-button ui-widget ui-state-default ui-corner-all" id="bttprocess" value="<spring:message code="ehrinventory.finish"/>" onclick="ISSUE.processIssueDrugToAccount('0');" />
+					<input type="button" class="ui-button ui-widget ui-state-default ui-corner-all" id="bttprint"   value="<spring:message code="ehrinventory.print"/>" onClick="PURCHASE.printDiv();" />
 				</c:if>
 				<c:if  test="${not empty listDrugAccountDetail || not empty issueDrugAccount}">
-					<input type="button" class="ui-button ui-widget ui-state-default ui-corner-all" id="bttclear" value="<spring:message code="inventory.clear"/>"  onclick="ISSUE.processIssueDrugToAccount('1');"/>
+					<input type="button" class="ui-button ui-widget ui-state-default ui-corner-all" id="bttclear" value="<spring:message code="ehrinventory.clear"/>"  onclick="ISSUE.processIssueDrugToAccount('1');"/>
 				</c:if>
 			</td>
 		</tr>
@@ -185,10 +185,10 @@
 <table border="1">
 	<tr>
 	<th>S.No</th>
-	<th><spring:message code="inventory.drug.category"/></th>
-	<th><spring:message code="inventory.drug.name"/></th>
-	<th><spring:message code="inventory.drug.formulation"/></th>
-	<th><spring:message code="inventory.receiptDrug.quantity"/></th>
+	<th><spring:message code="ehrinventory.drug.category"/></th>
+	<th><spring:message code="ehrinventory.drug.name"/></th>
+	<th><spring:message code="ehrinventory.drug.formulation"/></th>
+	<th><spring:message code="ehrinventory.receiptDrug.quantity"/></th>
 	</tr>
 	<c:choose>
 	<c:when test="${not empty listDrugAccountDetail}">

@@ -19,7 +19,7 @@
 
 <%@ include file="/WEB-INF/template/header.jsp" %>
 <%@ include file="../includes/js_css.jsp" %>
-<h2><spring:message code="inventory.store.manage"/></h2>
+<h2><spring:message code="ehrinventory.store.manage"/></h2>
 
 <c:forEach items="${errors.allErrors}" var="error">
 	<span class="error"><spring:message code="${error.defaultMessage}" text="${error.defaultMessage}"/></span>
@@ -52,7 +52,7 @@
 		</td>
 	</tr>
 	<tr>
-		<td valign="top"><spring:message code="inventory.store.code"/><em>*</em></td>
+		<td valign="top"><spring:message code="ehrinventory.store.code"/><em>*</em></td>
 		<td>
 			<spring:bind path="store.code">
 				
@@ -63,7 +63,7 @@
 		</td>
 	</tr>
 	<tr>
-		<td valign="top"><spring:message code="inventory.store.parent"/></td>
+		<td valign="top"><spring:message code="ehrinventory.store.parent"/></td>
 		<td>
 			<spring:bind path="store.parentStores">
 			<select name="parent"  tabindex="20" multiple>
@@ -81,7 +81,7 @@
 		</td>
 	</tr>
 	<tr>
-		<td valign="top"><spring:message code="inventory.store.role"/><em>*</em></td>
+		<td valign="top"><spring:message code="ehrinventory.store.role"/><em>*</em></td>
 		<td>
 			
 			<select id="rol" name="roles" tabindex="20" multiple="multiple"  required="required">

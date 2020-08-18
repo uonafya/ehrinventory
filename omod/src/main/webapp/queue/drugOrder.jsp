@@ -15,25 +15,25 @@
 --%>
 <%@ include file="/WEB-INF/template/include.jsp"%>
 <%@ include file="/WEB-INF/template/header.jsp"%>
-<openmrs:require privilege="Drug order queue" otherwise="/login.htm" redirect="/module/inventory/main.form" />
+<openmrs:require privilege="Drug order queue" otherwise="/login.htm" redirect="/module/ehrinventory/main.form" />
 <%@ include file="../includes/js_css.jsp"%>
 <openmrs:globalProperty var="userLocation" key="hospital.location_user" defaultValue="false"/>
 <script type="text/javascript"
-	src="${pageContext.request.contextPath}/moduleResources/inventory/scripts/jquery/jquery-ui-1.8.2.custom.min.js"></script>
+	src="${pageContext.request.contextPath}/moduleResources/ehrinventory/scripts/jquery/jquery-ui-1.8.2.custom.min.js"></script>
 <script type="text/javascript"
-	src="${pageContext.request.contextPath}/moduleResources/inventory/scripts/jquery/ui.core.js"></script>
+	src="${pageContext.request.contextPath}/moduleResources/ehrinventory/scripts/jquery/ui.core.js"></script>
 <script type="text/javascript"
-	src="${pageContext.request.contextPath}/moduleResources/inventory/scripts/jquery/ui.tabs.js"></script>
+	src="${pageContext.request.contextPath}/moduleResources/ehrinventory/scripts/jquery/ui.tabs.js"></script>
 <script type="text/javascript"
-	src="${pageContext.request.contextPath}/moduleResources/inventory/scripts/common.js"></script>
+	src="${pageContext.request.contextPath}/moduleResources/ehrinventory/scripts/common.js"></script>
 <link type="text/css" rel="stylesheet"
-	href="${pageContext.request.contextPath}/moduleResources/inventory/scripts/jquery/css/start/ui.tabs.css" />
+	href="${pageContext.request.contextPath}/moduleResources/ehrinventory/scripts/jquery/css/start/ui.tabs.css" />
 <script type="text/css" rel="stylesheet"
-	href="${pageContext.request.contextPath}/moduleResources/inventory/scripts/jquery/css/start/jquery-ui-1.8.2.custom.css"></script>
+	href="${pageContext.request.contextPath}/moduleResources/ehrinventory/scripts/jquery/css/start/jquery-ui-1.8.2.custom.css"></script>
 <link type="text/css" rel="stylesheet"
-	href="${pageContext.request.contextPath}/moduleResources/inventory/styles/drug.process.css" />
+	href="${pageContext.request.contextPath}/moduleResources/ehrinventory/styles/drug.process.css" />
 <script type="text/javascript"
-	src="${pageContext.request.contextPath}/moduleResources/inventory/scripts/jquery/jquery.PrintArea.js"></script>
+	src="${pageContext.request.contextPath}/moduleResources/ehrinventory/scripts/jquery/jquery.PrintArea.js"></script>
 <script type="text/javascript">
 // get context path in order to build controller url
 	function getContextPath(){		
@@ -72,7 +72,7 @@ function process(drugId,formulationId,frequencyName,days,comments){
 	
 jQuery.ajax({
 			type : "GET",
-			url : getContextPath() + "/module/inventory/processDrugOrder.form",
+			url : getContextPath() + "/module/ehrinventory/processDrugOrder.form",
 			data : ({
 				drugId			: drugId,
 				formulationId		: formulationId,
@@ -318,11 +318,11 @@ return false;
 		method="POST" onsubmit="javascript:return finishDrugOrder();">
 		<div>
 			<input type="submit" id="subm" name="subm"
-				value="<spring:message code='inventory.drug.process.finish'/>" /> <input
+				value="<spring:message code='ehrinventory.drug.process.finish'/>" /> <input
 				type="button" value="<spring:message code='general.cancel'/>"
 				onclick="javascript:window.location.href='patientQueueDrugOrder.form'" />
 			<input type="button" id="print" name="print"
-				value="<spring:message code='inventory.drug.process.print'/>" onClick="printDiv2();"/>
+				value="<spring:message code='ehrinventory.drug.process.print'/>" onClick="printDiv2();"/>
 			<!-- 
 		    <select name="enctype"  tabindex="20" >
                 <c:forEach items="${encounterTypes}" var="enct">
@@ -377,7 +377,7 @@ return false;
 	}
 }
 </style>
-<center><img width="100" height="100" align="center" title="OpenMRS" alt="OpenMRS" src="${pageContext.request.contextPath}/moduleResources/inventory/kenya_logo.bmp"><center>
+<center><img width="100" height="100" align="center" title="OpenMRS" alt="OpenMRS" src="${pageContext.request.contextPath}/moduleResources/ehrinventory/kenya_logo.bmp"><center>
 <h5><center>${userLocation}</center>
 <br><br>
 		<table align='Center'>

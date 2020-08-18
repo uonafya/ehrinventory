@@ -14,12 +14,12 @@
 */
 --%>
 <%@ include file="/WEB-INF/template/include.jsp" %>
-<openmrs:require privilege="Add/Edit substore" otherwise="/login.htm" redirect="/module/inventory/main.form" />
+<openmrs:require privilege="Add/Edit substore" otherwise="/login.htm" redirect="/module/ehrinventory/main.form" />
 
-<spring:message var="pageTitle" code="inventory.issueItem.manage" scope="page"/>
+<spring:message var="pageTitle" code="ehrinventory.issueItem.manage" scope="page"/>
 <%@ include file="/WEB-INF/template/header.jsp" %>
 <%@ include file="nav.jsp" %>
-<h2><spring:message code="inventory.issueItem.manage"/></h2>	
+<h2><spring:message code="ehrinventory.issueItem.manage"/></h2>
 <br />
 <c:forEach items="${errors.allErrors}" var="error">
 	<span class="error"><spring:message code="${error.defaultMessage}" text="${error.defaultMessage}"/></span><
@@ -34,9 +34,9 @@
 		<td>
 			<input type="text" name="issueName" id="issueName" value="${issueName }"/><td>&nbsp;&nbsp;</td>
 		</td>
-		<td><spring:message code="inventory.fromDate"/></td>
+		<td><spring:message code="ehrinventory.fromDate"/></td>
 		<td><input type="text" id="fromDate" class="date-pick left" readonly="readonly" name="fromDate" value="${fromDate}" title="Double Click to Clear" ondblclick="this.value='';"/></td><td>&nbsp;&nbsp;</td>
-		<td><spring:message code="inventory.toDate"/></td>
+		<td><spring:message code="ehrinventory.toDate"/></td>
 		<td><input type="text" id="toDate" class="date-pick left" readonly="readonly" name="toDate" value="${toDate}" title="Double Click to Clear" ondblclick="this.value='';"/></td><td>&nbsp;&nbsp;</td>
 		<td>Receipt No.</td>
 		<td><input type="text" name="receiptId" id="receiptId" value="${receiptId }"/>
@@ -44,16 +44,16 @@
 	</tr>
 </table>
 <br />
-<span class="boxHeader"><spring:message code="inventory.issueItem.list"/></span>
+<span class="boxHeader"><spring:message code="ehrinventory.issueItem.list"/></span>
 <div class="box">
 <table width="100%" cellpadding="5" cellspacing="0">
 	<tr>
 	<th>S.No</th>
 	<th>Receipt No.</th>
-	<th><spring:message code="inventory.issueItem.identifier"/></th>
+	<th><spring:message code="ehrinventory.issueItem.identifier"/></th>
 	<th>Name</th>
 	<th>Age</th>
-	<th><spring:message code="inventory.issueItem.createdOn"/></th>
+	<th><spring:message code="ehrinventory.issueItem.createdOn"/></th>
 	</tr>
 	<c:choose>
 	<c:when test="${not empty listIssue}">

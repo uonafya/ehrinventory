@@ -26,7 +26,7 @@
 	</tr>
 	<tr>
 		<td>
-		<spring:message code="inventory.substore.selectMainStore"/> <spring:message code="inventory.substore.indentDrug"/>
+		<spring:message code="ehrinventory.substore.selectMainStore"/> <spring:message code="ehrinventory.substore.indentDrug"/>
 		</td>
 		<td>
 			<select name="mainstore">

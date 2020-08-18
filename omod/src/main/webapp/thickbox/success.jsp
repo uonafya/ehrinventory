@@ -28,7 +28,7 @@
 </script>
 <body onload="runout('${urlS}',3000);">
 <center>
-		<div style="height:40px; float: center; vertical-align:middle"><img src="${pageContext.request.contextPath}/moduleResources/inventory/ajax-loader.gif"/></div>
+		<div style="height:40px; float: center; vertical-align:middle"><img src="${pageContext.request.contextPath}/moduleResources/ehrinventory/ajax-loader.gif"/></div>
 		<span class="text center" style="color:#000000">
          ${message}
 		<a href="#"  onclick="runout('${urlS}',0);">click here</a>

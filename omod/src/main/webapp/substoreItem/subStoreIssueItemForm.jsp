@@ -15,8 +15,8 @@
 --%>
 <%@ include file="/WEB-INF/template/include.jsp" %>
 
-<openmrs:require privilege="Add/Edit substore" otherwise="/login.htm" redirect="/module/inventory/main.form" />
-<spring:message var="pageTitle" code="inventory.issueItem.manage" scope="page"/>
+<openmrs:require privilege="Add/Edit substore" otherwise="/login.htm" redirect="/module/ehrinventory/main.form" />
+<spring:message var="pageTitle" code="ehrinventory.issueItem.manage" scope="page"/>
 <%@ include file="/WEB-INF/template/header.jsp" %>
 <%@ include file="../includes/js_css.jsp" %>
 
@@ -35,10 +35,10 @@
 <table class="box">
 <tr><td><b>Item info</b></td></tr>
 <tr>
-		<td><spring:message code="inventory.item.subCategory"/><em>*</em></td>
+		<td><spring:message code="ehrinventory.item.subCategory"/><em>*</em></td>
 		<td>
 			<select name="category" id="category" onchange="ISSUE.onChangeCategoryItem(this);"  style="width: 250px;">
-				<option value=""><spring:message code="inventory.pleaseSelect"/></option>
+				<option value=""><spring:message code="ehrinventory.pleaseSelect"/></option>
                 <c:forEach items="${listCategory}" var="vCat">
                     <option value="${vCat.id}" <c:if test="${vCat.id == categoryId }">selected</c:if> >${vCat.name}</option>
                 </c:forEach>
@@ -50,7 +50,7 @@
 		<td>
 			<div id="divItem">
 				<select id="itemId" name="itemId" onchange="ISSUE.onBlurItem(this);"  style="width: 250px;">
-					<option value=""><spring:message code="inventory.pleaseSelect"/></option>
+					<option value=""><spring:message code="ehrinventory.pleaseSelect"/></option>
 					   <c:if test ="${not empty items}">
 					       <c:forEach items="${items}" var="item">
 					           <option value="${item.id}" >${item.name}</option>
@@ -92,11 +92,11 @@
 
 --></div>
 <br/>
-<input type="submit" class="ui-button ui-widget ui-state-default ui-corner-all" onclick="ISSUE.checkQtyBeforeIssue(this);" value="<spring:message code="inventory.issueItem.addToSlip"/>">
+<input type="submit" class="ui-button ui-widget ui-state-default ui-corner-all" onclick="ISSUE.checkQtyBeforeIssue(this);" value="<spring:message code="ehrinventory.issueItem.addToSlip"/>">
 <c:if  test="${empty issueItemAccount}">
-<input type="button" class="ui-button ui-widget ui-state-default ui-corner-all" value="<spring:message code="inventory.issueItem.createAccount"/>" onclick="ISSUE.createAccount();">
+<input type="button" class="ui-button ui-widget ui-state-default ui-corner-all" value="<spring:message code="ehrinventory.issueItem.createAccount"/>" onclick="ISSUE.createAccount();">
 </c:if>
-<input type="button" class="ui-button ui-widget ui-state-default ui-corner-all" value="<spring:message code="inventory.back"/>" onclick="ACT.go('subStoreIssueItemList.form');">
+<input type="button" class="ui-button ui-widget ui-state-default ui-corner-all" value="<spring:message code="ehrinventory.back"/>" onclick="ACT.go('subStoreIssueItemList.form');">
 </form>
 </div>
 </div>
@@ -114,10 +114,10 @@
 <table class="box" width="100%" cellpadding="5" cellspacing="0">
 	<tr>
 	<th>S.No</th>
-	<th><spring:message code="inventory.item.subCategory"/></th>
-	<th><spring:message code="inventory.item.name"/></th>
-	<th><spring:message code="inventory.item.specification"/></th>
-	<th><spring:message code="inventory.receiptItem.quantity"/></th>
+	<th><spring:message code="ehrinventory.item.subCategory"/></th>
+	<th><spring:message code="ehrinventory.item.name"/></th>
+	<th><spring:message code="ehrinventory.item.specification"/></th>
+	<th><spring:message code="ehrinventory.receiptItem.quantity"/></th>
 	</tr>
 	<c:choose>
 	<c:when test="${not empty listAccountDetail}">
@@ -139,11 +139,11 @@
 		<tr>
 			<td>
 				<c:if  test="${not empty listAccountDetail && not empty issueItemAccount}">
-					<input type="button" class="ui-button ui-widget ui-state-default ui-corner-all"  id="bttprocess" value="<spring:message code="inventory.finish"/>" onclick="ISSUE.processSlipItem('0');" />
-					<input type="button" class="ui-button ui-widget ui-state-default ui-corner-all" id="bttprint" value="<spring:message code="inventory.print"/>" onClick="PURCHASE.printDiv();" />
+					<input type="button" class="ui-button ui-widget ui-state-default ui-corner-all"  id="bttprocess" value="<spring:message code="ehrinventory.finish"/>" onclick="ISSUE.processSlipItem('0');" />
+					<input type="button" class="ui-button ui-widget ui-state-default ui-corner-all" id="bttprint" value="<spring:message code="ehrinventory.print"/>" onClick="PURCHASE.printDiv();" />
 				</c:if>
 				<c:if  test="${not empty listAccountDetail || not empty issueItemAccount}">
-					<input type="button" class="ui-button ui-widget ui-state-default ui-corner-all" id="bttclear" value="<spring:message code="inventory.clear"/>"  onclick="ISSUE.processSlipItem('1');"/>
+					<input type="button" class="ui-button ui-widget ui-state-default ui-corner-all" id="bttclear" value="<spring:message code="ehrinventory.clear"/>"  onclick="ISSUE.processSlipItem('1');"/>
 				</c:if>
 			</td>
 		</tr>

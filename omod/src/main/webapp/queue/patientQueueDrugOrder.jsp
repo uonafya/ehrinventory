@@ -15,12 +15,12 @@
 --%>
 <%@ include file="/WEB-INF/template/include.jsp" %>
 <%@ include file="/WEB-INF/template/header.jsp" %>
-<openmrs:require privilege="Drug order queue" otherwise="/login.htm" redirect="/module/inventory/main.form" />
+<openmrs:require privilege="Drug order queue" otherwise="/login.htm" redirect="/module/ehrinventory/main.form" />
 <body onLoad="reset()">
-<spring:message var="pageTitle" code="inventory.substore.patientQueueForDrugOrders.manage" scope="page"/>
+<spring:message var="pageTitle" code="ehrinventory.substore.patientQueueForDrugOrders.manage" scope="page"/>
 <%@ include file="../substore/nav.jsp" %>
 
-<h2><spring:message code="inventory.substore.patientQueueForDrugOrders.manage"/></h2>	
+<h2><spring:message code="ehrinventory.substore.patientQueueForDrugOrders.manage"/></h2>
 <br />
 
 <script type="text/javascript">
@@ -38,7 +38,7 @@
 	currentPage = 1;
     jQuery(document).ready(function() {
 		jQuery('#date').datepicker({yearRange:'c-30:c+30', dateFormat: 'dd/mm/yy', changeMonth: true, changeYear: true,showOn: "button",
-                buttonImage: "${pageContext.request.contextPath}/moduleResources/inventory/calendar.gif",
+                buttonImage: "${pageContext.request.contextPath}/moduleResources/ehrinventory/calendar.gif",
                 buttonImageOnly: true});
     });
 	
@@ -51,7 +51,7 @@
 		var pgSize = jQuery("#sizeSelector").val();
 		jQuery.ajax({
 			type : "GET",
-			url : getContextPath() + "/module/inventory/patientsearchdruggqueue.form",
+			url : getContextPath() + "/module/ehrinventory/patientsearchdruggqueue.form",
 			data : ({
 				date			: date,
 				searchKey		: searchKey,

@@ -85,14 +85,14 @@
 	<tr align="center">
 	<th style="width:10px">S.No</th>
 	
-	<th style="width:10px"><spring:message code="inventory.viewStockBalance.drug"/></th>
-	<th style="width:10px"><spring:message code="inventory.viewStockBalance.formulation"/></th>
-	<th style="width:10px"><spring:message code="inventory.viewStockBalance.frequency"/></th>
-	<th style="width:10px"><spring:message code="inventory.issueDrug.noOfDays"/></th>
-	<th style="width:10px"><spring:message code="inventory.issueDrug.comments"/></th>
-	<th style="width:10px"><spring:message code="inventory.receiptDrug.dateExpiry"/></th>
-	<th style="width:10px"><spring:message code="inventory.issueDrug.quantity"/></th>
-	<th style="width:10px"><spring:message code="inventory.receiptDrug.price" text="Price" /></th>
+	<th style="width:10px"><spring:message code="ehrinventory.viewStockBalance.drug"/></th>
+	<th style="width:10px"><spring:message code="ehrinventory.viewStockBalance.formulation"/></th>
+	<th style="width:10px"><spring:message code="ehrinventory.viewStockBalance.frequency"/></th>
+	<th style="width:10px"><spring:message code="ehrinventory.issueDrug.noOfDays"/></th>
+	<th style="width:10px"><spring:message code="ehrinventory.issueDrug.comments"/></th>
+	<th style="width:10px"><spring:message code="ehrinventory.receiptDrug.dateExpiry"/></th>
+	<th style="width:10px"><spring:message code="ehrinventory.issueDrug.quantity"/></th>
+	<th style="width:10px"><spring:message code="ehrinventory.receiptDrug.price" text="Price" /></th>
 	</tr>
 	<c:choose>
 	<c:when test="${not empty listDrugIssue}">
@@ -156,7 +156,7 @@
 		<td></td>
 		<td></td>
 		<td></td>
-		<td><b><spring:message code="inventory.receiptDrug.total" text="Total Price" /></b></td>
+		<td><b><spring:message code="ehrinventory.receiptDrug.total" text="Total Price" /></b></td>
 		<td>
 		<c:choose>
 				<c:when test ="${paymentSubCategory == generalVar}">
@@ -193,7 +193,7 @@
 
 
 
-<input type="button" class="ui-button ui-widget ui-state-default ui-corner-all" value="<spring:message code="inventory.receiptDrug.print" />"   onClick="ISSUE.printDiv('${receiptid}','${flag }');" />
+<input type="button" class="ui-button ui-widget ui-state-default ui-corner-all" value="<spring:message code="ehrinventory.receiptDrug.print" />"   onClick="ISSUE.printDiv('${receiptid}','${flag }');" />
 
 
 <!-- PRINT DIV -->
@@ -205,7 +205,7 @@
 <br/>
 <br/>     
 
-<center><img width="100" height="100" align="center" title="OpenMRS" alt="OpenMRS" src="${pageContext.request.contextPath}/moduleResources/inventory/kenya_logo.bmp"><center>
+<center><img width="100" height="100" align="center" title="OpenMRS" alt="OpenMRS" src="${pageContext.request.contextPath}/moduleResources/ehrinventory/kenya_logo.bmp"><center>
   <table  class="spacer" style="margin-left: 60px;"> 		
 <tr><h3><center><b><u>${userLocation}</u> </b></center></h3></tr>
 <tr><h5><b><center>CASH RECEIPT</center></b></h5></tr>
@@ -237,14 +237,14 @@
 			width="80%">
 	<tr align="center">
 	<th style="width:10px">S.No</th>
-	<th style="width:10px"><spring:message code="inventory.viewStockBalance.drug"/></th>
-	<th style="width:10px"><spring:message code="inventory.viewStockBalance.formulation"/></th>
-	<th style="width:10px"><spring:message code="inventory.viewStockBalance.frequency"/></th>
-	<th style="width:10px"><spring:message code="inventory.issueDrug.noOfDays"/></th>
-	<th style="width:10px"><spring:message code="inventory.issueDrug.comments"/></th>
-	<th style="width:10px"><spring:message code="inventory.receiptDrug.dateExpiry"/></th>
-	<th style="width:10px"><spring:message code="inventory.issueDrug.quantity"/></th>
-	<th style="width:10px"><spring:message code="inventory.receiptDrug.price" text="Price" /></th>
+	<th style="width:10px"><spring:message code="ehrinventory.viewStockBalance.drug"/></th>
+	<th style="width:10px"><spring:message code="ehrinventory.viewStockBalance.formulation"/></th>
+	<th style="width:10px"><spring:message code="ehrinventory.viewStockBalance.frequency"/></th>
+	<th style="width:10px"><spring:message code="ehrinventory.issueDrug.noOfDays"/></th>
+	<th style="width:10px"><spring:message code="ehrinventory.issueDrug.comments"/></th>
+	<th style="width:10px"><spring:message code="ehrinventory.receiptDrug.dateExpiry"/></th>
+	<th style="width:10px"><spring:message code="ehrinventory.issueDrug.quantity"/></th>
+	<th style="width:10px"><spring:message code="ehrinventory.receiptDrug.price" text="Price" /></th>
 	</tr>
 	<c:choose>
 	<c:when test="${not empty listDrugIssue}">
@@ -309,7 +309,7 @@
 		<td></td>
 		<td></td>
 		<td></td>
-		<td><b><spring:message code="inventory.receiptDrug.total" text="Total Price" /></b></td>
+		<td><b><spring:message code="ehrinventory.receiptDrug.total" text="Total Price" /></b></td>
 		<td>	
 			<c:choose>
 				<c:when test ="${paymentSubCategory == generalVar}">

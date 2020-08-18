@@ -23,7 +23,7 @@
 
 	jQuery(document).ready(function(){
 		jQuery("#searchbox").showPatientSearchBox({					
-			resultView: "/module/inventory/patientsearch/issuePatientItem",
+			resultView: "/module/ehrinventory/patientsearch/issuePatientItem",
 			rowPerPage: 15
 		});		
 	});

@@ -26,7 +26,7 @@
 	</tr>
 	<tr>
 		<td>
-		<spring:message code="inventory.substore.selectMainStore"/> <spring:message code="inventory.substore.indentItem"/>
+		<spring:message code="ehrinventory.substore.selectMainStore"/> <spring:message code="ehrinventory.substore.indentItem"/>
 		</td>
 		<td>
 			<select name="mainstore">

@@ -15,7 +15,7 @@
 --%>
 <%@ include file="/WEB-INF/template/include.jsp"%>
 <%@ include file="/WEB-INF/template/header.jsp"%>
-<openmrs:require privilege="Drug order queue" otherwise="/login.htm" redirect="/module/inventory/main.form" />
+<openmrs:require privilege="Drug order queue" otherwise="/login.htm" redirect="/module/ehrinventory/main.form" />
 <%@ include file="../includes/js_css.jsp"%>
 
 <div style="max-height: 50px; max-width: 1800px;">

@@ -42,10 +42,10 @@
 <table width="100%" cellpadding="5" cellspacing="0" >
 	<tr align="center">
 	<th>S.No</th>
-	<th><spring:message code="inventory.viewStockBalance.category"/></th>
-	<th><spring:message code="inventory.viewStockBalance.item"/></th>
-	<th><spring:message code="inventory.viewStockBalance.specification"/></th>
-	<th><spring:message code="inventory.issueDrug.quantity"/></th>
+	<th><spring:message code="ehrinventory.viewStockBalance.category"/></th>
+	<th><spring:message code="ehrinventory.viewStockBalance.item"/></th>
+	<th><spring:message code="ehrinventory.viewStockBalance.specification"/></th>
+	<th><spring:message code="ehrinventory.issueDrug.quantity"/></th>
 	<th><spring:message  text="Amount" /></th>
 	</tr>
 	<c:choose>
@@ -74,7 +74,7 @@
 </table>
 </div>
 
-<input type="button" class="ui-button ui-widget ui-state-default ui-corner-all" value="<spring:message code="inventory.receiptItem.print"/>" onClick="ISSUE.printDivItem('${receiptid}','${flag }');" />
+<input type="button" class="ui-button ui-widget ui-state-default ui-corner-all" value="<spring:message code="ehrinventory.receiptItem.print"/>" onClick="ISSUE.printDivItem('${receiptid}','${flag }');" />
 
 <!-- PRINT DIV -->
 <div  id="printDiv" style="display: none; ">        		
@@ -99,9 +99,9 @@
 <table class="spacer" style="margin-left: 60px; margin-top: 40px;">
 	<tr>
 	<th>S.No</th>
-	<th><spring:message code="inventory.item.name"/></th>
-	<th><spring:message code="inventory.item.specification"/></th>
-	<th><spring:message code="inventory.receiptItem.quantity"/></th>
+	<th><spring:message code="ehrinventory.item.name"/></th>
+	<th><spring:message code="ehrinventory.item.specification"/></th>
+	<th><spring:message code="ehrinventory.receiptItem.quantity"/></th>
 	<th><spring:message text="Amount" /></th>
 	</tr>
 	<c:choose>

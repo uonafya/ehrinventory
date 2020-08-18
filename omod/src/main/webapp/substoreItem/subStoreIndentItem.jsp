@@ -15,9 +15,9 @@
 --%>
 <%@ include file="/WEB-INF/template/include.jsp" %>
 
-<openmrs:require privilege="Add/Edit substore" otherwise="/login.htm" redirect="/module/inventory/main.form" />
+<openmrs:require privilege="Add/Edit substore" otherwise="/login.htm" redirect="/module/ehrinventory/main.form" />
 <%@ include file="/WEB-INF/template/header.jsp" %>
-<spring:message var="pageTitle" code="inventory.indentItem.manager" scope="page"/>
+<spring:message var="pageTitle" code="ehrinventory.indentItem.manager" scope="page"/>
 <%@ include file="../includes/js_css.jsp" %>
 
 <div style="width: 45%; float: left; margin-left: 4px; ">
@@ -30,10 +30,10 @@
 <table class="box">
 <tr><td><b>Item Info</b></td></tr>
 <tr>
-		<td><spring:message code="inventory.item.subCategory"/><em>*</em></td>
+		<td><spring:message code="ehrinventory.item.subCategory"/><em>*</em></td>
 		<td>
 			<select name="category" id="category" onchange="INDENT.onChangeCategoryItem(this);"  style="width: 250px;">
-				<option value=""><spring:message code="inventory.pleaseSelect"/></option>
+				<option value=""><spring:message code="ehrinventory.pleaseSelect"/></option>
                 <c:forEach items="${listCategory}" var="vCat">
                     <option value="${vCat.id}" <c:if test="${vCat.id == categoryId }">selected</c:if> >${vCat.name}</option>
                 </c:forEach>
@@ -45,7 +45,7 @@
 		<td>
 			<div id="divItem">
 				<select id="itemId" name="itemId" onchange="INDENT.onBlurItem(this);"  style="width: 250px;">
-					<option value=""><spring:message code="inventory.pleaseSelect"/></option>
+					<option value=""><spring:message code="ehrinventory.pleaseSelect"/></option>
 					   <c:if test ="${not empty items}">
 					       <c:forEach items="${items}" var="item">
 					           <option value="${item.id}" >${item.name}</option>
@@ -64,15 +64,15 @@
 <br/>
 <table class="box">
 	<tr>
-		<td><spring:message code="inventory.indentItem.quantity"/><em>*</em></td>
+		<td><spring:message code="ehrinventory.indentItem.quantity"/><em>*</em></td>
 		<td>
 			<input type="text" id="quantity" name="quantity" />
 		</td>
 	</tr>
 </table>
 <br/>
-<input type="submit" class="ui-button ui-widget ui-state-default ui-corner-all" value="<spring:message code="inventory.indentItem.addToSlip"/>">
-<input type="button" class="ui-button ui-widget ui-state-default ui-corner-all" value="<spring:message code="inventory.back"/>" onclick="ACT.go('subStoreIndentItemList.form');">
+<input type="submit" class="ui-button ui-widget ui-state-default ui-corner-all" value="<spring:message code="ehrinventory.indentItem.addToSlip"/>">
+<input type="button" class="ui-button ui-widget ui-state-default ui-corner-all" value="<spring:message code="ehrinventory.back"/>" onclick="ACT.go('subStoreIndentItemList.form');">
 </form>
 </div>
 </div>
@@ -83,10 +83,10 @@
 <table class="box" width="100%" cellpadding="5" cellspacing="0">
 	<tr align="center">
 	<th>S.No</th>
-	<th><spring:message code="inventory.item.subCategory"/></th>
-	<th><spring:message code="inventory.item.name"/></th>
-	<th><spring:message code="inventory.item.specification"/></th>
-	<th><spring:message code="inventory.receiptItem.quantity"/></th>
+	<th><spring:message code="ehrinventory.item.subCategory"/></th>
+	<th><spring:message code="ehrinventory.item.name"/></th>
+	<th><spring:message code="ehrinventory.item.specification"/></th>
+	<th><spring:message code="ehrinventory.receiptItem.quantity"/></th>
 	</tr>
 	<c:choose>
 	<c:when test="${not empty listIndent}">

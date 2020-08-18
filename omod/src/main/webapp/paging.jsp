@@ -36,7 +36,7 @@
 
 	<br>
 	
-	<c:set var="moduleId" value="inventory"/>
+	<c:set var="moduleId" value="ehrinventory"/>
 	<c:set var="baseLink" value="${pagingUtil.baseLink}" />
 	<c:set var="pageSize" value="${pagingUtil.pageSize}" />
 	<c:set var="currentPage" value="${pagingUtil.currentPage}" />
