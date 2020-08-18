@@ -374,4 +374,20 @@
             ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
         </sql>
     </changeSet>
+
+    <changeSet id="ehrinventory:2020-08-18-20:24" author="ningosi">
+    <preConditions onFail="MARK_RAN" onError="WARN">
+        <dbms type="mysql"/>
+    </preConditions>
+    <comment>creating the inventory_store_relationship table</comment>
+        <sql>
+            CREATE TABLE IF NOT EXISTS `inventory_store_relationship` (
+            `inventory_store_child_id` int(11) NOT NULL,
+            `inventory_store_parent_id` int(11) NOT NULL,
+            PRIMARY KEY (`inventory_store_child_id`,`inventory_store_parent_id`),
+            KEY `fk_inventorystore_parent` (`inventory_store_parent_id`),
+            CONSTRAINT `fk_inventorystore_child` FOREIGN KEY (`inventory_store_child_id`) REFERENCES `inventory_store` (`id`)
+            ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+        </sql>
+    </changeSet>
 </databaseChangeLog>
