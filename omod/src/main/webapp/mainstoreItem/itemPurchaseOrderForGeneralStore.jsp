@@ -15,8 +15,8 @@
 --%>
 <%@ include file="/WEB-INF/template/include.jsp" %>
 
-<openmrs:require privilege="Add/Edit mainstore" otherwise="/login.htm" redirect="/module/inventory/main.form" />
-<spring:message var="pageTitle" code="inventory.purchaseItem.manager" scope="page"/>
+<openmrs:require privilege="Add/Edit mainstore" otherwise="/login.htm" redirect="/module/ehrinventory/main.form" />
+<spring:message var="pageTitle" code="ehrinventory.purchaseItem.manager" scope="page"/>
 <%@ include file="/WEB-INF/template/header.jsp" %>
 <%@ include file="../includes/js_css.jsp" %>
 
@@ -30,10 +30,10 @@
 <table class="box">
 <tr><td><b>Item info</b></td></tr>
 <tr>
-		<td><spring:message code="inventory.item.subCategory"/><em>*</em></td>
+		<td><spring:message code="ehrinventory.item.subCategory"/><em>*</em></td>
 		<td>
 			<select name="category" id="category" onchange="PURCHASE.onChangeCategoryItem(this);" >
-				<option value=""><spring:message code="inventory.pleaseSelect"/></option>
+				<option value=""><spring:message code="ehrinventory.pleaseSelect"/></option>
                 <c:forEach items="${listCategory}" var="vCat">
                     <option value="${vCat.id}" <c:if test="${vCat.id == categoryId }">selected</c:if> >${vCat.name}</option>
                 </c:forEach>
@@ -41,7 +41,7 @@
 		</td>
 	</tr>
 	<tr>
-		<td><spring:message code="inventory.item.name"/><em>*</em></td>
+		<td><spring:message code="ehrinventory.item.name"/><em>*</em></td>
 		<td>
 			<input type="text" id="itemName" name="itemName" onblur="PURCHASE.onBlurItem(this);" style="width:350px;"/>
 		</td>
@@ -54,15 +54,15 @@
 <br/>
 <table class="box">
 	<tr>
-		<td><spring:message code="inventory.purchaseItem.quantity"/><em>*</em></td>
+		<td><spring:message code="ehrinventory.purchaseItem.quantity"/><em>*</em></td>
 		<td>
 			<input type="text" id="quantity" name="quantity" />
 		</td>
 	</tr>
 </table>
 <br/>
-<input type="submit" class="ui-button ui-widget ui-state-default ui-corner-all" value="<spring:message code="inventory.purchaseItem.addToSlip"/>">
-<input type="button" class="ui-button ui-widget ui-state-default ui-corner-all" value="<spring:message code="inventory.back"/>" onclick="ACT.go('itemPurchaseOrderForGeneralStoreList.form');">
+<input type="submit" class="ui-button ui-widget ui-state-default ui-corner-all" value="<spring:message code="ehrinventory.purchaseItem.addToSlip"/>">
+<input type="button" class="ui-button ui-widget ui-state-default ui-corner-all" value="<spring:message code="ehrinventory.back"/>" onclick="ACT.go('itemPurchaseOrderForGeneralStoreList.form');">
 </form>
 </div>
 </div>
@@ -73,10 +73,10 @@
 <table class="box" width="100%" cellpadding="5" cellspacing="0">
 	<tr>
 	<th>S.No</th>
-	<th><spring:message code="inventory.item.category"/></th>
-	<th><spring:message code="inventory.item.name"/></th>
-	<th><spring:message code="inventory.item.specification"/></th>
-	<th><spring:message code="inventory.receiptItem.quantity"/></th>
+	<th><spring:message code="ehrinventory.item.category"/></th>
+	<th><spring:message code="ehrinventory.item.name"/></th>
+	<th><spring:message code="ehrinventory.item.specification"/></th>
+	<th><spring:message code="ehrinventory.receiptItem.quantity"/></th>
 	</tr>
 	<c:choose>
 	<c:when test="${not empty listPurchase}">
@@ -98,9 +98,9 @@
 		<table class="box" width="100%" cellpadding="5" cellspacing="0">
 		<tr>
 			<td> 
-				<input type="button" class="ui-button ui-widget ui-state-default ui-corner-all" value="<spring:message code="inventory.purchaseItem.finish"/>" onclick="PURCHASE.processSlipItem('0');" />
-				<input type="button" class="ui-button ui-widget ui-state-default ui-corner-all" value="<spring:message code="inventory.purchaseItem.clear"/>"  onclick="PURCHASE.processSlipItem('1');"/>
-				<input type="button" class="ui-button ui-widget ui-state-default ui-corner-all" value="<spring:message code="inventory.purchaseItem.print"/>" onClick="PURCHASE.printDiv();" />
+				<input type="button" class="ui-button ui-widget ui-state-default ui-corner-all" value="<spring:message code="ehrinventory.purchaseItem.finish"/>" onclick="PURCHASE.processSlipItem('0');" />
+				<input type="button" class="ui-button ui-widget ui-state-default ui-corner-all" value="<spring:message code="ehrinventory.purchaseItem.clear"/>"  onclick="PURCHASE.processSlipItem('1');"/>
+				<input type="button" class="ui-button ui-widget ui-state-default ui-corner-all" value="<spring:message code="ehrinventory.purchaseItem.print"/>" onClick="PURCHASE.printDiv();" />
 			</td>
 		</tr>
 		</table>

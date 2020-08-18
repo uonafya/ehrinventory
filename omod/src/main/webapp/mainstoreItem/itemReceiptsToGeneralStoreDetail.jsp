@@ -16,22 +16,22 @@
 <%@ include file="/WEB-INF/template/include.jsp" %>
 <%@ include file="/WEB-INF/template/headerMinimal.jsp" %>
 <%@ include file="../includes/js_css.jsp" %>
-<span class="boxHeader"><spring:message code="inventory.receiptItem.receiptItemList"/></span>
+<span class="boxHeader"><spring:message code="ehrinventory.receiptItem.receiptItemList"/></span>
 <div class="box">
 <table width="100%" cellpadding="5" cellspacing="0">
 	<tr align="center">
 	<th>S.No</th>
-	<th><spring:message code="inventory.item.subCategory"/></th>
-	<th><spring:message code="inventory.item.name"/></th>
-	<th><spring:message code="inventory.item.specification"/></th>
-	<th><spring:message code="inventory.receiptItem.quantity"/></th>
-	<th><spring:message code="inventory.receiptItem.unitPrice"/></th>
-	<th><spring:message code="inventory.receiptItem.VAT"/></th>
-	<th><spring:message code="inventory.receiptItem.costToPatient"/></th>
-<!-- 	<th><spring:message code="inventory.receiptItem.totalPrice"/></th> -->
-	<th title="<spring:message code="inventory.receiptItem.companyName"/>">CN</th>
-	<th title="<spring:message code="inventory.receiptItem.dateManufacture"/>">DM</th>
-	<th title="<spring:message code="inventory.receiptItem.receiptDate"/>">RD</th>
+	<th><spring:message code="ehrinventory.item.subCategory"/></th>
+	<th><spring:message code="ehrinventory.item.name"/></th>
+	<th><spring:message code="ehrinventory.item.specification"/></th>
+	<th><spring:message code="ehrinventory.receiptItem.quantity"/></th>
+	<th><spring:message code="ehrinventory.receiptItem.unitPrice"/></th>
+	<th><spring:message code="ehrinventory.receiptItem.VAT"/></th>
+	<th><spring:message code="ehrinventory.receiptItem.costToPatient"/></th>
+<!-- 	<th><spring:message code="ehrinventory.receiptItem.totalPrice"/></th> -->
+	<th title="<spring:message code="ehrinventory.receiptItem.companyName"/>">CN</th>
+	<th title="<spring:message code="ehrinventory.receiptItem.dateManufacture"/>">DM</th>
+	<th title="<spring:message code="ehrinventory.receiptItem.receiptDate"/>">RD</th>
 	</tr>
 	<c:choose>
 	<c:when test="${not empty transactionDetails}">
@@ -55,7 +55,7 @@
 	</c:choose>
 </table>
 </div>
-<input type="button" class="ui-button ui-widget ui-state-default ui-corner-all" value="<spring:message code="inventory.receiptItem.print"/>" onClick="INDENT.printDiv();" />
+<input type="button" class="ui-button ui-widget ui-state-default ui-corner-all" value="<spring:message code="ehrinventory.receiptItem.print"/>" onClick="INDENT.printDiv();" />
 <!-- PRINT DIV -->
 <div  id="printDiv" style="display: none; ">        		
 <div style="margin: 10px auto; width: 981px; font-size: 1.0em;font-family:'Dot Matrix Normal',Arial,Helvetica,sans-serif;">
@@ -70,14 +70,14 @@
 <table border="1">
 	<tr align="center">
 	<th>S.No</th>
-	<th><spring:message code="inventory.item.subCategory"/></th>
-	<th><spring:message code="inventory.item.name"/></th>
-	<th><spring:message code="inventory.item.specification"/></th>
-	<th><spring:message code="inventory.receiptItem.quantity"/></th>
-	<th><spring:message code="inventory.receiptItem.unitPrice"/></th>
-	<th><spring:message code="inventory.receiptItem.VAT"/></th>
-	<th><spring:message code="inventory.receiptItem.costToPatient"/></th>
-	<!-- <th><spring:message code="inventory.receiptItem.totalPrice"/></th> -->
+	<th><spring:message code="ehrinventory.item.subCategory"/></th>
+	<th><spring:message code="ehrinventory.item.name"/></th>
+	<th><spring:message code="ehrinventory.item.specification"/></th>
+	<th><spring:message code="ehrinventory.receiptItem.quantity"/></th>
+	<th><spring:message code="ehrinventory.receiptItem.unitPrice"/></th>
+	<th><spring:message code="ehrinventory.receiptItem.VAT"/></th>
+	<th><spring:message code="ehrinventory.receiptItem.costToPatient"/></th>
+	<!-- <th><spring:message code="ehrinventory.receiptItem.totalPrice"/></th> -->
 	<th>CN</th>
 	<th>DM</th>
 	<th>DR</th>

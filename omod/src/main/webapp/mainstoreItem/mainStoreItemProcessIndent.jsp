@@ -17,32 +17,32 @@
 
 <%@ include file="/WEB-INF/template/include.jsp" %>
 
-<openmrs:require privilege="Add/Edit mainstore" otherwise="/login.htm" redirect="/module/inventory/main.form" />
+<openmrs:require privilege="Add/Edit mainstore" otherwise="/login.htm" redirect="/module/ehrinventory/main.form" />
 
 <%@ include file="/WEB-INF/template/header.jsp" %>
 <%@ include file="../includes/js_css.jsp" %>
 
-<h2><spring:message code="inventory.indentItem.process"/></h2>
+<h2><spring:message code="ehrinventory.indentItem.process"/></h2>
 <form method="post" class="box" id="formMainStoreProcessIndent">
 <input type="hidden" name="indentId" id="indentId"  value="${indent.id}">
 <c:forEach items="${errors}" var="error">
 	<span class="error"><spring:message code="${error}" /></span><br/>
 </c:forEach>
 <div class="box">
-<span class="boxHeader"><spring:message code="inventory.indent"/></span>
+<span class="boxHeader"><spring:message code="ehrinventory.indent"/></span>
 <table>
 <tr>
-	<td><spring:message code="inventory.indentItem.name"/></td>
+	<td><spring:message code="ehrinventory.indentItem.name"/></td>
 	<td><input type="text" disabled="disabled"  value="${indent.name}" size="50"></td>
 
 </tr>
 <tr>
-	<td><spring:message code="inventory.indentItem.fromStore"/></td>
+	<td><spring:message code="ehrinventory.indentItem.fromStore"/></td>
 	<td><input type="text" disabled="disabled"  value="${indent.store.name}" size="50"></td>
 
 </tr>
 <tr>
-	<td><spring:message code="inventory.indentItem.createdOn"/></td>
+	<td><spring:message code="ehrinventory.indentItem.createdOn"/></td>
 	<td><input type="text" disabled="disabled"  value="<openmrs:formatDate date="${indent.createdOn}" type="textbox"/>"> </td>
 
 </tr>
@@ -50,15 +50,15 @@
 </div>
 <br/>
 <div class="box">
-<span class="boxHeader"><spring:message code="inventory.indentItem.processingIndent"/></span>
+<span class="boxHeader"><spring:message code="ehrinventory.indentItem.processingIndent"/></span>
 <table  width="100%" id="tableIndent">
 	<tr align="center">
 		<th >S.No</th>
-		<th ><spring:message code="inventory.indentItem.item"/></th>
-		<th  ><spring:message code="inventory.indentItem.specification"/></th>
-		<th  ><spring:message code="inventory.indentItem.quantityIndent"/></th>
-		<th  ><spring:message code="inventory.indentItem.transferQuantity"/></th>
-		<th  ><spring:message code="inventory.indentItem.mainStoreQuantity"/></th>
+		<th ><spring:message code="ehrinventory.indentItem.item"/></th>
+		<th  ><spring:message code="ehrinventory.indentItem.specification"/></th>
+		<th  ><spring:message code="ehrinventory.indentItem.quantityIndent"/></th>
+		<th  ><spring:message code="ehrinventory.indentItem.transferQuantity"/></th>
+		<th  ><spring:message code="ehrinventory.indentItem.mainStoreQuantity"/></th>
 	</tr>
 	
 	<c:forEach items="${listItemNeedProcess}" var="itemIndent" varStatus="varStatus">
@@ -106,10 +106,10 @@
 </div>		
 		
 <br />		
-<input type="submit" class="ui-button ui-widget ui-state-default ui-corner-all" value="<spring:message code="inventory.indentItem.accept"/>">
+<input type="submit" class="ui-button ui-widget ui-state-default ui-corner-all" value="<spring:message code="ehrinventory.indentItem.accept"/>">
 <input type="hidden" id="refuse" name="refuse" value="">
-<input type="button" class="ui-button ui-widget ui-state-default ui-corner-all" value="<spring:message code="inventory.indentItem.refuse"/>" onclick="INDENT.refuseIndentFromMainStore(this);">
-<input type="button" class="ui-button ui-widget ui-state-default ui-corner-all" value="<spring:message code="inventory.returnList"/>" onclick="ACT.go('transferItemFromGeneralStore.form');">
+<input type="button" class="ui-button ui-widget ui-state-default ui-corner-all" value="<spring:message code="ehrinventory.indentItem.refuse"/>" onclick="INDENT.refuseIndentFromMainStore(this);">
+<input type="button" class="ui-button ui-widget ui-state-default ui-corner-all" value="<spring:message code="ehrinventory.returnList"/>" onclick="ACT.go('transferItemFromGeneralStore.form');">
 </form>
 
 <%@ include file="/WEB-INF/template/footer.jsp" %>
