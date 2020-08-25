@@ -628,7 +628,7 @@
         <comment>Adding basic information for the inventory_store table</comment>
         <sql>
             SET FOREIGN_KEY_CHECKS = 0;
-            INSERT INTO `inventory_store`(`id`,`name`,`created_on`,`created_by`,`role`,`retired`,`code`,`is_drug`,`parent_id`)
+            INSERT IGNORE INTO `inventory_store`(`id`,`name`,`created_on`,`created_by`,`role`,`retired`,`code`,`is_drug`,`parent_id`)
             VALUES (1,'DRUGS BULK STORE','2016-03-07 15:22:29','Super',NULL,'\0','ID',0,NULL),
             (2,'PROCUREMENT DEPARTMENT','2016-03-07 15:01:49','Super',NULL,'\0','IM',0,NULL),
             (3,'KITCHEN AND RATION STORE','2016-03-07 15:01:57','Super',NULL,'\0','IK',0,NULL),
