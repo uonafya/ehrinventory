@@ -37,6 +37,7 @@ import org.openmrs.module.ehrinventory.InventoryConstants;
 import org.openmrs.module.ehrinventory.InventoryService;
 import org.openmrs.module.ehrinventory.db.InventoryDAO;
 import org.openmrs.module.ehrinventory.model.*;
+import org.springframework.stereotype.Repository;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -45,6 +46,7 @@ import java.util.*;
 /**
  * Hibernate specific Idcards database methods
  */
+@Repository("ehrinventory.HibernateInventoryDAO")
 public class HibernateInventoryDAO implements InventoryDAO {
 
     SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");

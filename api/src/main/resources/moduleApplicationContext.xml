@@ -14,44 +14,36 @@
 		class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping"/>
 	-->
 	<!-- The default place to look for controllers that have annotations -->
-	<context:component-scan base-package="org.openmrs.module.ehrinventory.web" />
+	<context:component-scan base-package="org.openmrs.module.ehrinventory" />
 	<!--<bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping">
 	   <property name="interceptors">
 	      <ref bean="myInterceptor" />
 	   </property>
 	</bean>
 	-->
+	<bean id="ehrinventory.InventoryService"
+		  class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+		<property name="transactionManager">
+			<ref bean="transactionManager" />
+		</property>
+		<property name="target">
+			<bean class="org.openmrs.module.ehrinventory.impl.InventoryServiceImpl">
+				<property name="dao" ref="ehrinventory.HibernateInventoryDAO" />
+			</bean>
+		</property>
+		<property name="preInterceptors">
+			<ref bean="serviceInterceptors" />
+		</property>
+		<property name="transactionAttributeSource">
+			<ref bean="transactionAttributeSource" />
+		</property>
+	</bean>
+
 	<bean parent="serviceContext">
 		<property name="moduleService">
 			<list>
 				<value>org.openmrs.module.ehrinventory.InventoryService</value>
-				<bean
-					class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
-					<property name="transactionManager">
-						<ref bean="transactionManager" />
-					</property>
-					<property name="target">
-						<bean class="org.openmrs.module.ehrinventory.impl.InventoryServiceImpl">
-							<property name="dao">
-								<bean
-									class="org.openmrs.module.ehrinventory.db.hibernate.HibernateInventoryDAO">
-									<property name="sessionFactory">
-										<ref bean="sessionFactory" />
-									</property>
-								</bean>
-							</property>
-						</bean>
-					</property>
-					<property name="preInterceptors">
-						<list>
-							<ref bean="authorizationInterceptor" />
-						</list>
-					</property>
-					<property name="transactionAttributeSource">
-						<bean
-							class="org.springframework.transaction.annotation.AnnotationTransactionAttributeSource" />
-					</property>
-				</bean>
+				<ref bean="ehrinventory.InventoryService" />
 			</list>
 		</property>
 	</bean>
