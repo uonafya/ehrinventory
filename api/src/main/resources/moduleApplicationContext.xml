@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
-	 xmlns:p="http://www.springframework.org/schema/p"  
-	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	   xmlns:p="http://www.springframework.org/schema/p"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans
            http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
            http://www.springframework.org/schema/context
            http://www.springframework.org/schema/context/spring-context-2.5.xsd">
@@ -21,14 +21,19 @@
 	   </property>
 	</bean>
 	-->
-	<bean id="ehrinventory.InventoryService"
-		  class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+	<bean id="inventoryServices" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
 		<property name="transactionManager">
 			<ref bean="transactionManager" />
 		</property>
 		<property name="target">
-			<bean class="org.openmrs.module.ehrinventory.impl.InventoryServiceImpl">
-				<property name="dao" ref="ehrinventory.HibernateInventoryDAO" />
+			<bean class="org.openmrs.module.ehrinventory.api.impl.InventoryServiceImpl">
+				<property name="inventoryDAO">
+					<bean class="org.openmrs.module.ehrinventory.api.db.hibernate.HibernateInventoryDAO">
+						<property name="sessionFactory">
+							<ref bean="sessionFactory" />
+						</property>
+					</bean>
+				</property>
 			</bean>
 		</property>
 		<property name="preInterceptors">
@@ -38,12 +43,12 @@
 			<ref bean="transactionAttributeSource" />
 		</property>
 	</bean>
-
+	<!-- Services accessible via Context.getService() -->
 	<bean parent="serviceContext">
 		<property name="moduleService">
 			<list>
 				<value>org.openmrs.module.ehrinventory.InventoryService</value>
-				<ref bean="ehrinventory.InventoryService" />
+				<ref local="inventoryServices" />
 			</list>
 		</property>
 	</bean>
