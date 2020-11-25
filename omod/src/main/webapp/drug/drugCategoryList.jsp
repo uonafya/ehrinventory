@@ -45,7 +45,7 @@
 <div class="box">
 <c:choose>
 <c:when test="${not empty drugCategories}">
-<input type="button" class="ui-button ui-widget ui-state-default ui-corner-all" onclick="INVENTORY.checkValue();" value="<spring:message code='inventory.deleteSelected'/>"/>
+<input type="button" class="ui-button ui-widget ui-state-default ui-corner-all" onclick="INVENTORY.checkValue();" value="<spring:message code='ehrinventory.deleteSelected'/>"/>
 <table cellpadding="5" cellspacing="0" width="100%">
 <tr>
 	<th>S.No</th>
