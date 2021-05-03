@@ -18,17 +18,17 @@
                   <require_module>org.openmrs.module.hospitalcore</require_module>
     </require_modules>
 	
-	<require_version>1.9.9</require_version>
+	<require_version>1.12.0</require_version>
 	
 	<!-- Extensions -->
 	<extension>
 		<point>org.openmrs.admin.list</point>
 		<class>org.openmrs.module.ehrinventory.extension.html.AdminList</class>
 	</extension>
-	<!--<extension>
+	<extension>
 		<point>org.openmrs.gutter.tools</point>
 		<class>org.openmrs.module.ehrinventory.extension.html.InventoryHeader</class>
-	</extension>-->
+	</extension>
 
 	
 	<!-- AOP
