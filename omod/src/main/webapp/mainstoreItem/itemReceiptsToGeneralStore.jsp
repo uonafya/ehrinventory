@@ -39,7 +39,7 @@ VALIDATION={
 		}
 		if (recieptDate < dateManufacture){
 			jQuery('#receiptDate').val("");
-			alert("Receiept Date can not be before than manufacture Date");
+			alert("Receipt Date can not be before than manufacture Date");
 		}
 		
 	}
@@ -68,10 +68,10 @@ if($("#companyName").val().length > 100)
 <table class="box">
 <tr><td><b>Item Info</b></td></tr>
 <tr>
-		<td><spring:message code="inventory.item.subCategory"/><em>*</em></td>
+		<td><spring:message code="ehrinventory.item.subCategory"/><em>*</em></td>
 		<td>
 			<select name="category" id="category" onchange="RECEIPT.onChangeCategoryItem(this);"   style="width: 200px;">
-				<option value=""><spring:message code="inventory.pleaseSelect"/></option>
+				<option value=""><spring:message code="ehrinventory.pleaseSelect"/></option>
                 <c:forEach items="${listCategory}" var="vCat">
                     <option value="${vCat.id}" <c:if test="${vCat.id == categoryId }">selected</c:if> >${vCat.name}</option>
                 </c:forEach>
@@ -85,7 +85,7 @@ if($("#companyName").val().length > 100)
 		<td>
 			<div id="divItem">
 				<select id="itemId" name="itemId" onchange="RECEIPT.onBlurItem(this);"  style="width: 200px;">
-					<option value=""><spring:message code="inventory.pleaseSelect"/></option>
+					<option value=""><spring:message code="ehrinventory.pleaseSelect"/></option>
 					   <c:if test ="${not empty items }">
 					       <c:forEach items="${items}" var="item">
 					           <option value="${item.id}" title="${item.name}">${item.name}</option>
@@ -103,51 +103,51 @@ if($("#companyName").val().length > 100)
 <br/>
 <table class="box">
 	<tr>
-		<td><spring:message code="inventory.receiptItem.quantity"/><em>*</em></td>
+		<td><spring:message code="ehrinventory.receiptItem.quantity"/><em>*</em></td>
 		<td>
 			<input type="text" id="quantity" name="quantity" />
 		</td>
 	</tr>
 	<tr>
-		<td><spring:message code="inventory.receiptItem.unitPrice"/></td>
+		<td><spring:message code="ehrinventory.receiptItem.unitPrice"/></td>
 		<td>
 			<input type="text" id="unitPrice" name="unitPrice" />
 		</td>
 	</tr>
 	<tr>
-		<td><spring:message code="inventory.receiptItem.VAT"/></td>
+		<td><spring:message code="ehrinventory.receiptItem.VAT"/></td>
 		<td>
 			<input type="text" id="VAT" name="VAT" />
 		</td>
 	</tr>
 	<tr>
-		<td><spring:message code="inventory.receiptItem.costToPatient"/><em>*</em></td>
+		<td><spring:message code="ehrinventory.receiptItem.costToPatient"/><em>*</em></td>
 		<td>
 			<input type="text" id="costToPatient" name="costToPatient" />
 		</td>
 	</tr>
 	<tr>
-		<td><spring:message code="inventory.receiptItem.companyName"/></td>
+		<td><spring:message code="ehrinventory.receiptItem.companyName"/></td>
 		<td>
 			<input type="text" id="companyName" name="companyName" onblur="checkCompany();" />
 		</td>
 	</tr>
 	<tr>
-		<td><spring:message code="inventory.receiptItem.dateManufacture"/></td>
+		<td><spring:message code="ehrinventory.receiptItem.dateManufacture"/></td>
 		<td>
 			<input type="text" id="dateManufacture" name="dateManufacture" class="date-pick left" readonly="readonly"  ondblclick="this.value='';"/>
 		</td>
 	</tr>
 	<tr>
-		<td><spring:message code="inventory.receiptItem.receiptDate"/><em>*</em></td>
+		<td><spring:message code="ehrinventory.receiptItem.receiptDate"/><em>*</em></td>
 		<td>
 			<input type="text" id="receiptDate" name="receiptDate" class="date-pick left" readonly="readonly"  ondblclick="this.value='';"/>
 		</td>
 	</tr>
 </table>
 <br/>
-<input type="submit" class="ui-button ui-widget ui-state-default ui-corner-all" value="<spring:message code="inventory.receiptItem.addToSlip"/>">
-<input type="button" class="ui-button ui-widget ui-state-default ui-corner-all" value="<spring:message code="inventory.back"/>" onclick="ACT.go('itemReceiptsToGeneralStoreList.form');">
+<input type="submit" class="ui-button ui-widget ui-state-default ui-corner-all" value="<spring:message code="ehrinventory.receiptItem.addToSlip"/>">
+<input type="button" class="ui-button ui-widget ui-state-default ui-corner-all" value="<spring:message code="ehrinventory.back"/>" onclick="ACT.go('itemReceiptsToGeneralStoreList.form');">
 </form>
 </div>
 </div>
@@ -159,16 +159,16 @@ if($("#companyName").val().length > 100)
 	<tr>
 	<th>S.No</th>
 	<th>Item Category</th>
-	<th><spring:message code="inventory.item.name"/></th>
-	<th><spring:message code="inventory.item.specification"/></th>
-	<th><spring:message code="inventory.receiptItem.quantity"/></th>
-	<th><spring:message code="inventory.receiptItem.unitPrice"/></th>
-	<th><spring:message code="inventory.receiptItem.VAT"/></th>
-	<th><spring:message code="inventory.receiptItem.costToPatient"/></th>
-	<!-- <th><spring:message code="inventory.receiptItem.totalPrice"/></th> -->
-	<th title="<spring:message code="inventory.receiptItem.companyName"/>">CN</th>
-	<th title="<spring:message code="inventory.receiptItem.dateManufacture"/>">DM</th>
-	<th title="<spring:message code="inventory.receiptItem.receiptDate"/>">RD</th>
+	<th><spring:message code="ehrinventory.item.name"/></th>
+	<th><spring:message code="ehrinventory.item.specification"/></th>
+	<th><spring:message code="ehrinventory.receiptItem.quantity"/></th>
+	<th><spring:message code="ehrinventory.receiptItem.unitPrice"/></th>
+	<th><spring:message code="ehrinventory.receiptItem.VAT"/></th>
+	<th><spring:message code="ehrinventory.receiptItem.costToPatient"/></th>
+	<!-- <th><spring:message code="ehrinventory.receiptItem.totalPrice"/></th> -->
+	<th title="<spring:message code="ehrinventory.receiptItem.companyName"/>">CN</th>
+	<th title="<spring:message code="ehrinventory.receiptItem.dateManufacture"/>">DM</th>
+	<th title="<spring:message code="ehrinventory.receiptItem.receiptDate"/>">RD</th>
 	</tr>
 	<c:choose>
 	<c:when test="${not empty listReceipt}">
@@ -197,9 +197,9 @@ if($("#companyName").val().length > 100)
 		<table class="box" width="100%" cellpadding="5" cellspacing="0">
 		<tr>
 			<td>
-				<input type="button" class="ui-button ui-widget ui-state-default ui-corner-all" value="<spring:message code="inventory.receiptItem.finish"/>" onclick="RECEIPT.receiptSlipItem('0');" />
-				<input type="button" class="ui-button ui-widget ui-state-default ui-corner-all" value="<spring:message code="inventory.receiptItem.clear"/>"  onclick="RECEIPT.receiptSlipItem('1');"/>
-				<input type="button" class="ui-button ui-widget ui-state-default ui-corner-all" value="<spring:message code="inventory.receiptItem.print"/>" onClick="RECEIPT.printDiv();" />
+				<input type="button" class="ui-button ui-widget ui-state-default ui-corner-all" value="<spring:message code="ehrinventory.receiptItem.finish"/>" onclick="RECEIPT.receiptSlipItem('0');" />
+				<input type="button" class="ui-button ui-widget ui-state-default ui-corner-all" value="<spring:message code="ehrinventory.receiptItem.clear"/>"  onclick="RECEIPT.receiptSlipItem('1');"/>
+				<input type="button" class="ui-button ui-widget ui-state-default ui-corner-all" value="<spring:message code="ehrinventory.receiptItem.print"/>" onClick="RECEIPT.printDiv();" />
 			</td>
 		</tr>
 		</table>
@@ -220,17 +220,17 @@ if($("#companyName").val().length > 100)
 <table border="1">
 	<tr>
 	<th>S.No</th>
-	<th><spring:message code="inventory.item.category"/></th>
-	<th><spring:message code="inventory.item.name"/></th>
-	<th><spring:message code="inventory.item.specification"/></th>
-	<th><spring:message code="inventory.receiptItem.quantity"/></th>
-	<th><spring:message code="inventory.receiptItem.unitPrice"/></th>
-	<th><spring:message code="inventory.receiptItem.VAT"/></th>
-	<th><spring:message code="inventory.receiptItem.costToPatient"/></th>
-	<!-- <th><spring:message code="inventory.receiptItem.totalPrice"/></th> -->
-	<th><spring:message code="inventory.receiptItem.companyName"/></th>
-	<th><spring:message code="inventory.receiptItem.dateManufacture"/></th>
-	<th><spring:message code="inventory.receiptItem.receiptDate"/></th>
+	<th><spring:message code="ehrinventory.item.category"/></th>
+	<th><spring:message code="ehrinventory.item.name"/></th>
+	<th><spring:message code="ehrinventory.item.specification"/></th>
+	<th><spring:message code="ehrinventory.receiptItem.quantity"/></th>
+	<th><spring:message code="ehrinventory.receiptItem.unitPrice"/></th>
+	<th><spring:message code="ehrinventory.receiptItem.VAT"/></th>
+	<th><spring:message code="ehrinventory.receiptItem.costToPatient"/></th>
+	<!-- <th><spring:message code="ehrinventory.receiptItem.totalPrice"/></th> -->
+	<th><spring:message code="ehrinventory.receiptItem.companyName"/></th>
+	<th><spring:message code="ehrinventory.receiptItem.dateManufacture"/></th>
+	<th><spring:message code="ehrinventory.receiptItem.receiptDate"/></th>
 	</tr>
 	<c:choose>
 	<c:when test="${not empty listReceipt}">
