@@ -110,7 +110,7 @@ public class ReceiptFormController {
 		InventoryItem item = inventoryService.getItemById(itemId);
 		
 		if(item == null){
-			errors.add("inventory.receiptItem.Item.required");
+			errors.add("ehrinventory.receiptItem.Item.required");
 			model.addAttribute("category", category);
 			model.addAttribute("specification", specification);
 			model.addAttribute("ItemId", itemId);
@@ -126,7 +126,7 @@ public class ReceiptFormController {
 			return "/module/ehrinventory/mainstoreItem/itemReceiptsToGeneralStore";
 		}else if(CollectionUtils.isNotEmpty(item.getSpecifications()) && specification == 0 )
 		{
-			errors.add("inventory.receiptItem.specification.required");
+			errors.add("ehrinventory.receiptItem.specification.required");
 			return "/module/ehrinventory/mainstoreItem/itemReceiptsToGeneralStore";
 		}
 		
