@@ -100,7 +100,7 @@ public class AjaxController {
 		return "/module/ehrinventory/autocomplete/drugByCategoryForIssue";
 	}
 
-	@RequestMapping("/module/inventory/itemBySubCategory.form")
+	@RequestMapping("/module/ehrinventory/itemBySubCategory.form")
 	public String itemByCategory(
 			@RequestParam(value = "categoryId", required = false) Integer categoryId,
 			Model model) {
@@ -205,12 +205,12 @@ public class AjaxController {
 		if ("1".equals(name)) {
 			// Clear slip
 			StoreSingleton.getInstance().getHash().remove(fowardParam);
-			return "redirect:/module/inventory/itemReceiptsToGeneralStore.form";
+			return "redirect:/module/ehrinventory/itemReceiptsToGeneralStore.form";
 		}
 		return "/module/ehrinventory/mainstoreItem/itemAddDescriptionReceiptSlip";
 	}
 
-	@RequestMapping("/module/inventory/clearPurchaseOrder.form")
+	@RequestMapping("/module/ehrinventory/clearPurchaseOrder.form")
 	public String clearPurchase(
 			@RequestParam(value = "action", required = false) String name,
 			Model model) {
@@ -350,7 +350,7 @@ public class AjaxController {
 		return "redirect:/module/ehrinventory/subStoreIndentItemList.form";
 	}
 
-	@RequestMapping("/module/inventory/listReceiptDrug.form")
+	@RequestMapping("/module/ehrinventory/listReceiptDrug.form")
 	public String listReceiptDrugAvailable(
 			@RequestParam(value = "drugId", required = false) Integer drugId,
 			@RequestParam(value = "formulationId", required = false) Integer formulationId,
