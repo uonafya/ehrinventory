@@ -108,7 +108,7 @@
 		<table class="box" width="100%" cellpadding="5" cellspacing="0">
 		<tr>
 			<td>
-				<!--<input type="button" value="<spring:message code="inventory.indentItem.finish"/>" onclick="INDENT.processSlipItem('0');" />
+				<!--<input type="button" value="<spring:message code="ehrinventory.indentItem.finish"/>" onclick="INDENT.processSlipItem('0');" />
 				-->
 				<input type="button" class="ui-button ui-widget ui-state-default ui-corner-all" value="<spring:message code="inventory.indentItem.saveAndSend"/>" onclick="INDENT.processSlipItem('2');" />
 				<input type="button" class="ui-button ui-widget ui-state-default ui-corner-all" value="<spring:message code="inventory.print"/>" onClick="INDENT.printDiv();" />

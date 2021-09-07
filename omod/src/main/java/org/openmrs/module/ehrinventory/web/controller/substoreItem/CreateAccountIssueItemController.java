@@ -40,7 +40,7 @@ public class CreateAccountIssueItemController {
 
 	@RequestMapping(method = RequestMethod.GET)
 	public String firstView(@ModelAttribute("issue") InventoryStoreItemAccount issue ,Model model) {
-		return "/module/inventory/substoreItem/createAccountIssueItem";
+		return "/module/ehrinventory/substoreItem/createAccountIssueItem";
 	}
 	@RequestMapping(method = RequestMethod.POST)
 	public String onSubmit(@ModelAttribute("issue") InventoryStoreItemAccount issue, BindingResult bindingResult, HttpServletRequest request, SessionStatus status, Model model) {
