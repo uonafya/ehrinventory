@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE module PUBLIC "-//OpenMRS//DTD OpenMRS Config 1.2//EN" "http://resources.openmrs.org/doctype/config-1.2.dtd">
 
 <module configVersion="1.2">
 	
@@ -18,7 +17,7 @@
                   <require_module>org.openmrs.module.hospitalcore</require_module>
     </require_modules>
 	
-	<require_version>1.12.0</require_version>
+	<require_version>${openMRSVersion}</require_version>
 	
 	<!-- Extensions -->
 	<extension>
@@ -30,6 +29,9 @@
 		<class>org.openmrs.module.ehrinventory.extension.html.InventoryHeader</class>
 	</extension>
 
+	<aware_of_modules>
+		<aware_of_module>org.openmrs.module.legacyui</aware_of_module>
+	</aware_of_modules>
 	
 	<!-- AOP
 	<advice>
