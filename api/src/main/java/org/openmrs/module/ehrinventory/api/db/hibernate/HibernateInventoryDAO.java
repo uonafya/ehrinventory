@@ -4638,7 +4638,7 @@ public class HibernateInventoryDAO implements InventoryDAO {
         criteria.add(Restrictions.eq("inventoryDrug.id", inventoryDrugId));
         criteria.add(Restrictions.eq("inventoryDrugFormulation.id", formulationId));
 
-        return (OpdDrugOrder) criteria.uniqueResult();
+        return (OpdDrugOrder) criteria.setMaxResults(1).uniqueResult();
     }
 
     /**
