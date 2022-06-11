@@ -13,18 +13,19 @@
  */
 package org.openmrs.module.ehrinventory.extension.html;
 
+import org.openmrs.Role;
+import org.openmrs.api.context.Context;
+import org.openmrs.module.ehrinventory.InventoryConstants;
+import org.openmrs.module.ehrinventory.InventoryService;
+import org.openmrs.module.hospitalcore.model.InventoryStore;
+import org.openmrs.module.hospitalcore.model.InventoryStoreRoleRelation;
+import org.openmrs.module.web.extension.LinkExt;
+
 import java.util.ArrayList;
 import java.util.List;
 
-import org.openmrs.Role;
-import org.openmrs.api.context.Context;
 //import org.openmrs.module.Extension;
-import org.openmrs.module.hospitalcore.model.InventoryStore;
-import org.openmrs.module.hospitalcore.model.InventoryStoreRoleRelation;
-import org.openmrs.module.ehrinventory.InventoryConstants;
-import org.openmrs.module.ehrinventory.InventoryService;
 //import org.openmrs.module.web.extension.AdministrationSectionExt;
-import org.openmrs.module.web.extension.LinkExt;
 
 /**
  * This class defines the links that will appear on the administration page
@@ -65,6 +66,7 @@ public class InventoryHeader extends LinkExt {
 			}
 		}
 		InventoryStore s1 =null;
+		String nameToDisplay = "";
 		if(srl!=null){
 			s1 = inventoryService.getStoreById(srl.getStoreid());
 		}
@@ -72,16 +74,18 @@ public class InventoryHeader extends LinkExt {
 		
 		try {
 			if(s1!=null && !s1.getRetired()){
-				return s1.getName();	
+				nameToDisplay = s1.getName();
+				return nameToDisplay;
 			}else{
-				return "";
+				return nameToDisplay;
 			}
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
 			
 		}
-		return s1.getName();	
+
+		return nameToDisplay;
 	}
 
 	/** 
