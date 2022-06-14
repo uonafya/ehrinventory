@@ -689,4 +689,5 @@ public interface InventoryService extends OpenmrsService {
 
 	/* Custom Code for Tetanus workflow  */
 	public List<ToxoidModel> getTetanusToxoidTransactions(int patientId);
+	public List<InventoryDrug> getInventoryDrugListByName(String name) throws APIException;
 }

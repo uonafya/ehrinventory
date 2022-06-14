@@ -1090,5 +1090,10 @@ public class InventoryServiceImpl extends BaseOpenmrsService implements Inventor
 		return inventoryDAO.getTetanusToxoidTransactionsByPatient(patientId);
 	}
 
+	@Override
+	public List<InventoryDrug> getInventoryDrugListByName(String name) throws APIException {
+		return inventoryDAO.getInventoryDrugListByName(name);
+	}
+
 
 }

@@ -4951,4 +4951,12 @@ public class HibernateInventoryDAO implements InventoryDAO {
         }
         return models;
     }
+
+    @Override
+    public List<InventoryDrug> getInventoryDrugListByName(String name) throws DAOException {
+        Criteria criteria = sessionFactory.getCurrentSession()
+                .createCriteria(InventoryDrug.class, "drug");
+        criteria.add(Restrictions.eq("drug.name", name));
+        return criteria.list();
+    }
 }
