@@ -611,6 +611,7 @@ public class HibernateInventoryDAO implements InventoryDAO {
                                         int min, int max) throws DAOException {
         Criteria criteria = sessionFactory.getCurrentSession().createCriteria(
                 InventoryDrug.class, "drug");
+        criteria.add(Restrictions.eq("drug.voided", 0));
         if (StringUtils.isNotBlank(name)) {
             criteria.add(Restrictions.like("drug.name", "%" + name + "%"));
         }
@@ -629,6 +630,7 @@ public class HibernateInventoryDAO implements InventoryDAO {
             throws DAOException {
         Criteria criteria = sessionFactory.getCurrentSession().createCriteria(
                 InventoryDrug.class, "drug");
+        criteria.add(Restrictions.eq("drug.voided", 0));
         if (categoryId != null) {
             criteria.add(Restrictions.eq("drug.category.id", categoryId));
         }
@@ -648,6 +650,7 @@ public class HibernateInventoryDAO implements InventoryDAO {
             throws DAOException {
         Criteria criteria = sessionFactory.getCurrentSession().createCriteria(
                 InventoryDrug.class, "drug");
+        criteria.add(Restrictions.eq("drug.voided", 0));
         if (!StringUtils.isBlank(name)) {
             criteria.add(Restrictions.like("drug.name", "%" + name + "%"));
         }
@@ -663,6 +666,7 @@ public class HibernateInventoryDAO implements InventoryDAO {
                              Integer formulationId) throws DAOException {
         Criteria criteria = sessionFactory.getCurrentSession().createCriteria(
                 InventoryDrug.class, "drug");
+        criteria.add(Restrictions.eq("drug.voided", 0));
         if (categoryId != null && categoryId > 0) {
             criteria.add(Restrictions.eq("drug.category.id", categoryId));
         }
@@ -685,6 +689,7 @@ public class HibernateInventoryDAO implements InventoryDAO {
     public InventoryDrug getDrugById(Integer id) throws DAOException {
         Criteria criteria = sessionFactory.getCurrentSession()
                 .createCriteria(InventoryDrug.class, "drug")
+                .add(Restrictions.eq("drug.voided", 0))
                 .add(Restrictions.eq("drug.id", id));
         return (InventoryDrug) criteria.uniqueResult();
     }
@@ -692,6 +697,7 @@ public class HibernateInventoryDAO implements InventoryDAO {
     public InventoryDrug getDrugByName(String name) throws DAOException {
         Criteria criteria = sessionFactory.getCurrentSession()
                 .createCriteria(InventoryDrug.class, "drug")
+                .add(Restrictions.eq("drug.voided", 0))
                 .add(Restrictions.eq("drug.name", name));
         return (InventoryDrug) criteria.uniqueResult();
     }
@@ -713,6 +719,7 @@ public class HibernateInventoryDAO implements InventoryDAO {
     public List<InventoryDrug> getAllDrug() throws DAOException {
         Criteria criteria = sessionFactory.getCurrentSession()
                 .createCriteria(InventoryDrug.class, "drug")
+                .add(Restrictions.eq("drug.voided", 0))
                 .addOrder(Order.asc("drug.name"));
 
         List<InventoryDrug> l = criteria.list();
