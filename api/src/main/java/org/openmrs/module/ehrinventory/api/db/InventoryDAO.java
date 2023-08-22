@@ -14,8 +14,10 @@
 package org.openmrs.module.ehrinventory.api.db;
 
 import org.hibernate.SessionFactory;
+import org.openmrs.Drug;
 import org.openmrs.Encounter;
 import org.openmrs.Role;
+import org.openmrs.api.APIException;
 import org.openmrs.api.db.DAOException;
 import org.openmrs.module.ehrinventory.model.InventoryItem;
 import org.openmrs.module.ehrinventory.model.InventoryItemCategory;
@@ -652,4 +654,6 @@ public interface InventoryDAO {
 	List<ToxoidModel> getTetanusToxoidTransactionsByPatient(int patientId);
 
 	public List<InventoryDrug> getInventoryDrugListByName(String name) throws DAOException;
+
+	public InventoryDrug getDrugByDrug(Drug drug) throws DAOException;
 }

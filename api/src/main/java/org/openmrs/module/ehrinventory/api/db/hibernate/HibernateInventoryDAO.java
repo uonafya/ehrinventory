@@ -27,6 +27,7 @@ import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
 import org.hibernate.type.StandardBasicTypes;
 import org.hibernate.type.Type;
+import org.openmrs.Drug;
 import org.openmrs.Encounter;
 import org.openmrs.Role;
 import org.openmrs.api.context.Context;
@@ -4965,5 +4966,14 @@ public class HibernateInventoryDAO implements InventoryDAO {
                 .createCriteria(InventoryDrug.class, "drug");
         criteria.add(Restrictions.eq("drug.name", name));
         return criteria.list();
+    }
+
+    @Override
+    public InventoryDrug getDrugByDrug(Drug drug) throws DAOException {
+        Criteria criteria = sessionFactory.getCurrentSession()
+                .createCriteria(InventoryDrug.class, "drug")
+                .add(Restrictions.eq("drug.voided", 0))
+                .add(Restrictions.eq("drug.drugCore", drug));
+        return (InventoryDrug) criteria.uniqueResult();
     }
 }

@@ -13,6 +13,7 @@
  */
 package org.openmrs.module.ehrinventory.api.impl;
 
+import org.openmrs.Drug;
 import org.openmrs.Encounter;
 import org.openmrs.Role;
 import org.openmrs.api.APIException;
@@ -1093,6 +1094,10 @@ public class InventoryServiceImpl extends BaseOpenmrsService implements Inventor
 	@Override
 	public List<InventoryDrug> getInventoryDrugListByName(String name) throws APIException {
 		return inventoryDAO.getInventoryDrugListByName(name);
+	}
+
+	public InventoryDrug getDrugByDrug(Drug drug) throws APIException {
+		return inventoryDAO.getDrugByDrug(drug);
 	}
 
 

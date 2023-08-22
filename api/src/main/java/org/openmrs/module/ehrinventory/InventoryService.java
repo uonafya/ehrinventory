@@ -13,6 +13,7 @@
  */
 package org.openmrs.module.ehrinventory;
 
+import org.openmrs.Drug;
 import org.openmrs.Encounter;
 import org.openmrs.Role;
 import org.openmrs.api.APIException;
@@ -216,6 +217,8 @@ public interface InventoryService extends OpenmrsService {
 	public InventoryDrug getDrugById(Integer id) throws APIException;
 	
 	public InventoryDrug getDrugByName(String name) throws APIException;
+
+	public InventoryDrug getDrugByDrug(Drug drug) throws APIException;
 	
 	@Transactional(readOnly = false)
 	public void deleteDrug(InventoryDrug drug) throws APIException;
